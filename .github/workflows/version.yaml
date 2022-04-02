@@ -1,14 +1,3 @@
-# shrc 
-![shrc](./.idea/icon.svg)
-[![Build Status](https://github.com/j5pu/shrc/workflows/main/badge.svg)](https://github.com/j5pu/shrc/actions/workflows/main.yaml)
-
-macOS and Linux Environment
-
-## action
-Multi Language Releaser Action and Scripts
-
-## Examples:
-```yaml
 name: main
 
 on:
@@ -41,5 +30,4 @@ jobs:
           fetch-depth: 0
           token: "${{ env.GITHUB_TOKEN }}"
       - id: release
-        uses: j5pu/shrc@main
-```
+        uses: j5pu/mReleaser@main

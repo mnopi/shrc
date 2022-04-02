@@ -1,26 +1,15 @@
-.PHONY: build chmod install test
+.PHONY: publish tests
 
-SHELL := $(shell command -v bash)
+SHELL := $(shell bash -c 'command -v bash')
+msg := fix: completions
+export msg
 
-clean: 
-	@sudo rm -rf build dist
+publish: tests
+	@git add .
+	@git commit --quiet -a -m "$${msg:-auto}"
+	@git push --quiet
 
-build: chmod
-	@sudo python3 -m build  -o $$(mktemp -d)
-
-chmod:
-	@chmod -R +x bin/* 2>/dev/null || true
-
-# https://pip.pypa.io/en/stable/topics/configuration/
-# sudo python3 -m pip config --global set name value
-install:
-	@sudo python3 -m pip --quiet uninstall -y $$(basename "$$PWD") 
-	@sudo python3 -m pip --quiet install --upgrade --no-cache --only-binary :all: $$(basename "$$PWD") 
-	@secho || true
-
-local: clean
-	@sudo python3 -m pip --quiet install --only-binary :all: .
-
-test:
-	@pytest
-
+tests:
+	@brew bundle --file Brewfile --quiet --no-lock | grep -v "^Using"
+	@bin/bats.bash run
+	@./tests/version

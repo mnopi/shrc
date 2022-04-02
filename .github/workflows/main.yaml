@@ -1,0 +1,44 @@
+name: main
+
+on:
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+env:
+  GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ macos-latest, macos-10.15, ubuntu-latest, ubuntu-18.04 ]
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v3
+      - run: make tests
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - id: TAG
+        uses: j5pu/actions/tag@main
+      - uses: j5pu/actions/tap@main
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          depends_on: |
+            "bash"
+            "bash-completion@2"
+            "bats-core"
+            "bats-core/bats-core/bats-assert"
+            "bats-core/bats-core/bats-file"
+            "bats-core/bats-core/bats-support"
+            "parallel"
+          install: |
+            bin.install Dir["bin/*"]
+                bash_completion.install Dir["bash_completion.d/*"]
+          test: |
+            system "#{HOMEBREW_PREFIX}/bin/#{name}", "--help"

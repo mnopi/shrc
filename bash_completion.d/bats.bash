@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=SC2207
 
 #######################################
-# dev-python completions
+# bats.bash completions
 # Globals:
 #   COMPREPLY
 # Arguments:
@@ -9,9 +9,9 @@
 #   2     word being completed ("cur")
 #   3     word preceding the word being completed or $1 when is the first word ("prev")
 #######################################
-_dev_python() {
+_bats_bash() {
   [ "$1" = "$3" ] || return 0
   COMPREPLY=($(compgen -o nospace -W "$("$1" commands; printf '%s\n' -h --help)" -- "$2"))
 }
 
-complete -F _dev_python dev-python
+complete -F _bats_bash bats.bash
