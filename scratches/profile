@@ -1,0 +1,5 @@
+# shellcheck shell=sh
+eval "$(/Users/j5pu/dev-install/scratches/dev-env)"
+
+command -v f
+

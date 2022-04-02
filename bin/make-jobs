@@ -1,0 +1,46 @@
+#!/bin/sh
+
+#
+# jobs for make -j option
+
+set -eu
+
+#######################################
+# show usage
+# Globals:
+#   USER
+# Arguments:
+#   0
+#######################################
+help() {
+  rc=$?
+  [ ! "${1-}" ] || { echo "${0##*/}: $1: invalid command"; echo; }
+  >&2 cat <<EOF
+usage: ${0##*/}
+   or: ${0##*/} -h|--help|help
+
+show jobs for make -j option
+
+Commands:
+   help         show help and exit
+EOF
+
+  exit $rc
+}
+
+#######################################
+# show jobs for make -j option
+# Arguments:
+#  None
+#######################################
+main() {
+  if [ "${1-}" ]; then
+    case "${1-}" in
+      --help|-h|help) help ;;
+      *) false || help "$1" ;;
+    esac
+  fi
+  nproc 2>/dev/null || sysctl -n hw.physicalcpu
+}
+
+main "$@"

@@ -1,0 +1,200 @@
+#!/bin/sh
+# shellcheck disable=SC2016
+
+#
+# This script is used to build the Python interpreter.
+
+set -eu
+
+## Debian
+# deb-src http://archive.ubuntu.com/ubuntu/ bionic main
+# sudo apt-get update
+# sudo apt-get build-dep python3
+# sudo apt-get install pkg-config
+# sudo apt-get install build-essential gdb lcov pkg-config \
+#      libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
+#      libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+#      lzma lzma-dev tk-dev uuid-dev zlib1g-dev
+## macOS
+# brew install openssl xz gdbm
+
+trap 'rm -rf ${src}' 1 2 3 6
+
+: "${PYTHON_PREFIX=/opt}"
+: "${PYTHON_VERSION=3.10}"
+export PATH="${PYTHON_PREFIX}/bin:${PATH}"
+
+
+# DECIMAL
+# https://www.bytereef.org/mpdecimal/quickstart.html#unix-mac-os-x
+decimal() {
+  src="${PYTHON_PREFIX}/src/decimal"
+  mkdir -p "${src}"
+  cd "${src}"
+  latest="$(curl -fsSL https://www.bytereef.org/mpdecimal/download.html | awk -F "['']" '/VERSION:/ { print $2 }')"
+  
+  installed="$(awk -F "['']" '/^PACKAGE_VERSION=/ { print $2 }' "${src}/configure")"
+
+  [ "${installed-}" != "${latest}" ] || return 0
+
+  curl -fsSL "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-${latest}.tar.gz" |
+    tar --extract --directory "${src}" --strip-components=1 --file -
+  [ -f "./configure" ] || { echo Error downloading decimal; exit 1; }
+  
+  machine="x64" ; { $MACOS && [ "$(uname -m)" = "x86_64" ]; } || machine="uint128"
+  
+  ./configure MACHINE=${machine}
+  make check
+  make install
+}
+
+jobs() {
+  nproc="$(nproc 2>/dev/null || true)"
+  export CMAKE_BUILD_PARALLEL_LEVEL="${nproc:-$(sysctl -n hw.physicalcpu)}"
+  export MAKE_OPTS="-j${CMAKE_BUILD_PARALLEL_LEVEL} --quiet"
+}
+
+prefix() {
+  root="$(dirname "${PYTHON_PREFIX}")"
+  [ "${root}" = "/" ] || {
+    test -w "${root}" || {
+      $(command -v sudo) chown -R "$(id -u):$(id -g)" "${root}"
+      $(command -v sudo) chmod -R g+w "${root}"
+    }
+  }
+  mkdir -p "${PYTHON_PREFIX}/lib"
+}
+
+# SQLITE
+# https://charlesleifer.com/blog/compiling-sqlite-for-use-with-python-applications/
+sqlite(){
+  src="${PYTHON_PREFIX}/src/sqlite"
+  mkdir -p "${src}"
+  cd "${src}"
+  curl -fsSL "https://www.sqlite.org/src/tarball/sqlite.tar.gz" |
+    tar --extract --directory "${src}" --strip-components=1 --file -
+  [ -f "./configure" ] || { echo Error downloading sqlite; exit 1; }
+
+  installed=""; ! test -x "${PYTHON_PREFIX}/bin/python3" || installed="$(sqlite3 --version | awk '{ print $1 }')"
+
+  [ "${installed-}" != "$(cat VERSION)" ] || return 0
+
+  export CPPFLAGS="\
+    -DSQLITE_ENABLE_COLUMN_METADATA=1 \
+    -DSQLITE_ENABLE_FTS3=1 \
+    -DSQLITE_ENABLE_FTS3_PARENTHESIS=1 \
+    -DSQLITE_ENABLE_FTS4=1 \
+    -DSQLITE_ENABLE_FTS5=1 \
+    -DSQLITE_ENABLE_JSON1=1 \
+    -DSQLITE_ENABLE_LOAD_EXTENSION=1 \
+    -DSQLITE_ENABLE_RTREE=1 \
+    -DSQLITE_ENABLE_STAT4=1 \
+    -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1 \
+    -DSQLITE_MAX_VARIABLE_NUMBER=250000 \
+    -DSQLITE_SOUNDEX=1 \
+    -DSQLITE_TEMP_STORE=3 \
+    -DSQLITE_USE_URI=1 \
+    -O2 \
+    -I. \
+    -fPIC"
+  export PREFIX="${PYTHON_PREFIX}"
+
+  LIBS="-lm -ldl -lreadline -lncurses" ./configure \
+    --disable-editline \
+    --disable-tcl \
+    --enable-readline \
+    --enable-session \
+    --enable-shared \
+    --enable-tempstore=always \
+    --prefix="${PREFIX}"
+  make -j "${CMAKE_BUILD_PARALLEL_LEVEL}"
+  make install
+
+  test -x "${PYTHON_PREFIX}/bin/sqlite3" || { echo Error installing Python; exit 1; }
+
+  tmp="$(mktemp)"
+  cat > "${tmp}" <<EOS
+  create table students (name text, age integer);
+  insert into students (name, age) values ('Bob', 14);
+  insert into students (name, age) values ('Sue', 12);
+  insert into students (name, age) values ('Tim', 13);
+  select name from students order by age asc;
+EOS
+  [ "$(sqlite3 < "${tmp}")" = "$(printf '%s\n' Sue Tim Bob)" ] || { echo "sqlite3 failed"; exit 1; }
+}
+
+# PYTHON
+# https://devguide.python.org/setup/
+py() {
+  version="${version:-${PYTHON_VERSION}}"
+
+  url='https://www.python.org/ftp/python'
+  minor="${minor:-$(curl -fsSL "${url}" | awk -F '["/]' -v v="${version}." '$2 ~ v { gsub(v, ""); print $2 }' |
+    sort -V | tail -1)}"
+  latest="${PYTHON_VERSION}.${minor}"
+
+  installed=""; ! test -x "${PYTHON_PREFIX}/bin/python3" || installed="$(python3 --version | awk '{ print $2 }')"
+  if [ "${installed-}" != "${latest}" ]; then
+
+    opts="--with-dtrace"; $MACOS || opts=""
+
+    src="${PYTHON_PREFIX}/src/python"
+    mkdir -p "${src}"
+    cd "${src}"
+    curl -fsSL "${url}/${latest}/Python-${latest}.tar.xz" |
+      tar --extract --directory "${src}" --strip-components=1 --file -
+    [ -f "./configure" ] || { echo Error downloading Python; exit 1; }
+
+    sed "s|испытание.pythontest.net|docs.python.org|" Lib/test/test_socket.py >/tmp/a
+    mv /tmp/a Lib/test/test_socket.py
+
+    brew_prefix="$(brew --prefix)"
+
+    CFLAGS="-I${brew_prefix}/include -L${brew_prefix}/lib -Wl,-rpath,${brew_prefix}/lib" ./configure \
+      --enable-ipv6 \
+      --enable-optimizations \
+      --enable-option-checking=fatal \
+      --enable-loadable-sqlite-extensions \
+      --enable-shared \
+      --prefix=${PYTHON_PREFIX} \
+      --program-suffix= \
+      --with-builtin-hashlib-hashes=md5,sha1,sha256,sha512,sha3,blake2 \
+      --with-dbmliborder=gdbm:ndbm \
+      --with-ensurepip \
+      --with-lto \
+      --with-openssl="$(brew --prefix openssl@1.1)" \
+      --with-system-expat \
+      --with-system-ffi \
+      --with-system-libmpdec
+#            "${opts}" \
+
+    #    --with-decimal-contextvar \
+    #    --quiet
+
+    make -j "${CMAKE_BUILD_PARALLEL_LEVEL}" --quiet
+    make test --quiet
+    make install
+    test -x "${PYTHON_PREFIX}/bin/python3" || { echo Error installing Python; exit 1; }
+
+    python3 -m ensurepip --upgrade --default-pip
+
+    find "${PYTHON_PREFIX}" -depth \( \( -type d -a \( -name test -o -name tests -o -name idle_test \) \) \
+      -o \( -type f -a \( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' \) \) \) -exec rm -rf '{}' +
+    rm -rf "${src}/build"
+    rm -rf "${src}"/*profclang*
+  fi
+
+  python3 -m pip install --quiet --upgrade pip setuptools wheel
+}
+
+main() {
+  MACOS=true; [ "$(uname -s)" = "Darwin" ] || MACOS=false
+
+  prefix
+  jobs
+#  decimal
+#  sqlite3
+  py
+}
+
+main "$@"

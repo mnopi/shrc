@@ -1,0 +1,75 @@
+#!/bin/sh
+
+#
+# extracts tar to directory
+
+set -eu
+
+#######################################
+# show usage
+# Globals:
+#   USER
+# Arguments:
+#   0
+#######################################
+help() {
+  rc=$?
+  [ ! "${1-}" ] || { echo "${0##*/}: $1"; echo; }
+  >&2 cat <<EOF
+usage: ${0##*/} <url> [<dir>]
+   or: ${0##*/} -h|--help|help
+
+extracts tar contents from url to directory (default: current directory)
+
+Commands:
+   help         show help and exit
+EOF
+
+  exit $rc
+}
+
+#######################################
+# downloads the tar file
+# Arguments:
+#  1  url
+#  2  file
+#######################################
+download() {
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL "$1" | extract "$@"
+  else
+    wget -O - --quiet "$1" | extract "$@"
+  fi
+}
+
+#######################################
+# extracts from stdin
+# Arguments:
+#  1  url (ignored
+#  2  path
+#######################################
+extract() {
+  path="${2:-.}"; mkdir -p "${path}"
+  tar --extract --directory "${path}" --strip-components=1 --file -
+  printf "%s\n" "$(git config --get-color "" "green bold")✔$(git config --get-color "" reset) ${1}: extracted to: ${path}"
+}
+
+#######################################
+# extracts tar to directory
+# Arguments:
+#  1 url
+#  2 path
+#######################################
+main() {
+  case "${1-}" in
+    --help|-h|help) help ;;
+    *) [ "${1-}" ] || help "Missing url" ;;
+  esac
+
+  . "$(dirname "$0")/dev-env.bash"
+
+  url-exists "$1"
+  download "$@"
+}
+
+main "$@"

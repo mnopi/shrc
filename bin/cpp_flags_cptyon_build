@@ -1,0 +1,29 @@
+#!/bin/bash
+# 1
+configure+=(
+    CPPFLAGS="-I${sqlite}/include"
+    LDFLAGS="-L${sqlite}/lib"
+)
+./configure "${configure[@]}"
+
+# 2
+configure+=(
+  CPPFLAGS="-I${sqlite}/include"
+  LDFLAGS_NODIST="-L${sqlite}/lib -Wl,-rpath,${sqlite}/lib"
+)
+./configure "${configure[@]}"
+
+# 3
+configure+=(
+  CPPFLAGS="-I${sqlite}/include"
+  LDFLAGS="-L${sqlite}/lib -Wl,-rpath,${sqlite}/lib"
+)
+./configure "${configure[@]}"
+
+# 4
+configure+=(
+    CPPFLAGS="-I${sqlite}/include"
+    LDFLAGS="-L${sqlite}/lib"
+)
+LD_RUN_PATH="${sqlite}/lib" ./configure "${configure[@]}"
+LD_RUN_PATH="${sqlite}/lib"  make -j"$(make-jobs)" --quiet
