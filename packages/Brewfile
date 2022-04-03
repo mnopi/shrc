@@ -62,8 +62,8 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   brew "openssl@1.1"  # required for install-python
   brew "openjdk"
   brew "pip-completion"
-  brew "python@3.10", link: false
-  # brew "python@3.10", overwrite: true
+  brew "python@3.9"
+  brew "python@3.10", overwrite: true
   brew "qpdf"
   brew "rbenv"
   # brew "readline"  # required for install-python

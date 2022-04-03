@@ -8,6 +8,23 @@
     </option>
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_ACTIONS$" vcs="Git" />
+    <mapping directory="$PROJECT_DEV_INSTALL$" vcs="Git" />
+    <mapping directory="$PROJECT_GIT$" vcs="Git" />
+    <mapping directory="$PROJECT_HASIS$" vcs="Git" />
+    <mapping directory="$PROJECT_HUGO$" vcs="Git" />
+    <mapping directory="$PROJECT_MNOPI$" vcs="Git" />
+    <mapping directory="$PROJECT_NPMRC$" vcs="Git" />
+    <mapping directory="$PROJECT_POSTFIX$" vcs="Git" />
+    <mapping directory="$PROJECT_REPO$" vcs="Git" />
+    <mapping directory="$PROJECT_SECHO$" vcs="Git" />
+    <mapping directory="$PROJECT_SECRETS$" vcs="Git" />
+    <mapping directory="$PROJECT_SHAURL$" vcs="Git" />
+    <mapping directory="$PROJECT_SHRC$" vcs="Git" />
+    <mapping directory="$PROJECT_TAP$" vcs="Git" />
+    <mapping directory="$PROJECT_WBOX$" vcs="Git" />
+    <mapping directory="$PROJECT_HOMEBREW_CMD$" vcs="Git" />
+    <mapping directory="$PROJECT_HOMEBREW_TAP$" vcs="Git" />
   </component>
 </project>

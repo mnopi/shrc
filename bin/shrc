@@ -14,7 +14,7 @@ help() {
   rc=$?
   [ ! "${1-}" ] || { >&2 echo "${0##*/}: $1: invalid command"; >&2 echo; }
   >&2 cat <<EOF
-usage: ${0##*/}
+usage: ${0##*/} [command]
    or: ${0##*/} -h|--help|help
    or: ${0##*/}.sh -h|--help|help
    or: . ${0##*/}.sh -h|--help|help
@@ -24,6 +24,9 @@ shows command to source '${0##*/}.sh' library to be 'eval' in script or library 
 
 Commands:
    help         show help and exit
+   idea         open Idea
+   pycharm      open PyCharm
+   shenv        show environment variables
 
 Examples:
   $ echo 'eval "\$(${0##*/})"' > /tmp/profile && bash --init-file /tmp/profile && echo "\${PATH}"
@@ -37,6 +40,26 @@ EOF
   exit $rc
 }
 
+idea() {
+  . "${HOME}/shrc/.envrc"
+  open -b com.jetbrains.intellij "${PWD}"
+}
+
+pycharm() {
+  . "${HOME}/shrc/.envrc"
+  PYCHARM_PROPERTIES="$(launchctl getenv PYCHARM_PROPERTIES)" \
+    PYCHARM_VM_OPTIONS="$(launchctl getenv PYCHARM_VM_OPTIONS)" \
+    exec nohup "${HOME}/JetBrains/Applications/PyCharm.app/Contents/MacOS/pycharm" "${PWD}" &>/dev/null &
+}
+
+shenv() {
+  upper="$(echo "${0##*/}" | tr '[:lower:]' '[:upper:]')"
+  bin="$(cd "$(dirname "$0")"; pwd -P)"
+  # TODO: aqui lo dejo... no se si solo variables o todo de profile.. y comprobar que SH es diferente al
+  #   previous ?
+  echo "${upper}=\"${dirname}/${0##*/}\" . \"${lib}\""
+}
+
 ######################################
 # shows command to source 'shenv.sh' library to be 'eval' in script or library to set "shrc" environment
 # Arguments:
@@ -48,21 +71,17 @@ EOF
 #  /tmp/profile
 #######################################
 main() {
-  upper="$(echo "${0##*/}" | tr '[:lower:]' '[:upper:]')"
   dirname="$(cd "$(dirname "$0")"; pwd -P)"
   path="${dirname}/${0##*/}"
   lib="${path}.sh"
   command -p ls "${lib}" >/dev/null
   package="$(awk -F '[=""]' '/^[A-Z].*_NAME="/ { print $3 }' "${lib}")"
-
-  if [ "${1-}" ]; then
-    case "${1-}" in
-      -h|--help|help) help ;;
-      *) false || help "$1" ;;
-    esac
-  fi
-
-  echo "${upper}=\"${dirname}/${0##*/}\" . \"${lib}\""
+  case "${1-}" in
+    -h|--help|help) help ;;
+    idea|pycharm) shenv; "$1" ;;
+    shenv) "$1" ;;
+    *) false || help "$1" ;;
+  esac
 }
 
 main "$@"

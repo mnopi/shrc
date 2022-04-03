@@ -5,7 +5,7 @@
 
 # Path to 'shenv'
 #
-: "${SHENV?parameter not set, usage: eval "\$(shenv)", see: shenv --help}"; export SHENV
+: "${SHRC?parameter not set, usage: eval "\$(shrc shenv)", see: shenv --help}"; export SHENV
 
 # SHRC Package/Module/Repository Name
 #
