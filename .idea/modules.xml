@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Homebrew.iml" filepath="$PROJECT_DIR$/.idea/Homebrew.iml" />
       <module fileurl="file://$PROJECT_ACTIONS$/.idea/actions.iml" filepath="$PROJECT_ACTIONS$/.idea/actions.iml" />
       <module fileurl="file://$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" filepath="$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" />
       <module fileurl="file://$PROJECT_GIT$/.idea/git.iml" filepath="$PROJECT_GIT$/.idea/git.iml" />
-      <module fileurl="file://$PROJECT_HASIS$/.idea/hasis.iml" filepath="$PROJECT_HASIS$/.idea/hasis.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Homebrew.iml" filepath="$PROJECT_DIR$/.idea/Homebrew.iml" />
       <module fileurl="file://$PROJECT_HOMEBREW_CMD$/.idea/homebrew-cmd.iml" filepath="$PROJECT_HOMEBREW_CMD$/.idea/homebrew-cmd.iml" />
       <module fileurl="file://$PROJECT_HOMEBREW_TAP$/.idea/homebrew-tap.iml" filepath="$PROJECT_HOMEBREW_TAP$/.idea/homebrew-tap.iml" />
       <module fileurl="file://$PROJECT_HUGO$/.idea/hugo.iml" filepath="$PROJECT_HUGO$/.idea/hugo.iml" />
@@ -15,7 +14,6 @@
       <module fileurl="file://$PROJECT_POSTFIX$/.idea/postfix.iml" filepath="$PROJECT_POSTFIX$/.idea/postfix.iml" />
       <module fileurl="file://$ZDOTDIR$/rc.iml" filepath="$ZDOTDIR$/rc.iml" />
       <module fileurl="file://$PROJECT_REPO$/.idea/repo.iml" filepath="$PROJECT_REPO$/.idea/repo.iml" />
-      <module fileurl="file://$PROJECT_SECHO$/.idea/secho.iml" filepath="$PROJECT_SECHO$/.idea/secho.iml" />
       <module fileurl="file://$PROJECT_SECRETS$/.idea/secrets.iml" filepath="$PROJECT_SECRETS$/.idea/secrets.iml" />
       <module fileurl="file://$PROJECT_SHAURL$/.idea/shaurl.iml" filepath="$PROJECT_SHAURL$/.idea/shaurl.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/shrc.iml" filepath="$PROJECT_DIR$/.idea/shrc.iml" />

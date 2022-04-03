@@ -2,35 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/bools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/color.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/get.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/jetbrains.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/out.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/pretty.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/show.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/style.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/symbols.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" beforeDir="false" afterPath="$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" afterDir="false" />
-      <change beforePath="$PROJECT_HASIS$/setup.cfg" beforeDir="false" afterPath="$PROJECT_HASIS$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_HASIS$/src/hasis/__init__.py" beforeDir="false" afterPath="$PROJECT_HASIS$/src/hasis/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_HASIS$/src/hasis/bools.py" beforeDir="false" />
-      <change beforePath="$PROJECT_HASIS$/src/hasis/get.py" beforeDir="false" />
-      <change beforePath="$PROJECT_HASIS$/src/hasis/system.py" beforeDir="false" />
-      <change beforePath="$PROJECT_SECHO$/src/secho/__init__.py" beforeDir="false" afterPath="$PROJECT_SECHO$/src/secho/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_SHAURL$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_SHAURL$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Homebrew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Homebrew.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shrc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shrc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Brewfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Brewfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/console" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/console" afterDir="false" />
-      <change beforePath="$PROJECT_TAP$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_TAP$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/codeql-python.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shrc/helado.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +73,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shrc" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -117,11 +92,11 @@
       <recent name="$PROJECT_DIR$/bin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github/workflows" />
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/packages" />
       <recent name="$PROJECT_DIR$/src/shrc" />
       <recent name="$PROJECT_DIR$/git" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/libexec" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
