@@ -29,5 +29,5 @@ try:
 except ModuleNotFoundError:
     pass
 
-if IPYTHON:
+if IS_IPYTHON:
     '%rehashx'

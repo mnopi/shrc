@@ -1,0 +1,8 @@
+aiohttp
+build
+darling
+ipython
+pypi-cleanup
+pytest
+rich
+typer[all]

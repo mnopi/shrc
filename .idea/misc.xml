@@ -2,9 +2,8 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <type id="JRUBY" />
+    <type id="Python" />
+    <type id="web" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="Python 3.9 (venv)" project-jdk-type="Python SDK" />
-  <component name="RSettings">
-    <option name="interpreterPath" value="/usr/local/bin/R" />
-  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (shrc)" project-jdk-type="Python SDK" />
 </project>
