@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-setup_file() { load helpers/tests_helper; }
+setup_file() { load ../helpers/tests_helper; }
 
 @test "\$PATH fixtures " {
   was=true
@@ -11,8 +11,8 @@ setup_file() { load helpers/tests_helper; }
   $was || rm -r "${BATS_TESTS}/fixtures"
 }
 
-@test "\$BATS_BASH " {
-  assert_equal "${BATS_BASH}" "${BATS_TOP}"
+@test "\$SHRC " {
+  assert_equal "${SHRC}" "${BATS_TOP}"
 }
 
 @test ".env " {

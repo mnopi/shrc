@@ -1,0 +1,68 @@
+#!/bin/sh
+
+#
+# shows command to source 'shenv.sh' library to be 'eval' in script or library to set "shrc" environment
+
+set -eu
+
+#######################################
+# show usage
+# Arguments:
+#   1  invalid command name
+#######################################
+help() {
+  rc=$?
+  [ ! "${1-}" ] || { >&2 echo "${0##*/}: $1: invalid command"; >&2 echo; }
+  >&2 cat <<EOF
+usage: ${0##*/}
+   or: ${0##*/} -h|--help|help
+   or: ${0##*/}.sh -h|--help|help
+   or: . ${0##*/}.sh -h|--help|help
+
+shows command to source '${0##*/}.sh' library to be 'eval' in script or library to set "${package}" environment
+'${0##*/}.sh' sets "${package}" package/module/respository environment variables and functions for production and testing
+
+Commands:
+   help         show help and exit
+
+Examples:
+  $ echo 'eval "\$(${0##*/})"' > /tmp/profile && bash --init-file /tmp/profile && echo "\${PATH}"
+  $ chmod +x /tmp/profile && /tmp/profile && echo "\${PATH}"
+
+Caution:
+   '${0##*/}.sh' can not be sourced directly
+   '${0##*/}' sets \$${upper}=${path} when calling '${0##*/}.sh' for production and testing environments to be configured properly
+EOF
+
+  exit $rc
+}
+
+######################################
+# shows command to source 'shenv.sh' library to be 'eval' in script or library to set "shrc" environment
+# Arguments:
+#  None
+# Examples:
+#  echo 'eval "$(shenv)"' > /tmp/profile
+#  bash --init-file /tmp/profile
+#  chmod +x /tmp/profile
+#  /tmp/profile
+#######################################
+main() {
+  upper="$(echo "${0##*/}" | tr '[:lower:]' '[:upper:]')"
+  dirname="$(cd "$(dirname "$0")"; pwd -P)"
+  path="${dirname}/${0##*/}"
+  lib="${path}.sh"
+  command -p ls "${lib}" >/dev/null
+  package="$(awk -F '[=""]' '/^[A-Z].*_NAME="/ { print $3 }' "${lib}")"
+
+  if [ "${1-}" ]; then
+    case "${1-}" in
+      -h|--help|help) help ;;
+      *) false || help "$1" ;;
+    esac
+  fi
+
+  echo "${upper}=\"${dirname}/${0##*/}\" . \"${lib}\""
+}
+
+main "$@"

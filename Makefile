@@ -10,6 +10,6 @@ publish: tests
 	@git push --quiet
 
 tests:
-	@brew bundle --file Brewfile --quiet --no-lock | grep -v "^Using"
+	@brew bundle --file tests/Brewfile --quiet --no-lock | grep -v "^Using"
 	@bin/bats.bash run
-	@./tests/version
+	@./tests/test_version

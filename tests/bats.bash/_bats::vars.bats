@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-setup_file() { load helpers/tests_helper; }
+setup_file() { load ../helpers/tests_helper; }
 
 @test "\$BATS_* " {
   for i in BATS_BASENAME BATS_PATH BATS_TESTS BATS_TMP BATS_TOP; do
@@ -24,6 +24,6 @@ setup_file() { load helpers/tests_helper; }
 
 @test "\$BATS_* set once per file " {
   unset BATS_TOP
-  load helpers/tests_helper
+  load ../helpers/tests_helper
   assert [ -z "${BATS_TOP}" ]
 }

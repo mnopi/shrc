@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-setup_file() { load helpers/tests_helper; }
+setup_file() { load ../helpers/tests_helper; }
 
 @test "func::exported foo " {
   run func::exported foo
