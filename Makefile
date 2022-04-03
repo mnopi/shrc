@@ -1,12 +1,21 @@
-.PHONY: publish tests
+.PHONY: brew publish tests
 
-SHELL := $(shell bash -c 'command -v bash')
+#BASH_ENV := .envrc
+#export BASH_ENV
+
+SHELL := $(shell bash -c 'command -v bash') -e
 msg := fix: completions
 export msg
 
+brew:
+	@brew bundle --file packages/Brewfile --quiet --cleanup --no-lock
+	@brew cleanup
+	@brew upgrade
+	@brew autoremove
+
 publish: tests
 	@git add .
-	@git commit --quiet -a -m "$${msg:-auto}"
+	@git commit --quiet -a -m "$${msg:-auto}" || true
 	@git push --quiet
 
 tests:
