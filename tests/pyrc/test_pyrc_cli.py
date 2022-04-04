@@ -3,8 +3,8 @@
 Start
 """
 
-from watch.cli import app
 from pyrc import cli_invoke
+from pyrc.jetbrains import app
 
 
 def test_help():

@@ -2,65 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/tests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/alias.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/bools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/typings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/vars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/.favorites.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/docker-ce-install.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/setup.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/watchme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/backup/watchme_first" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/examples/fsmonitor-watchman" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/lib/watchme.bash" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/models.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/watchman.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/watchme.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/shrc/test_cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/watch/test_cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/watch/test_imports.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/pyrc/test_aioclone.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/bools.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/cli.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/helado.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/jetbrains.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/out.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/out.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/pretty.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/pretty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/show.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/show.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/style.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/style.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/symbols.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/symbols.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/environment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bats.bash/_bats::sourced.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/_bats::sourced.bats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bats.bash/_bats::vars.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/_bats::vars.bats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bats.bash/asserts.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/asserts.bats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bats.bash/bats::array.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/bats::array.bats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bats.bash/bats::envrc.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/bats::envrc.bats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bats.bash/func::exported.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/func::exported.bats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/helpers/tests_helper.bash" beforeDir="false" afterPath="$PROJECT_DIR$/tests/helpers/helper.bash" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/shrc/test_imports.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_get.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_version" beforeDir="false" afterPath="$PROJECT_DIR$/tests/version/test_version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/alias.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/alias.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/pretty.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/pretty.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/vars.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/variables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/watch/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/watch/cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/shrc/test_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pyrc/test_pyrc_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/shrc/test_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pyrc/test_pyrc_imports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/watch/test_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/watch/test_watch_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/watch/test_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/watch/test_watch_imports.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,137 +142,39 @@
       <RunnerSettings bashdbVersion="Automatic" bashPathMapper="Automatic" RunnerId="pro.bashsupport.shDebugRunner" />
       <method v="2" />
     </configuration>
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="shrc" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/shrc" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <EXTENSION ID="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
-        </ENTRIES>
-      </EXTENSION>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/shrc/__init__.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pydevconsole" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="homebrew-tap" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_PLUGINS_DIR$/python/helpers/pydev" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <EXTENSION ID="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
-        </ENTRIES>
-      </EXTENSION>
-      <option name="SCRIPT_NAME" value="$APPLICATION_PLUGINS_DIR$/python/helpers/pydev/pydevconsole.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_imports" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="shrc" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/shrc/test_imports.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="BashSupport Pro.dev-env.bash" />
+      <item itemvalue="BashSupport Pro.url-exists" />
+      <item itemvalue="BashSupport Pro.make-jobs" />
+      <item itemvalue="BashSupport Pro.shenv" />
       <item itemvalue="BashSupport Pro.dev-python" />
       <item itemvalue="BashSupport Pro.dev-python --foo" />
-      <item itemvalue="BashSupport Pro.dev-python -h" />
       <item itemvalue="BashSupport Pro.dev-python commands" />
-      <item itemvalue="BashSupport Pro.dev-python installed" />
-      <item itemvalue="BashSupport Pro.dev-python latest" />
-      <item itemvalue="BashSupport Pro.dev-python prefix" />
-      <item itemvalue="BashSupport Pro.dev-python update" />
-      <item itemvalue="BashSupport Pro.dev-python upgrade" />
-      <item itemvalue="BashSupport Pro.make-jobs" />
-      <item itemvalue="BashSupport Pro.make-jobs --foo" />
-      <item itemvalue="BashSupport Pro.make-jobs -h" />
-      <item itemvalue="BashSupport Pro.tar-extract" />
-      <item itemvalue="BashSupport Pro.tar-extract -h" />
-      <item itemvalue="BashSupport Pro.tar-extract https://... " />
-      <item itemvalue="BashSupport Pro.tar-extract https://... /bin/tmp" />
       <item itemvalue="BashSupport Pro.tar-extract https://... /tmp/.dev-install" />
-      <item itemvalue="BashSupport Pro.tar-extract https://foo" />
-      <item itemvalue="BashSupport Pro.url-exists -h" />
-      <item itemvalue="BashSupport Pro.url-exists google.com" />
-      <item itemvalue="BashSupport Pro.url-exists https://foo" />
-      <item itemvalue="BashSupport Pro.url-exists" />
-      <item itemvalue="BashSupport Pro.. shenv.sh" />
-      <item itemvalue="BashSupport Pro.shenv" />
       <item itemvalue="BashSupport Pro.shenv --foo" />
+      <item itemvalue="BashSupport Pro.make-jobs -h" />
+      <item itemvalue="BashSupport Pro.dev-python latest" />
       <item itemvalue="BashSupport Pro.shenv -h" />
-      <item itemvalue="BashSupport Pro.shenv.sh" />
-      <item itemvalue="Makefile Target.brew" />
-      <item itemvalue="Makefile Target.pytest" />
+      <item itemvalue="BashSupport Pro.url-exists -h" />
+      <item itemvalue="BashSupport Pro.dev-python -h" />
+      <item itemvalue="BashSupport Pro.tar-extract https://foo" />
       <item itemvalue="Makefile Target.tests" />
-      <item itemvalue="Python.__init__" />
-      <item itemvalue="Python.pydevconsole" />
-      <item itemvalue="Python.test_imports" />
+      <item itemvalue="BashSupport Pro.. shenv.sh" />
+      <item itemvalue="BashSupport Pro.tar-extract https://... /bin/tmp" />
+      <item itemvalue="Makefile Target.brew" />
+      <item itemvalue="BashSupport Pro.shenv.sh" />
+      <item itemvalue="Makefile Target.pytest" />
+      <item itemvalue="BashSupport Pro.dev-python update" />
+      <item itemvalue="BashSupport Pro.dev-python prefix" />
+      <item itemvalue="BashSupport Pro.dev-python installed" />
+      <item itemvalue="BashSupport Pro.tar-extract -h" />
+      <item itemvalue="BashSupport Pro.make-jobs --foo" />
+      <item itemvalue="BashSupport Pro.url-exists https://foo" />
+      <item itemvalue="BashSupport Pro.url-exists google.com" />
+      <item itemvalue="BashSupport Pro.dev-python upgrade" />
+      <item itemvalue="BashSupport Pro.tar-extract https://... " />
+      <item itemvalue="BashSupport Pro.tar-extract" />
+      <item itemvalue="BashSupport Pro.dev-env.bash" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Makefile Target.pytest" />
-        <item itemvalue="Makefile Target.tests" />
-        <item itemvalue="Python.test_imports" />
-        <item itemvalue="Python.__init__" />
-        <item itemvalue="Python.pydevconsole" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
@@ -574,7 +431,7 @@
             <RunConfInfo>
               <option name="confId" value="Makefile Target.pytest" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649085629214" />
+              <option name="timestamp" value="1649115284300" />
             </RunConfInfo>
           </value>
         </entry>
@@ -583,34 +440,7 @@
             <RunConfInfo>
               <option name="confId" value="Makefile Target.tests" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649083563355" />
-            </RunConfInfo>
-          </value>
-        </entry>
-        <entry key="Python.__init__">
-          <value>
-            <RunConfInfo>
-              <option name="confId" value="Python.__init__" />
-              <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649055469927" />
-            </RunConfInfo>
-          </value>
-        </entry>
-        <entry key="Python.pydevconsole">
-          <value>
-            <RunConfInfo>
-              <option name="confId" value="Python.pydevconsole" />
-              <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649044719664" />
-            </RunConfInfo>
-          </value>
-        </entry>
-        <entry key="Python.start">
-          <value>
-            <RunConfInfo>
-              <option name="confId" value="Python.start" />
-              <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649055702156" />
+              <option name="timestamp" value="1649115590203" />
             </RunConfInfo>
           </value>
         </entry>

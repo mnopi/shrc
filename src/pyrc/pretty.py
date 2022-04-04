@@ -63,7 +63,7 @@ from typing import Any, Optional
 
 sys.path.extend(os.getcwd())
 
-IS_IPYTHON = hasattr(__builtins__, '__IPYTHON__')
+IS_IPYTHON = "__IPYTHON__" in globals()["__builtins__"]
 
 
 def is_terminal(self=None):
@@ -161,6 +161,9 @@ try:
 except ModuleNotFoundError:
     ghapi = object()
 
+
 if IS_IPYTHON:
+    import warnings
+    warnings.filterwarnings("ignore", category=UserWarning)
     '%rehashx'
     '%load_ext rich'

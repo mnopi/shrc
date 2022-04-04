@@ -29,7 +29,7 @@ def test_imports_watchme():
     assert "name 'watchme' is not defined" in str(exception.value)
     assert "watchme" not in globals()
 
-    assert isinstance(WatchMe, WatchMan)
+    assert issubclass(WatchMe, WatchMan)
 
 
 def test_imports_watchman():
@@ -41,4 +41,4 @@ def test_imports_watchman():
     assert "name 'watchman' is not defined" in str(exception.value)
     assert "watchman" not in globals()
 
-    assert isinstance(watchman, pywatchman.client)
+    assert issubclass(WatchMan, pywatchman.client)

@@ -5,8 +5,6 @@ Start
 import pytest
 import types
 
-from typer.testing import CliRunner
-
 from pyrc import *
 
 
@@ -19,7 +17,7 @@ def test_imports_alias():
     assert "name 'alias' is not defined" in str(exception.value)
     assert "alias" not in globals()
 
-    assert cli_invoke == CliRunner().invoke
+    assert isinstance(cli_invoke, types.MethodType)
 
 
 def test_imports_bools():
@@ -158,11 +156,11 @@ def test_imports_utils():
     assert isinstance(cmd, types.FunctionType)
 
 
-def test_imports_vars():
+def test_imports_variables():
     """
     vars __all__
     """
     with pytest.raises(NameError) as exception:
-        isinstance(vars, types.ModuleType)
-    assert "name 'vars' is not defined" in str(exception.value)
-    assert "vars" not in globals()
+        isinstance(variables, types.ModuleType)
+    assert "name 'variables' is not defined" in str(exception.value)
+    assert "variables" not in globals()

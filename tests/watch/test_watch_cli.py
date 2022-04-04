@@ -3,8 +3,8 @@
 Start
 """
 
-from shrc.jetbrains import app
-from shrc import cli_invoke
+from pyrc import cli_invoke
+from watch.cli import app
 
 
 def test_help():

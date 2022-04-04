@@ -15,7 +15,7 @@ from .style import *
 from .symbols import *
 from .typings import *
 from .utils import *
-from .vars import *
+from .variables import *
 
 from . import bools as bools
 from . import color as color
@@ -38,7 +38,7 @@ __all__ = \
     symbols.__all__ +  \
     typings.__all__ + \
     utils.__all__ + \
-    vars.__all__ + \
+    variables.__all__ + \
     ("bools", ) + \
     ("color", ) + \
     ("out", ) + \

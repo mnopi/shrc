@@ -3,6 +3,7 @@
 Cli Module for Watch Package.
 """
 from pathlib import Path
+from typing import Optional
 
 from typer import Option
 from typer import Typer
@@ -17,12 +18,12 @@ app = Typer(add_completion=False, name=package, no_args_is_help=True, invoke_wit
 
 @app.command(name='fg-diff')
 def fg_diff(
-        exclude: list[Path] | None = Option([], '--exclude', '-e',
+        exclude: Optional[list[Path]] = Option([], '--exclude', '-e',
                                             help='Additional directories or files to exclude'),
-        git: bool | None = Option(False, help='Use git diff for output instead of custom diff'),
-        loop: bool | None = Option(True,
+        git: Optional[bool] = Option(False, help='Use git diff for output instead of custom diff'),
+        loop: Optional[bool] = Option(True,
                                    help='Loop until keyboard interrupt, instead of exiting on first change'),
-        path: Path | None = Option('.', '--path', '-p', help='Path to subscribe'),
+        path: Optional[Path] = Option('.', '--path', '-p', help='Path to subscribe'),
 ):
     """
     Watch for changes in the foreground and shows pretty diff output per file against previous token (1 time run or
@@ -35,11 +36,11 @@ def fg_diff(
 
 @app.command(name='fg-files')
 def fg_files(
-        exclude: list[Path] | None = Option([], '--exclude', '-e',
+        exclude: Optional[list[Path]] = Option([], '--exclude', '-e',
                                             help='Additional directories or files to exclude'),
-        loop: bool | None = Option(True,
+        loop: Optional[bool] = Option(True,
                                    help='Loop until keyboard interrupt, instead of exiting on first change'),
-        path: Path | None = Option('.', '--path', '-p', help='Path to subscribe'),
+        path: Optional[Path] = Option('.', '--path', '-p', help='Path to subscribe'),
 ):
     """
     Watch for changes in the foreground and shows pretty output of file changes against previous token (1 time run or

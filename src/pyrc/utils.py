@@ -17,6 +17,7 @@ __all__ = (
     "gz",
     "suppress",
     "syssudo",
+    "tardir",
     "tilde",
     "version",
 )
@@ -30,7 +31,6 @@ import pwd
 import subprocess
 import sys
 import tarfile
-import tempfile
 from pathlib import Path
 from subprocess import CompletedProcess
 from typing import Callable
@@ -39,6 +39,7 @@ from typing import TypeVar
 
 import semver
 
+from .alias import TempDir
 from .constants import GITHUB_URL
 from .constants import GitScheme
 from .constants import PROJECT
@@ -95,8 +96,8 @@ async def aioclone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = g
     Async Clone Repository
 
     Examples:
-        >>> with tempfile.TemporaryDirectory() as tmp:
-        ...     directory = Path(tmp) / "1" / "2" / "3"
+        >>> with TempDir() as tmp:
+        ...     directory = tmp / "1" / "2" / "3"
         ...     rv = asyncio.run(aioclone("octocat", "Hello-World", path=directory))
         ...     assert rv.returncode == 0
         ...     assert (directory / "README").exists()
@@ -123,10 +124,10 @@ async def aiocmd(*args, **kwargs) -> CompletedProcess:
     Async Exec Command
 
     Examples:
-        >>> with tempfile.TemporaryDirectory() as tmp:
+        >>> with TempDir() as tmp:
         ...     rv = asyncio.run(aiocmd("git", "clone", github_url("octocat", "Hello-World", scheme="ssh"), cwd=tmp))
         ...     assert rv.returncode == 0
-        ...     assert (Path(tmp) / "Hello-World" / "README").exists()
+        ...     assert (tmp / "Hello-World" / "README").exists()
 
     Args:
         *args: command and args
@@ -164,31 +165,48 @@ async def aiodmg(src: Path | str, dest: Path | str) -> None:
     Returns:
         CompletedProcess
     """
-    with tempfile.TemporaryDirectory() as tmpdir:
+    with TempDir() as tmpdir:
         await aiocmd("hdiutil", "attach", "-mountpoint", tmpdir, "-nobrowse", "-quiet", src)
         for item in src.iterdir():
             if item.name.endswith(".app"):
-                await aiocmd("cp", "-r", tmpdir + item.name, dest)
+                await aiocmd("cp", "-r", tmpdir / item.name, dest)
                 await aiocmd("xattr", "-r", "-d", "com.apple.quarantine", dest)
                 await aiocmd("hdiutil", "detach", tmpdir, "-force")
                 break
 
 
-async def aiogz(src: Path | str, dest: Path | str) -> None:
+async def aiogz(src: Path | str, dest: Path | str = ".") -> Path:
     """
-    Async Uncompress .gz src to dest
+    Async ncompress .gz src to dest (default: current directory)
+
+    It will be uncompressed to the same directory name as src basename.
+    Uncompressed directory will be under dest directory.
 
     Examples:
-        #>>> await gz(Path("/tmp/JetBrains.dmg"), Path("/tmp/JetBrains.gz"))
+        >>> await aiogz("test.tar.gz", "/tmp")  # doctest: +SKIP
+        PosixPath('/tmp/test')
+        >>>
+        >>> cwd = Path.cwd()
+        >>> with TempDir() as workdir:
+        ...     os.chdir(workdir)
+        ...     with TempDir() as compress:
+        ...         file = compress / "test.txt"
+        ...         file.touch()  # doctest: +ELLIPSIS
+        ...         compressed = tardir(compress)
+        ...         with TempDir() as uncompress:
+        ...             uncompressed = asyncio.run(aiogz(compressed, uncompress))
+        ...             assert uncompressed.is_dir()
+        ...             assert Path(uncompressed).joinpath(file.name).exists()
+        >>> os.chdir(cwd)
 
     Args:
         src: file to uncompress
-        dest: path to compress to
+        dest: destination directory to where uncompress directory will be created (default: current directory)
 
     Returns:
-        CompletedProcess
+        Absolute Path of the Uncompressed Directory
     """
-    await asyncio.to_thread(tarfile.open(src, "r:gz").extractall, dest)
+    return await asyncio.to_thread(gz, src, dest)
 
 
 def clone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_default_scheme,
@@ -197,8 +215,8 @@ def clone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_defaul
     Clone Repository
 
     Examples:
-        >>> with tempfile.TemporaryDirectory() as tmp:
-        ...     directory = Path(tmp) / "1" / "2" / "3"
+        >>> with TempDir() as tmp:
+        ...     directory = tmp / "1" / "2" / "3"
         ...     rv = clone("octocat", "Hello-World", "git+ssh", directory)
         ...     assert rv.returncode == 0
         ...     assert (directory / "README").exists()
@@ -225,10 +243,10 @@ def cmd(*args, **kwargs) -> CompletedProcess:
     Exec Command
 
     Examples:
-        >>> with tempfile.TemporaryDirectory() as tmp:
+        >>> with TempDir() as tmp:
         ...     rv = cmd("git", "clone", github_url(), tmp)
         ...     assert rv.returncode == 0
-        ...     assert (Path(tmp) / "README.md").exists()
+        ...     assert (tmp / "README.md").exists()
 
     Args:
         *args: command and args
@@ -278,11 +296,11 @@ def dmg(src: Path | str, dest: Path | str) -> None:
     Returns:
         CompletedProcess
     """
-    with tempfile.TemporaryDirectory() as tmpdir:
+    with TempDir() as tmpdir:
         cmd("hdiutil", "attach", "-mountpoint", tmpdir, "-nobrowse", "-quiet", src)
         for item in src.iterdir():
             if item.name.endswith(".app"):
-                cmd("cp", "-r", tmpdir + item.name, dest)
+                cmd("cp", "-r", tmpdir / item.name, dest)
                 cmd("xattr", "-r", "-d", "com.apple.quarantine", dest)
                 cmd("hdiutil", "detach", tmpdir, "-force")
                 break
@@ -322,22 +340,43 @@ def github_url(owner: str = USER, repo: str | Path = PROJECT, scheme: GitScheme 
         return f"git+file://{repo}.git"
     return f"{GITHUB_URL[scheme]}{owner}/{repo}.git"
 
+# TODO: aqui lo dejo, meter el Path de los viejos y meter el tempdir y el tempfile y el
+#   gz y el otro a lo mejor. Terminar con el dmg.
+# https://github.com/create-dmg/create-dmg/blob/master/create-dmg
 
-def gz(src: Path | str, dest: Path | str) -> None:
+
+def gz(src: Path | str, dest: Path | str = ".") -> Path:
     """
-    Uncompress .gz src to dest
+    Uncompress .gz src to dest (default: current directory)
+
+    It will be uncompressed to the same directory name as src basename.
+    Uncompressed directory will be under dest directory.
 
     Examples:
-        #>>> await gz(Path("/tmp/JetBrains.dmg"), Path("/tmp/JetBrains.gz"))
+        >>> cwd = Path.cwd()
+        >>> with TempDir() as workdir:
+        ...     os.chdir(workdir)
+        ...     with TempDir() as compress:
+        ...         file = compress / "test.txt"
+        ...         file.touch()  # doctest: +ELLIPSIS
+        ...         compressed = tardir(compress)
+        ...         with TempDir() as uncompress:
+        ...             uncompressed = gz(compressed, uncompress)
+        ...             assert uncompressed.is_dir()
+        ...             assert Path(uncompressed).joinpath(file.name).exists()
+        >>> os.chdir(cwd)
 
     Args:
         src: file to uncompress
-        dest: path to compress to
+        dest: destination directory to where uncompress directory will be created (default: current directory)
 
     Returns:
-        CompletedProcess
+        Absolute Path of the Uncompressed Directory
     """
-    tarfile.open(src, "r:gz").extractall(dest)
+    dest = Path(dest)
+    with tarfile.open(src, "r:gz") as tar:
+        tar.extractall(dest)
+        return (dest / tar.getmembers()[0].name).parent.absolute()
 
 
 def suppress(func: Callable[P, T], exc: ExcType | None = None, *args: P.args, **kwargs: P.kwargs) -> T:
@@ -361,6 +400,50 @@ def syssudo(user: str = "root") -> CompletedProcess | None:
     """
     if not amI(user):
         return cmd(["sudo", "-u", user, sys.executable, *sys.argv])
+
+
+def tardir(src: Path | str) -> Path:
+    """
+    Compress directory src to <basename src>.tar.gz in cwd
+
+    Examples:
+        >>> cwd = Path.cwd()
+        >>> with TempDir() as workdir:
+        ...     os.chdir(workdir)
+        ...     with TempDir() as compress:
+        ...         file = compress / "test.txt"
+        ...         file.touch()  # doctest: +ELLIPSIS
+        ...         compressed = tardir(compress)
+        ...         with TempDir() as uncompress:
+        ...             uncompressed = gz(compressed, uncompress)
+        ...             assert uncompressed.is_dir()
+        ...             assert Path(uncompressed).joinpath(file.name).exists()
+        >>> os.chdir(cwd)
+
+    Args:
+        src: directory to compress
+
+    Raises:
+        FileNotFoundError: No such file or directory
+        ValueError: Can't compress current working directory
+
+    Returns:
+        Compressed Absolute File Path
+    """
+    src = Path(src)
+    if not src.exists():
+        raise FileNotFoundError(f"{src}: No such file or directory")
+
+    if src.resolve() == Path.cwd().resolve():
+        raise ValueError("Can't compress current working directory")
+
+    name = Path(src).name + ".tar.gz"
+    dest = Path(name)
+    with tarfile.open(dest, 'w:gz') as tar:
+        for root, dirs, files in os.walk(src):
+            for file_name in files:
+                tar.add(os.path.join(root, file_name))
+        return dest.absolute()
 
 
 def tilde(path: str | Path = '.') -> str:
