@@ -1,4 +1,9 @@
-"""Add style"""
+# coding=utf-8
+"""
+Style Module
+
+Add style
+"""
 __all__ = (
     'black',
     'blue',
@@ -18,139 +23,268 @@ import click
 
 from .color import *
 
-def black(text: Any, 
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
-          underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=BLACK"""
-    return click.style(text,
-    fg=BLACK, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
 
-def blue(text: Any, 
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
+# noinspection DuplicatedCode
+def black(text: Any,
+          bg: Union[str, int, tuple[int, int, int]] = None,
+          bold: Optional[bool] = None,
+          dim: Optional[bool] = None,
           underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=BLUE"""
-    return click.style(text,
-    fg=BLUE, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
+          overline: Optional[bool] = None,
+          italic: Optional[bool] = None,
+          blink: Optional[bool] = None,
+          reverse: Optional[bool] = None,
+          strikethrough: Optional[bool] = None,
+          reset: bool = True) -> str:
+    """
+    Format with fg=BLACK
 
-def cyan(text: Any, 
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
-          underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=CYAN"""
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
     return click.style(text,
-    fg=CYAN, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
+                       fg=BLACK, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)
 
-def green(text: Any, 
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
-          underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=GREEN"""
-    return click.style(text,
-    fg=GREEN, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
 
-def magenta(text: Any, 
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
-          underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=MAGENTA"""
+def blue(text: Any,
+         bg: Union[str, int, tuple[int, int, int]] = None,
+         bold: Optional[bool] = None,
+         dim: Optional[bool] = None,
+         underline: Optional[bool] = None,
+         overline: Optional[bool] = None,
+         italic: Optional[bool] = None,
+         blink: Optional[bool] = None,
+         reverse: Optional[bool] = None,
+         strikethrough: Optional[bool] = None,
+         reset: bool = True) -> str:
+    """
+    Format with fg=BLUE
+
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
     return click.style(text,
-    fg=MAGENTA, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
+                       fg=BLUE, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)
+
+
+def cyan(text: Any,
+         bg: Union[str, int, tuple[int, int, int]] = None,
+         bold: Optional[bool] = None,
+         dim: Optional[bool] = None,
+         underline: Optional[bool] = None,
+         overline: Optional[bool] = None,
+         italic: Optional[bool] = None,
+         blink: Optional[bool] = None,
+         reverse: Optional[bool] = None,
+         strikethrough: Optional[bool] = None,
+         reset: bool = True) -> str:
+    """
+    Format with fg=CYAN
+
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
+    return click.style(text,
+                       fg=CYAN, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)
+
+
+def green(text: Any,
+          bg: Union[str, int, tuple[int, int, int]] = None,
+          bold: Optional[bool] = None,
+          dim: Optional[bool] = None,
+          underline: Optional[bool] = None,
+          overline: Optional[bool] = None,
+          italic: Optional[bool] = None,
+          blink: Optional[bool] = None,
+          reverse: Optional[bool] = None,
+          strikethrough: Optional[bool] = None,
+          reset: bool = True) -> str:
+    """
+    Format with fg=GREEN
+
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
+    return click.style(text,
+                       fg=GREEN, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)
+
+
+# noinspection DuplicatedCode
+def magenta(text: Any,
+            bg: Union[str, int, tuple[int, int, int]] = None,
+            bold: Optional[bool] = None,
+            dim: Optional[bool] = None,
+            underline: Optional[bool] = None,
+            overline: Optional[bool] = None,
+            italic: Optional[bool] = None,
+            blink: Optional[bool] = None,
+            reverse: Optional[bool] = None,
+            strikethrough: Optional[bool] = None,
+            reset: bool = True) -> str:
+    """
+    Format with fg=MAGENTA
+
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
+    return click.style(text,
+                       fg=MAGENTA, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)
+
 
 def red(text: Any,
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
-          underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=RED"""
-    return click.style(text,
-    fg=RED, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
+        bg: Union[str, int, tuple[int, int, int]] = None,
+        bold: Optional[bool] = None,
+        dim: Optional[bool] = None,
+        underline: Optional[bool] = None,
+        overline: Optional[bool] = None,
+        italic: Optional[bool] = None,
+        blink: Optional[bool] = None,
+        reverse: Optional[bool] = None,
+        strikethrough: Optional[bool] = None,
+        reset: bool = True) -> str:
+    """
+    Format with fg=RED
 
-def white(text: Any, 
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
-          underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=WHITE"""
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
     return click.style(text,
-    fg=WHITE, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
+                       fg=RED, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)
 
-def yellow(text: Any, 
-          bg: Union[str, int, tuple[int, int, int]] = None, 
-          bold: Optional[bool] = None, 
-          dim: Optional[bool] = None, 
+
+def white(text: Any,
+          bg: Union[str, int, tuple[int, int, int]] = None,
+          bold: Optional[bool] = None,
+          dim: Optional[bool] = None,
           underline: Optional[bool] = None,
-          overline: Optional[bool] = None, 
-          italic: Optional[bool] = None, 
-          blink: Optional[bool] = None, 
-          reverse: Optional[bool] = None, 
-          strikethrough: Optional[bool] = None, 
-          reset: bool = True) -> str: 
-    """Format with fg=YELLOW"""
-    return click.style(text,
-    fg=YELLOW, bg=bg, bold=bold, dim=dim, underline=underline,
-                      overline=overline, italic=italic, blink=blink, reverse=reverse, 
-                      strikethrough=strikethrough, reset=reset)
+          overline: Optional[bool] = None,
+          italic: Optional[bool] = None,
+          blink: Optional[bool] = None,
+          reverse: Optional[bool] = None,
+          strikethrough: Optional[bool] = None,
+          reset: bool = True) -> str:
+    """
+    Format with fg=WHITE
 
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
+    return click.style(text,
+                       fg=WHITE, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)
+
+
+def yellow(text: Any,
+           bg: Union[str, int, tuple[int, int, int]] = None,
+           bold: Optional[bool] = None,
+           dim: Optional[bool] = None,
+           underline: Optional[bool] = None,
+           overline: Optional[bool] = None,
+           italic: Optional[bool] = None,
+           blink: Optional[bool] = None,
+           reverse: Optional[bool] = None,
+           strikethrough: Optional[bool] = None,
+           reset: bool = True) -> str:
+    """
+    Format with fg=YELLOW
+
+    Arguments:
+      text: text to apply style
+      bg: background color (default: None)
+      bold: bold text (default: None)
+      dim: dim (default: None)
+      underline: underline (default: None)
+      overline: overline (default: None)
+      italic: italic (default: None)
+      blink: blink (default: None)
+      reverse: reverse (default: None)
+      strikethrough: strikethrough (default: None)
+      reset: reset (default: True)
+    """
+    return click.style(text,
+                       fg=YELLOW, bg=bg, bold=bold, dim=dim, underline=underline,
+                       overline=overline, italic=italic, blink=blink, reverse=reverse,
+                       strikethrough=strikethrough, reset=reset)

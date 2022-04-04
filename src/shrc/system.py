@@ -1,4 +1,7 @@
-
+# coding=utf-8
+"""
+System Environment Variables
+"""
 __all__ = (
   'ALPINE',
   'ALPINE_LIKE',
@@ -130,4 +133,3 @@ SSH: bool = bool(os.getenv('SSH'))
 UBUNTU: bool = bool(os.getenv('UBUNTU'))
 """Operating System System Name: darwin or linux (same as 'sys.platform')"""
 UNAME: str = os.getenv('UNAME')
-

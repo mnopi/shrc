@@ -1,3 +1,7 @@
+# coding=utf-8
+"""
+Colors Constants Module
+"""
 __all__ = (
     'PRETTY',
     'BLACK',
@@ -22,5 +26,4 @@ GREEN: str = 'green'
 MAGENTA: str = 'magenta' 
 RED: str = 'red' 
 WHITE: str = 'white' 
-YELLOW: str = 'yellow' 
-
+YELLOW: str = 'yellow'

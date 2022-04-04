@@ -1,4 +1,7 @@
-
+# coding=utf-8
+"""
+Utils Module
+"""
 __all__ = (
     'ExcType',
     'suppress',
@@ -20,10 +23,6 @@ T = TypeVar('T')
 P = ParamSpec('P')
 
 ExcType: TypeAlias = Type[Exception] | tuple[Type[Exception], ...]
-
-# TODO: aqui lo dejo mirar lo que no encuentro de packaging y lo que tenia de typer del comando donde lo guarde.
-#   si esta en watcman o si esta en gglobal o como se llamaran que los borre.
-# y quitar este puto warning y ponerme con el gen de jetbrains de una puta vez.
 
 
 def suppress(func: Callable[P, T], exc: ExcType | None = None, *args: P.args, **kwargs: P.kwargs) -> T:

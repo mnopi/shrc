@@ -6,3 +6,4 @@ pypi-cleanup
 pytest
 rich
 typer[all]
+wheel

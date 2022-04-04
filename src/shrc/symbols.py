@@ -1,3 +1,7 @@
+# coding=utf-8
+"""
+Symbols Module
+"""
 __all__ = (
     'CRITICAL',
     'ERROR',
@@ -35,7 +39,7 @@ NOTICE = click.style('‼', fg=CYAN, bold=True)
 SUCCESS = click.style('◉', fg=BLUE, bold=True)
 
 """symbol: '＋', color: MAGENTA"""
-VERBOSE= click.style('＋', fg=MAGENTA, bold=True)
+VERBOSE = click.style('＋', fg=MAGENTA, bold=True)
 
 """symbol: '！', color: YELLOW"""
 WARNING = click.style('！', fg=YELLOW, bold=True)
@@ -55,6 +59,3 @@ PLUS = click.style('+', fg=GREEN, bold=True)
 
 """symbol: '…', color: YELLOW (blink)"""
 WAIT = click.style('…', fg=YELLOW, blink=True, bold=True)
-
-
-
