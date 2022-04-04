@@ -16,8 +16,13 @@ from dataclasses import field
 from pathlib import Path
 
 import aiohttp
-from .constants import LINUX
+import typer
+
+from .bools import LINUX
+from .constants import PROJECT
 from .utils import aioclone
+from .utils import aiodmg
+from .utils import aiogz
 
 # https://github.com/0xbf00/dmglib/blob/master/docs/example.rst
 # https://stackoverflow.com/questions/6357914/how-do-i-install-a-dmg-file-from-the-command-line/6358679
@@ -45,11 +50,14 @@ NAMES = {
     "WebStorm": {"enable": True, "code": "WS", },
 }
 
+app = typer.Typer(add_completion=False, context_settings=dict(help_option_names=['-h', '--help']),
+                  name=Path(__file__).stem)
+
 
 @dataclass
 class Application:
     """
-
+    JetBrains Application Class
     """
     name: str
     session: aiohttp.ClientSession
@@ -82,13 +90,12 @@ class Application:
             None
         """
         print(await self.url)
-        return
         if not self.application.exists():
             async with self.session.get(await self.url, stream=True) as response:
                 async with tempfile.NamedTemporaryFile() as tmp:
                     async for chunk in response.content.iter_chunked(1024):
                         await tmp.write(chunk)
-                    await (gz if LINUX else dmg)(tmp.name, self.application)
+                    await (aiogz if LINUX else aiodmg)(tmp.name, self.application)
 
     @property
     async def url(self) -> str:
@@ -128,6 +135,16 @@ class JetBrains:
 
             rv = await asyncio.gather(*[application.install() for application in jetbrains.applications])
             print(rv)
+
+
+@app.command()
+def version() -> None:
+    """
+    Prints the version of the package.
+    Returns:
+        None
+    """
+    print(version(PROJECT))
 
 
 if __name__ == "__main__":

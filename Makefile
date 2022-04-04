@@ -1,4 +1,4 @@
-.PHONY: brew build chmod clean install local publish tests
+.PHONY: bats brew build chmod clean install local publish pytests tests
 
 #BASH_ENV := .envrc
 #export BASH_ENV
@@ -7,6 +7,10 @@ PACKAGE := $(shell basename "$$PWD")
 #msg ?= auto
 msg := fix: completions
 export msg
+
+bats:
+	@brew bundle --file tests/Brewfile --quiet --no-lock | grep -v "^Using"
+	@libexec/bats.bash run
 
 brew:
 	@brew bundle --file packages/Brewfile --quiet --cleanup --no-lock
@@ -40,8 +44,10 @@ publish: tests
 	@git push --quiet
 	@[ "$(msg)" = "auto" ] || open https://github.com/j5pu/$(PACKAGE)/actions
 
-tests:
-	@brew bundle --file tests/Brewfile --quiet --no-lock | grep -v "^Using"
-	@bin/bats.bash run
-	@./tests/test_version
+pytest:
 	@pytest
+
+sh:
+	@./tests/test_version
+
+tests: bats pytest

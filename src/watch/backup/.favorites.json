@@ -1,0 +1,18 @@
+[
+    {
+        "type": "File",
+        "name": "/home/j5pu/Downloads/watchman-2022.01.31.00/watchman/query/TermRegistry.h",
+        "parent_id": null,
+        "workspaceRoot": "/home/j5pu/Downloads/watchman-2022.01.31.00",
+        "workspacePath": "watchman/query/TermRegistry.h",
+        "id": "i4O7xH3eFaCfTKhX"
+    },
+    {
+        "type": "File",
+        "name": "/home/j5pu/Downloads/watchman-2022.01.31.00/watchman/cmds/subscribe.cpp",
+        "parent_id": null,
+        "workspaceRoot": "/home/j5pu/Downloads/watchman-2022.01.31.00",
+        "workspacePath": "watchman/cmds/subscribe.cpp",
+        "id": "o7uQWflNDstwKMh3"
+    }
+]

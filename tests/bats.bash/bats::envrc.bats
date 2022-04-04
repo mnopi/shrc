@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-setup_file() { load ../helpers/tests_helper; }
+setup_file() { load ../helpers/helper; }
 
 @test "\$PATH fixtures " {
   was=true

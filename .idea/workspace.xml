@@ -2,11 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/tests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pyrc/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pyrc/alias.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pyrc/bools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pyrc/typings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pyrc/vars.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/.favorites.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/docker-ce-install.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/setup.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/watchme" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/backup/watchme_first" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/examples/fsmonitor-watchman" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/lib/watchme.bash" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/models.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/watchman.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/watch/watchme.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/shrc/test_cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/watch/test_cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/watch/test_imports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/jetbrains.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/bools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/cli.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/helado.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/jetbrains.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/out.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/out.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/pretty.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/pretty.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/show.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/show.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/style.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/style.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/symbols.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/symbols.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/environment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bats.bash/_bats::sourced.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/_bats::sourced.bats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bats.bash/_bats::vars.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/_bats::vars.bats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bats.bash/asserts.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/asserts.bats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bats.bash/bats::array.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/bats::array.bats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bats.bash/bats::envrc.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/bats::envrc.bats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bats.bash/func::exported.bats" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bats.bash/func::exported.bats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/helpers/tests_helper.bash" beforeDir="false" afterPath="$PROJECT_DIR$/tests/helpers/helper.bash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/shrc/test_imports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_get.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_version" beforeDir="false" afterPath="$PROJECT_DIR$/tests/version/test_version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +128,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shrc" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/watch" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -93,18 +148,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/watch" />
+      <recent name="$PROJECT_DIR$/src/watch" />
       <recent name="$PROJECT_DIR$/src/shrc" />
-      <recent name="$PROJECT_DIR$/packages" />
-      <recent name="$PROJECT_DIR$/profile.d" />
-      <recent name="$PROJECT_DIR$/.github/workflows" />
-      <recent name="$PROJECT_DIR$/bin" />
+      <recent name="$PROJECT_WBOX$/backup" />
+      <recent name="$APPLICATION_CONFIG_DIR$/scratches/Typer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/.github/workflows" />
-      <recent name="$PROJECT_DIR$/tests" />
-      <recent name="$PROJECT_DIR$/packages" />
-      <recent name="$PROJECT_DIR$/src/shrc" />
-      <recent name="$PROJECT_DIR$/git" />
+      <recent name="$PROJECT_DIR$/tests/version" />
+      <recent name="$PROJECT_DIR$/src/watch" />
+      <recent name="$PROJECT_WBOX$/backup" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/tests/shrc" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
@@ -116,7 +171,7 @@
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
   </component>
-  <component name="RunManager" selected="Python.start">
+  <component name="RunManager" selected="Makefile Target.tests">
     <configuration name="url-exists" type="BashProRunConfiguration" folderName="dev-install" singleton="false">
       <option name="scriptPath" value="$PROJECT_DEV_INSTALL$/bin/url-exists" />
       <EXTENSION ID="net.ashald.envfile">
@@ -130,18 +185,6 @@
         </ENTRIES>
       </EXTENSION>
       <RunnerSettings bashdbVersion="Automatic" bashPathMapper="Automatic" RunnerId="pro.bashsupport.shDebugRunner" />
-      <method v="2" />
-    </configuration>
-    <configuration name="brew (1)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="brew" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="tests" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="tests" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
       <method v="2" />
     </configuration>
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -208,7 +251,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="start" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_imports" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="shrc" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -221,7 +264,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/start.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/shrc/test_imports.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,29 +293,29 @@
       <item itemvalue="BashSupport Pro.tar-extract https://... /bin/tmp" />
       <item itemvalue="BashSupport Pro.tar-extract https://... /tmp/.dev-install" />
       <item itemvalue="BashSupport Pro.tar-extract https://foo" />
-      <item itemvalue="BashSupport Pro.url-exists" />
       <item itemvalue="BashSupport Pro.url-exists -h" />
       <item itemvalue="BashSupport Pro.url-exists google.com" />
       <item itemvalue="BashSupport Pro.url-exists https://foo" />
+      <item itemvalue="BashSupport Pro.url-exists" />
       <item itemvalue="BashSupport Pro.. shenv.sh" />
-      <item itemvalue="BashSupport Pro.shenv.sh" />
       <item itemvalue="BashSupport Pro.shenv" />
-      <item itemvalue="BashSupport Pro.shenv -h" />
       <item itemvalue="BashSupport Pro.shenv --foo" />
+      <item itemvalue="BashSupport Pro.shenv -h" />
+      <item itemvalue="BashSupport Pro.shenv.sh" />
       <item itemvalue="Makefile Target.brew" />
+      <item itemvalue="Makefile Target.pytest" />
       <item itemvalue="Makefile Target.tests" />
-      <item itemvalue="Makefile Target.brew (1)" />
-      <item itemvalue="Python.pydevconsole" />
       <item itemvalue="Python.__init__" />
-      <item itemvalue="Python.start" />
+      <item itemvalue="Python.pydevconsole" />
+      <item itemvalue="Python.test_imports" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.start" />
+        <item itemvalue="Makefile Target.pytest" />
+        <item itemvalue="Makefile Target.tests" />
+        <item itemvalue="Python.test_imports" />
         <item itemvalue="Python.__init__" />
         <item itemvalue="Python.pydevconsole" />
-        <item itemvalue="Makefile Target.brew (1)" />
-        <item itemvalue="Makefile Target.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -282,6 +325,17 @@
     <option name="myEncoding" value="UTF-8" />
     <option name="myConnectionType" value="SSH_CONFIG" />
     <option name="myConnectionId" value="j5pu@msi:22 agent" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto" />
+      <created>1649078142421</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649078142421</updated>
+      <workItem from="1649078145002" duration="19000" />
+    </task>
+    <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -515,12 +569,12 @@
             </RunConfInfo>
           </value>
         </entry>
-        <entry key="Makefile Target.brew (1)">
+        <entry key="Makefile Target.pytest">
           <value>
             <RunConfInfo>
-              <option name="confId" value="Makefile Target.brew (1)" />
+              <option name="confId" value="Makefile Target.pytest" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649013288083" />
+              <option name="timestamp" value="1649085629214" />
             </RunConfInfo>
           </value>
         </entry>
@@ -529,7 +583,7 @@
             <RunConfInfo>
               <option name="confId" value="Makefile Target.tests" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1648959150135" />
+              <option name="timestamp" value="1649083563355" />
             </RunConfInfo>
           </value>
         </entry>

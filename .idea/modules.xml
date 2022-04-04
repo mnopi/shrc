@@ -18,7 +18,6 @@
       <module fileurl="file://$PROJECT_SHAURL$/.idea/shaurl.iml" filepath="$PROJECT_SHAURL$/.idea/shaurl.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/shrc.iml" filepath="$PROJECT_DIR$/.idea/shrc.iml" />
       <module fileurl="file://$PROJECT_TAP$/.idea/tap.iml" filepath="$PROJECT_TAP$/.idea/tap.iml" />
-      <module fileurl="file://$PROJECT_WBOX$/.idea/wbox.iml" filepath="$PROJECT_WBOX$/.idea/wbox.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-Icecream Wrapper Module
+Constants and Variables Module
 """
 __all__ = (
 )

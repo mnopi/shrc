@@ -1,0 +1,97 @@
+#!/usr/bin/python3
+
+import atexit
+import sys
+from pathlib import Path
+from sys import exit
+from typing import Optional
+
+import pywatchman
+from typer import Argument
+from typer import colors
+from typer import echo
+from typer import Option
+from typer import run
+from typer import style
+from typer import Typer
+
+app = Typer()
+
+def color(msg: str, end: str, name: str = 'YELLOW') -> dict:
+    return f'{style(msg + " ", fg=getattr(colors, name), bold=True)} {end}'
+    
+class Watchme:
+    client = None
+    fields = ["exists", "name", "new"]
+    files = None
+    loop = True
+    diff = True
+    
+    def __init__(self, root='.', loop=loop, diff=diff):
+        self.name = self.__class__.__name__.lower()
+        self.fields = fields if fields else self.fields
+        self.root = Path(sys.argv[1] if len(sys.argv) > 1 else '.').absolute()
+        
+        if not self.root.exists():
+            echo(color("x", f'root {self.root} does not exist.', 'RED'), err=True)   
+            exit(1)
+
+        with pywatchman.client() as self.client:
+            if not self.has():
+                echo(color("!", 'Root will be deleted from watch-list at exit'), err=True)   
+                atexit.register(self.clean)    
+            watch = self.client.query("watch-project", str(self.root))
+            if "warning" in watch:
+                echo(color("!", watch["warning"]), err=True)   
+                
+            self.run()
+        
+    def __repr__(self):
+        return f"{self.__class__.__name__}(root={self.root}, name={self.name}, update={self.update})"
+        
+    def clean(self):
+        self.client.query("watch-del", str(self.root))
+        del self.client       
+        if self.has():
+            echo(color("!", f'Root has not been deleted from watch-list {self.client.query("watch-list")["roots"]}'), err=True)   
+                                  
+    def has(self): 
+        if hasattr(self.client, 'query'):
+            return str(self.root) in self.client.query('watch-list')['roots'] if hasattr(self.client, 'query') else False
+        
+    def run(self):
+        self.client.query("subscribe", str(self.root), self.name, {"fields": self.fields})
+        while True:
+            try:
+                self.client.receive()
+                self.show()
+                last = self.client.sub_by_root[str(self.root)][self.name][-1]
+                if last['unilateral'] and not last['is_fresh_instance']:
+                    self.files = {i.pop('name'): i for i in last['files']}
+                    echo(self.files)
+                    if not self.loop:
+                        exit()
+            except pywatchman.SocketTimeout as ex:
+                try:
+                    self.client.query("version")
+                except Exception as ex:
+                    echo(color("x", f'watchman: {str(ex)}.', 'RED'), err=True)   
+                    exit(1)           
+            except KeyboardInterrupt:
+                exit(3)
+                
+    def show(self):
+        exit()
+ 
+def main(
+    root: Optional[Path] = Argument('.', help='Path to watch', metavar='[root]'), 
+    loop: Optional[bool] = Option(Watchme.loop, '--loop', '-l', help='Loop until keyboard interrupt, instead of exiting on first change'), 
+    diff: Optional[bool] = Option(Watchme.diff, '--diff', '-d', help='Copy files to show diffences')
+):
+    """Watch me doing changes."""
+    Watchme(root, loop, diff)
+    
+    # TODO: la opcion de loop y diff, lo de la -h y lo de quitar las opciones de completions
+if __name__ == '__main__':
+    run(main)
+  

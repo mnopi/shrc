@@ -1,0 +1,242 @@
+#!/usr/bin/python3
+
+__all__ = (
+  'Watchme',
+)
+
+# TODO: tests en github action
+# TODO: system.sh meterlo en is y con instalador manual
+# TODO: meter el git diff.
+# TODO: cambiar las dependencis de test a jrepl
+# TODO: algo que acualice las secrets a todos los que estan en home.
+# TODO: el homebrew no se actualiza al haberle puesto lo del release.
+# TODO: la linea de encoding
+# TODO: requirements.txt
+# TODO: template
+# TODO: cuando hago un push en una branch que haga el merge a main.. no .. pull request...
+# TODO: watchm (para el cliente y para diff), jetb (para instalar jetbrains) .. desues del template.
+import atexit
+import enum
+import subprocess
+import sys
+from contextlib import contextmanager
+from dataclasses import dataclass
+from dataclasses import field
+from difflib import unified_diff
+from pathlib import Path
+from sys import exit
+from tempfile import TemporaryDirectory
+from typing import ClassVar
+from typing import Optional
+from typing import Union
+
+import pywatchman
+import typer
+
+from hasis import tilde
+
+from typer import Abort
+from typer import Argument
+from typer import colors
+from typer import echo
+from typer import Exit
+from typer import Option
+from typer import run
+from typer import secho
+from typer import style
+from typer import Typer
+
+command = Path(__file__).name
+app = Typer(add_completion=False, name=command, no_args_is_help=True, invoke_without_command=True)
+exclude = [Path(_i) for _i in ('.git', 'venv', 'node_modules', '__pycache__', )]
+
+def color(msg: str, end: str = '', name: str = 'YELLOW') -> dict:
+    return f'{style(msg + " ", fg=getattr(colors, name), bold=True)} {end}'
+
+@dataclass
+class Watchme:
+    """Watch me helper class."""
+    diff: bool = True
+    exclude: list[str] = None
+    loop: bool = True
+    root: Union[Path, str] = '.'
+    files: dict[str, dict[str, bool]] = field(default=None, init=False)
+    delete: bool = field(default=False, init=False)
+    tmp: str = field(default=None, init=False)
+    client: ClassVar[pywatchman.client] = None
+    fields: ClassVar[tuple[str, str, str]] = ('exists', 'name', 'new')
+    
+    def __post_init__(self):
+        atexit.register(self.clean)
+        self.exclude = exclude + list(self.exclude)
+        self.root = Path(self.root).absolute()
+        if not self.root.exists():
+            echo(color('✘', f'Root: [{self.blue()}]: does not exist.', 'RED'), err=True)   
+            raise Exit(code=1)
+        if self.root.name == '/':
+            echo(color('✘', f'Root: [{self.blue()}]: can not be used.', 'RED'), err=True)   
+            raise Exit(code=1)
+        if subprocess.run(['test', '-w', self.root]).returncode != 0:
+            echo(color('！', f'Root: [{self.blue()}]: calling sudo (no write permission).'), err=True)
+            raise Exit(code=subprocess.run(['sudo'] + sys.argv).returncode)
+        if self.loop:
+            echo(color('！', 'Press Ctrl-C to exit'))
+            
+        self.run()
+           
+    def blue(self, msg: str = None):
+        if msg is None:
+            msg = self.tilde()
+        return style(msg, fg=colors.BLUE, bold=True)
+
+    @contextmanager
+    def client(self) -> pywatchman.client:
+        exists = lambda: str(self.root) in client.query('watch-list')['roots']
+        
+        with TemporaryDirectory() as self.tmp:
+            with pywatchman.client() as client:
+                try:
+                    delete = exists()
+                    if delete:
+                       echo(color('！', f'Root [{self.blue()}]: will be deleted from watch-list at exit'), err=True)    
+                    yield client
+                finally:
+                    if delete:
+                        client.query("watch-del", str(self.root))
+                    if exists():
+                        msg = f'Root [{self.blue()}]: has not been deleted from watch-list {self.client.query("watch-list")["roots"]}'
+                        echo(color('！', msg), err=True)
+
+    def error(self, msg) -> None:
+        pass
+        
+    def run(self):
+        with self.client() as client:
+            self.sync()
+            if not self.has():
+                self.delete = True
+
+            # HAY QUE GUARDAR EL "watch" de la response que sera el root que sera el root que el estime
+            # si tiene la configuracion y pone el relativo en 'relative_path', si no hay relative_path entonces
+            # watch es lo mismo que root, asi se optimiza or si luego hay otro mirando el mimso directorio o arriba.
+            #  Any triggers, subscriptions or queries that the client issues must be relative to the watched root to operate as expected.
+            # para con unsubscribe mejor.
+            # si ya esta subscrito el root a veces mejor hacer desde https://facebook.github.io/watchman/docs/nodejs.html 
+            # resp.watch del watch-project ? since: resp.clock en la subscriptcion.
+            watch = self.client.query('watch-project', str(self.root))
+            if 'warning' in watch:
+                echo(color('！', watch['warning']), err=True)   
+
+
+            self.client.query('subscribe', str(self.root), command, {'fields': self.fields})
+            echo(color('✔', 'Ready to Watch You!\n', 'GREEN'), err=True)
+            while True:
+                try:
+                    self.client.receive()
+                    last = self.client.sub_by_root[str(self.root)][command][-1]
+                    if last['unilateral'] and not last['is_fresh_instance']:
+                        self.files = {i.pop('name'): i for i in last['files']}
+                        self.show()
+                        if not self.loop:
+                            raise Exit()
+                except pywatchman.SocketTimeout as ex:
+                    try:
+                        self.client.query("version")
+                    except Exception as ex:
+                        self.clean(skip=True)
+                        echo(color('✘', f'watchman: {str(ex)}.', 'RED'), err=True)   
+                        raise Exit(code=1)           
+                except KeyboardInterrupt:
+                    raise Abort()
+                
+    # TODO: probar los cambios de cuando muevo fichero o es nuevo, poner mensaje en los que borro a mano
+    # TODO: mesaje de si es / que fuera, si el root no soy owner llamarlo con sudo.
+    # TODO: fichero de rquirements.
+    # TODO: publicar el paquete y el secho.
+    
+    def show(self):
+      for name, status in self.files.items():
+        tilde = self.tilde(name)
+        file1 = self.root / name
+        file2 = Path(self.tmp).absolute() / name
+        if status['new'] and file1.is_dir():
+            echo(color('+++', f'{self.blue(tilde)}', 'GREEN'), err=True)
+            self.sync(file1, str(file1.parent))
+        elif status['new']:
+            echo(color('+++', tilde, 'GREEN'), err=True)
+            self.sync(file1, file2)
+        elif not status['exists'] and file1.is_dir():
+            self.sync(file1, func=file2.rmdir)
+        elif not status['exists']:
+            echo(color('---', tilde, 'RED'), err=True)
+            self.sync(file1, func=file2.unlink)
+        elif (self.root / name).is_dir():
+            echo(color('+++', f'{self.blue(tilde)}', 'GREEN'), err=True)
+            self.sync(file1, str(file1.parent))
+        else:
+            if self.diff and file1.suffix not in ['.swp', ]:
+                line = None
+                if not file2.exists():
+                    self.sync(file1, file2)
+                for line in unified_diff(file1.read_text(), file2.read_text(), fromfile=self.tilde(file1), tofile=str(file2), lineterm=''):
+                    found = None 
+                    for key, value in {'+': 'GREEN', '-': 'RED', }.items():
+                        for i in (key * 3, key):
+                            if line.startswith(i):
+                                line = color(i, name=value) + line.removeprefix(i)
+                                found = True
+                                break
+                        if found:
+                            break
+                    echo(line, err=True)
+            else:
+                echo(color('>>>', tilde, 'MAGENTA'), err=True)
+
+    def sync(self, src=None, dest=None, func=None):
+            if self.diff:
+                if src is None:
+                    c = 'MAGENTA'
+                    start = f'Backup for diffs [{self.blue()}]: started'
+                    finish = f'Backup for diffs [{self.blue()}]: finished'
+                    src = f'{self.root}/'
+                    dest = self.tmp
+                else:
+                    c = 'YELLOW'
+                    start = f'Backup of changes [{self.blue(src)}]: started'
+                    finish = f'Backup of changes [{self.blue(src)}]: finished'
+                 
+                echo(color('＋', start, c), err=True)
+                if self.func is not None:
+                    func()
+                else:
+                    params = ('-a', '--links', '--delete', 
+                               *[item for sub in [["--exclude", f"**/{i.name}"] for i in self.exclude] for item in sub],
+                               src, dest)
+                    subprocess.run(['rsync', *params], stderr=subprocess.PIPE)
+                echo(color('＋', finish, c), err=True)
+       
+    def tilde(self, path: Path = None):
+        if path is None:
+            path = self.root
+        else:
+            path = self.root / path
+        return str(path).replace(str(Path.home()), '~')
+       
+@app.command()
+def main(
+    diff: Optional[bool] = Option(Watchme.diff, help='Copy files to show diffences'),
+    exclude: Optional[list[Path]] = Option([], '--exclude', '-e', help='Additional directories or files to exclude'),
+    loop: Optional[bool] = Option(Watchme.loop,
+        help='Loop until keyboard interrupt, instead of exiting on first change'), 
+    root: Optional[Path] = Argument('.', help='Path to watch'), 
+):
+    """
+    Watch me doing changes.
+    
+    watchme .config --diff --no-loop --exclude cache --exclude 'Applications Support'
+    """
+    Watchme(diff=diff, exclude=exclude, loop=loop, root=root)
+
+if __name__ == '__main__':
+    app()
+  

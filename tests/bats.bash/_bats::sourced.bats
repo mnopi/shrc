@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 setup_file() {
-  load ../helpers/tests_helper
+  load ../helpers/helper
   touch "${BATS_TMP}/foo"
 }
 
