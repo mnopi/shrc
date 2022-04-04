@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/src/gitp/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gitp/cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gitp/metadata.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shrc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shrc.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/packages/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/bools.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/bools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/console" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/get.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/helado.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/helado.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/out.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/out.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/pretty.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/pretty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/show.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/show.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/style.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/style.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/symbols.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/symbols.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/jetbrains.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

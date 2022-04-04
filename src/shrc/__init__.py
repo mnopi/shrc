@@ -11,6 +11,8 @@ from .cli import app
 from .color import *
 from . import color as color
 
+from .constants import *
+
 from .out import *
 from . import out as out
 
@@ -30,6 +32,7 @@ from .utils import *
 __all__ = \
     bools.__all__ + \
     color.__all__ + ('color', ) + \
+    constants.__all__ + \
     out.__all__ + ('out', ) + \
     show.__all__ + ('show', ) + \
     style.__all__ + ('style', ) + \
