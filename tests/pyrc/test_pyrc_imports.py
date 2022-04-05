@@ -8,6 +8,16 @@ import types
 from pyrc import *
 
 
+def test_imports():
+    """
+    Library Imports
+    """
+    assert isinstance(aiohttp, types.ModuleType)
+    assert isinstance(asyncio, types.ModuleType)
+    assert isinstance(click, types.ModuleType)
+    assert isinstance(typer, types.ModuleType)
+
+
 def test_imports_alias():
     """
     alias __all__
@@ -164,3 +174,5 @@ def test_imports_variables():
         isinstance(variables, types.ModuleType)
     assert "name 'variables' is not defined" in str(exception.value)
     assert "variables" not in globals()
+
+    assert isinstance(IS_IPYTHON, bool)

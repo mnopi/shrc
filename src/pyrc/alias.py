@@ -4,25 +4,13 @@ Typings Module
 """
 __all__ = (
     "cli_invoke",
-    "TempDir",
+    "rich_inspect",
 )
-import tempfile
-from pathlib import Path
 
+import rich
 from typer.testing import CliRunner
 
 cli_invoke = CliRunner().invoke
+rich_inspect = rich.inspect
 
 
-class TempDir(tempfile.TemporaryDirectory):
-    """
-    Wrapper for :class:`tempfile.TemporaryDirectory` that provides Path-like
-    """
-    def __enter__(self) -> Path:
-        """
-        Return the path of the temporary directory
-
-        Returns:
-            Path of the temporary directory
-        """
-        return Path(self.name)

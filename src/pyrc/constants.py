@@ -5,7 +5,8 @@ Constants and Variables Module
 __all__ = (
     "GITHUB_DOMAIN",
     "GITHUB_URL",
-    "GitScheme"
+    "GitScheme",
+    "PYTHON_FTP",
 )
 from typing import Literal
 
@@ -23,3 +24,5 @@ GITHUB_URL = {
 GitScheme = Literal["git+file", "git+https", "git+ssh", "https", "ssh"]
 """Repository/PyPi/Homebrew Formula Project Name"""
 PROJECT: str = "shrc"
+"""Python FTP Server"""
+PYTHON_FTP = "https://www.python.org/ftp/python"

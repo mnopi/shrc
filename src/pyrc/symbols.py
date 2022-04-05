@@ -3,6 +3,8 @@
 Symbols Module
 """
 __all__ = (
+    "click",
+
     'CRITICAL',
     'ERROR',
     'OK',

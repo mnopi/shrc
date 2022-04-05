@@ -4,9 +4,13 @@ WatchMan module.
 
 Dataclass wrapper for :class:``pywatchman.client``.
 """
-__all__ = ("WatchMan", )
+__all__ = (
+    "dataclass",
+    "pywatchman",
+    "WatchMan",
+)
 
-from dataclasses import dataclass
+from dataclasses import dataclass as dataclass
 from dataclasses import field
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -16,7 +20,7 @@ from typing import Optional
 from typing import Type
 from typing import Union
 from typing import Literal
-import pywatchman
+import pywatchman as pywatchman
 from pywatchman import Transport
 
 TransportType = Union[

@@ -4,6 +4,8 @@ Show symbol in color and message in normal (print)
 """
 
 __all__ = (
+    'typer',
+
     'critical',
     'error',
     'ok',
@@ -23,8 +25,7 @@ from typing import Any
 from typing import IO
 from typing import Optional
 
-import click
-import typer
+import typer as typer
 
 from .color import *
 from .symbols import *

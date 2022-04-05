@@ -5,9 +5,14 @@ Start
 import pytest
 import types
 
-import pywatchman
-
 from watch import *
+
+
+def test_imports():
+    """
+    Library Imports
+    """
+    assert isinstance(pywatchman, types.ModuleType)
 
 
 def test_imports_cli():
@@ -15,7 +20,7 @@ def test_imports_cli():
     cli None
     """
     with pytest.raises(NameError) as exception:
-        isinstance(cli, types.ModuleType)
+        isinstance(cli, types.ModuleType)   # type: ignore[name-defined]
     assert "name 'cli' is not defined" in str(exception.value)
     assert "cli" not in globals()
 

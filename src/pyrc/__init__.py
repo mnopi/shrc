@@ -17,12 +17,20 @@ from .typings import *
 from .utils import *
 from .variables import *
 
+from . import alias
 from . import bools as bools
 from . import color as color
+from . import constants
+from . import environment
+from . import jetbrains
 from . import out as out
+from . import pretty
 from . import show as show
 from . import style as style
 from . import symbols as symbols
+from . import typings
+from . import utils
+from . import variables
 
 __all__ = \
     alias.__all__ + \

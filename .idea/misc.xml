@@ -5,5 +5,5 @@
     <type id="Python" />
     <type id="web" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (wbox)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (shrc)" project-jdk-type="Python SDK" />
 </project>

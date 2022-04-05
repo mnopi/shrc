@@ -4,6 +4,7 @@
 JetBrains package
 """
 __all__ = (
+    "aiohttp",
     "JetBrains",
 )
 import asyncio
@@ -15,7 +16,7 @@ from dataclasses import dataclass
 from dataclasses import field
 from pathlib import Path
 
-import aiohttp
+import aiohttp as aiohttp
 import typer
 
 from .bools import LINUX

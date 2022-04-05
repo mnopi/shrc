@@ -61,12 +61,11 @@ import os
 import sys
 from typing import Any, Optional
 
-sys.path.extend(os.getcwd())
+if os.getcwd() not in sys.path:
+    sys.path = [os.getcwd()] + sys.path
 
-IS_IPYTHON = "__IPYTHON__" in globals()["__builtins__"]
 
-
-def is_terminal(self=None):
+def is_terminal(self=None) -> bool:
     """
     Patch of :data:``rich.Console.is_terminal`` for PyCharm.
 
@@ -80,11 +79,7 @@ def is_terminal(self=None):
         if self._force_terminal is not None:
             return self._force_terminal
     try:
-        return hasattr(sys, 'ps1') or \
-               IS_IPYTHON \
-               or sys.argv[0] == '' \
-               or hasattr(self, "file") and hasattr(self.file, "isatty") and self.file.satty() \
-               or 'pythonconsole' in sys.stdout.__class__.__module__
+        return IS_REPL or (hasattr(self, "file") and hasattr(self.file, "isatty") and self.file.isatty())
     except ValueError:
         # in some situation (at the end of a pytest run for example) isatty() can raise
         # ValueError: I/O operation on closed file
@@ -103,40 +98,10 @@ try:
 
     setattr(rich.console.Console, "is_terminal", is_terminal)
 
-    from rich.console import Console as Console  # type: ignore[name-defined]
+
+      # type: ignore[name-defined]
     console = Console()
 
-    def rinspect(obj: Any, *, _console: Optional[Console] = None, title: Optional[str] = None,
-                 _help: bool = False, methods: bool = True, docs: bool = False, private: bool = True,
-                 dunder: bool = False, sort: bool = True, _all: bool = False, value: bool = True,) -> None:
-        """
-        :meth:`rich.inspect` wrapper, changing defaults to: ``docs=False, methods=True, private=True``.
-
-        Inspect any Python object.
-
-        * inspect(<OBJECT>) to see summarized info.
-        * inspect(<OBJECT>, methods=True) to see methods.
-        * inspect(<OBJECT>, help=True) to see full (non-abbreviated) help.
-        * inspect(<OBJECT>, private=True) to see private attributes (single underscore).
-        * inspect(<OBJECT>, dunder=True) to see attributes beginning with double underscore.
-        * inspect(<OBJECT>, all=True) to see all attributes.
-
-        Args:
-            obj (Any): An object to inspect.
-            _console (Console, optional): Rich Console.
-            title (str, optional): Title to display over inspect result, or None use type. Defaults to None.
-            _help (bool, optional): Show full help text rather than just first paragraph. Defaults to False.
-            methods (bool, optional): Enable inspection of callables. Defaults to False.
-            docs (bool, optional): Also render doc strings. Defaults to True.
-            private (bool, optional): Show private attributes (beginning with underscore). Defaults to False.
-            dunder (bool, optional): Show attributes starting with double underscore. Defaults to False.
-            sort (bool, optional): Sort attributes alphabetically. Defaults to True.
-            _all (bool, optional): Show all attributes. Defaults to False.
-            value (bool, optional): Pretty print value. Defaults to True.
-        """
-        rich.inspect(obj=obj, console=_console, title=title, help=_help, methods=methods, docs=docs, private=private,
-                     dunder=dunder, sort=sort, all=_all, value=value)
-    rich_inspect = rich.inspect
     # rprint = console.print
     rich.pretty.install(expand_all=True)
     rich.traceback.install(show_locals=True)

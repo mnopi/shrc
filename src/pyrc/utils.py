@@ -3,18 +3,36 @@
 Utils Module
 """
 __all__ = (
-    "ExcType",
-    "amI",
+    "asyncio",
+    "getpass",
+    "contextlib",
+    "os",
+    "pwd",
+    "re",
+    "subprocess",
+    "sys",
+    "tarfile",
+    "Path",
+    "CompletedProcess",
+    "bs4",
+    "requests",
+    "VersionInfo",
+
     "CmdError",
+    "TempDir",
+
     "aioclone",
     "aiocmd",
     "aiodmg",
     "aiogz",
+    "amI",
     "clone",
     "cmd",
     "dmg",
     "github_url",
     "gz",
+    "is_terminal",
+    "python_versions",
     "suppress",
     "syssudo",
     "tardir",
@@ -22,29 +40,40 @@ __all__ = (
     "version",
 )
 
-import asyncio
-import getpass
+import asyncio as asyncio
+import getpass as getpass
 import importlib.metadata
-import contextlib
-import os
-import pwd
-import subprocess
-import sys
-import tarfile
-from pathlib import Path
-from subprocess import CompletedProcess
+import contextlib as contextlib
+import os as os
+import pwd as pwd
+import re as re
+import subprocess as subprocess
+import sys as sys
+import tarfile as tarfile
+import tempfile
+from pathlib import Path as Path
+from subprocess import CompletedProcess as CompletedProcess
+from typing import Any
 from typing import Callable
 from typing import ParamSpec
 from typing import TypeVar
 
-import semver
+import bs4 as bs4
+import requests as requests
+import rich.console
+import rich.pretty
+import rich.traceback
+from semver import VersionInfo as VersionInfo
 
-from .alias import TempDir
+from .alias import rich_inspect
 from .constants import GITHUB_URL
 from .constants import GitScheme
 from .constants import PROJECT
+from .constants import PYTHON_FTP
+from .environment import PYTHON_VERSION
 from .environment import USER
 from .typings import ExcType
+from .variables import IS_REPL
 
 T = TypeVar('T')
 P = ParamSpec('P')
@@ -71,23 +100,18 @@ class CmdError(subprocess.CalledProcessError):
         return rv
 
 
-def amI(user: str = "root") -> bool:
+class TempDir(tempfile.TemporaryDirectory):
     """
-    Check if Current User is User in Argument (default: root)
-
-    Examples:
-        >>> amI(USER)
-        True
-        >>> amI()
-        False
-
-    Arguments:
-        user: to check against current user (Default: False)
-
-    Returns:
-        CompletedProcess if the current user is not the same as user, None otherwise
+    Wrapper for :class:`tempfile.TemporaryDirectory` that provides Path-like
     """
-    return os.getuid() == pwd.getpwnam(user or getpass.getuser()).pw_uid
+    def __enter__(self) -> Path:
+        """
+        Return the path of the temporary directory
+
+        Returns:
+            Path of the temporary directory
+        """
+        return Path(self.name)
 
 
 async def aioclone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_default_scheme,
@@ -207,6 +231,25 @@ async def aiogz(src: Path | str, dest: Path | str = ".") -> Path:
         Absolute Path of the Uncompressed Directory
     """
     return await asyncio.to_thread(gz, src, dest)
+
+
+def amI(user: str = "root") -> bool:
+    """
+    Check if Current User is User in Argument (default: root)
+
+    Examples:
+        >>> amI(USER)
+        True
+        >>> amI()
+        False
+
+    Arguments:
+        user: to check against current user (Default: False)
+
+    Returns:
+        CompletedProcess if the current user is not the same as user, None otherwise
+    """
+    return os.getuid() == pwd.getpwnam(user or getpass.getuser()).pw_uid
 
 
 def clone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_default_scheme,
@@ -340,10 +383,6 @@ def github_url(owner: str = USER, repo: str | Path = PROJECT, scheme: GitScheme 
         return f"git+file://{repo}.git"
     return f"{GITHUB_URL[scheme]}{owner}/{repo}.git"
 
-# TODO: aqui lo dejo, meter el Path de los viejos y meter el tempdir y el tempfile y el
-#   gz y el otro a lo mejor. Terminar con el dmg.
-# https://github.com/create-dmg/create-dmg/blob/master/create-dmg
-
 
 def gz(src: Path | str, dest: Path | str = ".") -> Path:
     """
@@ -377,6 +416,89 @@ def gz(src: Path | str, dest: Path | str = ".") -> Path:
     with tarfile.open(src, "r:gz") as tar:
         tar.extractall(dest)
         return (dest / tar.getmembers()[0].name).parent.absolute()
+
+
+def is_terminal(self=None) -> bool:
+    """
+    Patch of :data:``rich.Console.is_terminal`` for PyCharm.
+
+    Check if the console is writing to a terminal.
+
+    Returns:
+        bool: True if the console writing to a device capable of
+        understanding terminal codes, otherwise False.
+    """
+    if hasattr(self, "_force_terminal"):
+        if self._force_terminal is not None:
+            return self._force_terminal
+    try:
+        return IS_REPL or (hasattr(self, "file") and hasattr(self.file, "isatty") and self.file.isatty())
+    except ValueError:
+        # in some situation (at the end of a pytest run for example) isatty() can raise
+        # ValueError: I/O operation on closed file
+        # return False because we aren't in a terminal anymore
+        return False
+    
+
+def python_versions(latest: str | int | None = PYTHON_VERSION) -> VersionInfo | tuple[VersionInfo, ...]:
+    """
+    Python versions avaialble
+
+    Examples:
+        >>> import platform
+        >>> v = platform.python_version()
+        >>> assert v in python_versions(None)
+        >>> assert python_versions(v).match(f">={v}")
+        >>> assert python_versions(v.rpartition(".")[0]).match(f">={v}")
+        >>> assert python_versions(sys.version_info.major).match(f">={v}")
+
+    Args:
+        latest: version startswith match, i.e.: "3", "3.10", "3.10", 3 or None for all (Default: `PYTHON_VERSION`).
+
+    Returns:
+        Tuple of Python Versions or Latest Python Version
+    """
+    versions = tuple(VersionInfo.parse(i.string)
+                     for l in bs4.BeautifulSoup(requests.get(PYTHON_FTP).text, 'html.parser').find_all('a')
+                     if (i := re.match('(([3]\.([7-9]|[1-9][0-9]))|[4]).*', l.get('href').rstrip('/'))))
+    if latest:
+        latest = str(latest)
+        latest = latest.rpartition(".")[0] if len(latest.split(".")) == 3 else latest
+        versions = [i for i in versions if str(i).startswith(latest)]
+        return sorted(versions)[-1]
+    return versions
+
+
+def rinspect(obj: Any, *, _console: rich.console.Console | None = None, title: str | None = None,
+             _help: bool = False, methods: bool = True, docs: bool = False, private: bool = True,
+             dunder: bool = False, sort: bool = True, _all: bool = False, value: bool = True,) -> None:
+    """
+    :meth:`rich.inspect` wrapper, changing defaults to: ``docs=False, methods=True, private=True``.
+
+    Inspect any Python object.
+
+    * inspect(<OBJECT>) to see summarized info.
+    * inspect(<OBJECT>, methods=True) to see methods.
+    * inspect(<OBJECT>, help=True) to see full (non-abbreviated) help.
+    * inspect(<OBJECT>, private=True) to see private attributes (single underscore).
+    * inspect(<OBJECT>, dunder=True) to see attributes beginning with double underscore.
+    * inspect(<OBJECT>, all=True) to see all attributes.
+
+    Args:
+        obj (Any): An object to inspect.
+        _console (Console, optional): Rich Console.
+        title (str, optional): Title to display over inspect result, or None use type. Defaults to None.
+        _help (bool, optional): Show full help text rather than just first paragraph. Defaults to False.
+        methods (bool, optional): Enable inspection of callables. Defaults to False.
+        docs (bool, optional): Also render doc strings. Defaults to True.
+        private (bool, optional): Show private attributes (beginning with underscore). Defaults to False.
+        dunder (bool, optional): Show attributes starting with double underscore. Defaults to False.
+        sort (bool, optional): Sort attributes alphabetically. Defaults to True.
+        _all (bool, optional): Show all attributes. Defaults to False.
+        value (bool, optional): Pretty print value. Defaults to True.
+    """
+    rich_inspect(obj=obj, console=_console, title=title, help=_help, methods=methods, docs=docs, private=private,
+                 dunder=dunder, sort=sort, all=_all, value=value)
 
 
 def suppress(func: Callable[P, T], exc: ExcType | None = None, *args: P.args, **kwargs: P.kwargs) -> T:
@@ -467,7 +589,7 @@ def version(package: str = PROJECT) -> str:
     Package installed version
 
     Examples:
-        >>> assert semver.VersionInfo.parse(version("pip"))
+        >>> assert VersionInfo.parse(version("pip"))
 
     Arguments:
         package: package name (Default: `PROJECT`)
