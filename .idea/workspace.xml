@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/src/pyrc/customize.py" afterDir="false" />
-      <change beforePath="$PROJECT_POSTFIX$/python/base.postfixTemplates" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_POSTFIX$/new.toml" afterDir="false" />
+      <change beforePath="$PROJECT_POSTFIX$/README.md" beforeDir="false" afterPath="$PROJECT_POSTFIX$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/git/env.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/alias.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/alias.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/environment.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/environment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/jetbrains.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pyrc/pretty.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/pretty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/show.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/show.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/symbols.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/symbols.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/variables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/watch/watchman.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/watch/watchman.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/pyrc/test_pyrc_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pyrc/test_pyrc_imports.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/watch/test_watch_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/watch/test_watch_imports.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +22,7 @@
         <option value="BashSupport Pro POSIX" />
         <option value="Unnamed" />
         <option value="Python Script" />
+        <option value="Toml" />
       </list>
     </option>
   </component>
@@ -53,7 +38,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_POSTFIX$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_SECRETS$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -81,7 +66,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -99,7 +83,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28820375" />
-    <property name="settings.editor.selected.configurable" value="Settings.CustomPostfixTemplates" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -118,11 +102,11 @@
       <recent name="$PROJECT_DIR$/.github/workflows" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_POSTFIX$" />
       <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/packages" />
       <recent name="$PROJECT_DIR$/src/shrc" />
-      <recent name="$PROJECT_DIR$/git" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">

@@ -98,7 +98,7 @@ try:
 
     setattr(rich.console.Console, "is_terminal", is_terminal)
 
-
+    # doctest: +SKIP
       # type: ignore[name-defined]
     console = Console()
 
