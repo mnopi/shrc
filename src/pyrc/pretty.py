@@ -46,7 +46,6 @@ Examples:
     >>> console.input("What is [i]your[/i] [bold red]name[/]? :smiley: ")  # doctest: +SKIP
 """
 __all__ = (
-    'IS_IPYTHON',
     'is_terminal',
     'print',
     'print_json',
@@ -59,32 +58,9 @@ __all__ = (
 )
 import os
 import sys
-from typing import Any, Optional
 
 if os.getcwd() not in sys.path:
     sys.path = [os.getcwd()] + sys.path
-
-
-def is_terminal(self=None) -> bool:
-    """
-    Patch of :data:``rich.Console.is_terminal`` for PyCharm.
-
-    Check if the console is writing to a terminal.
-
-    Returns:
-        bool: True if the console writing to a device capable of
-        understanding terminal codes, otherwise False.
-    """
-    if hasattr(self, "_force_terminal"):
-        if self._force_terminal is not None:
-            return self._force_terminal
-    try:
-        return IS_REPL or (hasattr(self, "file") and hasattr(self.file, "isatty") and self.file.isatty())
-    except ValueError:
-        # in some situation (at the end of a pytest run for example) isatty() can raise
-        # ValueError: I/O operation on closed file
-        # return False because we aren't in a terminal anymore
-        return False
 
 
 try:
@@ -98,13 +74,11 @@ try:
 
     setattr(rich.console.Console, "is_terminal", is_terminal)
 
-    # doctest: +SKIP
-      # type: ignore[name-defined]
     console = Console()
 
     # rprint = console.print
     rich.pretty.install(expand_all=True)
-    rich.traceback.install(show_locals=True)
+    rich.traceback.install(show_locals=True)  # Por esto necesito el sitecustomize.py ?
 except ModuleNotFoundError:
     print_json = print
     Console = object
