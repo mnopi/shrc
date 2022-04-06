@@ -8,7 +8,7 @@ __all__ = (
 )
 import sys
 
-"""True if running on iPython when imported, otherwise False"""
+"""True if running on iPython when imported, otherwise False."""
 IS_IPYTHON = "__IPYTHON__" in globals()["__builtins__"]
 
 """True if running on REPL, otherwise False."""

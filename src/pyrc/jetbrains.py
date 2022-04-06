@@ -4,7 +4,6 @@
 JetBrains package
 """
 __all__ = (
-    "aiohttp",
     "JetBrains",
 )
 import asyncio
@@ -16,14 +15,14 @@ from dataclasses import dataclass
 from dataclasses import field
 from pathlib import Path
 
-import aiohttp as aiohttp
+import aiohttp
 import typer
 
 from .bools import LINUX
-from .constants import PROJECT
 from .utils import aioclone
 from .utils import aiodmg
 from .utils import aiogz
+from .utils import version
 
 # https://github.com/0xbf00/dmglib/blob/master/docs/example.rst
 # https://stackoverflow.com/questions/6357914/how-do-i-install-a-dmg-file-from-the-command-line/6358679
@@ -93,9 +92,9 @@ class Application:
         print(await self.url)
         if not self.application.exists():
             async with self.session.get(await self.url, stream=True) as response:
-                async with tempfile.NamedTemporaryFile() as tmp:
+                with tempfile.NamedTemporaryFile() as tmp:
                     async for chunk in response.content.iter_chunked(1024):
-                        await tmp.write(chunk)
+                        await asyncio.to_thread(tmp.write, chunk)
                     await (aiogz if LINUX else aiodmg)(tmp.name, self.application)
 
     @property
@@ -134,18 +133,21 @@ class JetBrains:
             jetbrains.applications = [Application(name, jetbrains._session) for name, data in NAMES.items()
                                       if data["enable"] and data.get(sys.platform, True)]
 
-            rv = await asyncio.gather(*[application.install() for application in jetbrains.applications])
-            print(rv)
+            value = await asyncio.gather(*[application.install() for application in jetbrains.applications])
+            print(value)
 
 
-@app.command()
-def version() -> None:
+@app.command(name="version")
+def _version() -> None:
     """
     Prints the version of the package.
     Returns:
         None
     """
-    print(version(PROJECT))
+    print(version())
+
+
+print("Hola")
 
 
 if __name__ == "__main__":

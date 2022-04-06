@@ -21,7 +21,14 @@ from typing import Union
 
 import click
 
-from .color import *
+from .color import BLACK
+from .color import BLUE
+from .color import CYAN
+from .color import GREEN
+from .color import MAGENTA
+from .color import RED
+from .color import WHITE
+from .color import YELLOW
 
 
 # noinspection DuplicatedCode

@@ -8,16 +8,6 @@ import types
 from pyrc import *
 
 
-def test_imports():
-    """
-    Library Imports
-    """
-    assert isinstance(aiohttp, types.ModuleType)
-    assert isinstance(asyncio, types.ModuleType)
-    assert isinstance(click, types.ModuleType)
-    assert isinstance(typer, types.ModuleType)
-
-
 def test_imports_alias():
     """
     alias __all__
@@ -63,16 +53,16 @@ def test_imports_constants():
     assert isinstance(LINUX, bool)
 
 
-def test_imports_environment():
+def test_imports_env():
     """
     environment __all__
     """
     with pytest.raises(NameError) as exception:
-        isinstance(environment, types.ModuleType)
-    assert "name 'environment' is not defined" in str(exception.value)
-    assert "environment" not in globals()
+        isinstance(env, types.ModuleType)
+    assert "name 'env' is not defined" in str(exception.value)
+    assert "env" not in globals()
 
-    assert isinstance(USER, str)
+    assert isinstance(USER, (str, Noset))
 
 
 def test_imports_jetbrains():
@@ -106,8 +96,39 @@ def test_imports_pretty():
     assert "name 'pretty' is not defined" in str(exception.value)
     assert "pretty" not in globals()
 
-    assert isinstance(print, types.FunctionType)
     assert isinstance(is_terminal, types.FunctionType)
+
+
+def test_imports_startup():
+    """
+    repl __all__
+    """
+    with pytest.raises(NameError) as exception:
+        isinstance(startup, types.ModuleType)
+    assert "name 'startup' is not defined" in str(exception.value)
+    assert "startup" not in globals()
+
+    assert isinstance(print, types.FunctionType)
+
+    if IS_IPYTHON:
+        assert isinstance(warnings, types.ModuleType)
+    else:
+        with pytest.raises(NameError) as exception:
+            isinstance(warnings, types.ModuleType)
+            assert "name 'warnings' is not defined" in str(exception.value)
+            assert "warnings" not in globals()
+
+    if IS_REPL:
+        assert isinstance(asyncio, types.ModuleType)
+        assert console.color_system == 'auto'
+        assert console.is_terminal is True
+        assert isinstance(USER, str)
+        assert os.getcwd() in sys.path
+    else:
+        with pytest.raises(NameError) as exception:
+            isinstance(asyncio, types.ModuleType)
+            assert "name 'asyncio' is not defined" in str(exception.value)
+            assert "asyncio" not in globals()
 
 
 def test_imports_show():
@@ -164,6 +185,7 @@ def test_imports_utils():
     assert "utils" not in globals()
 
     assert isinstance(cmd, types.FunctionType)
+    assert isinstance(print, types.FunctionType)
 
 
 def test_imports_variables():

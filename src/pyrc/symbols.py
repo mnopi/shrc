@@ -3,8 +3,6 @@
 Symbols Module
 """
 __all__ = (
-    "click",
-
     'CRITICAL',
     'ERROR',
     'OK',
@@ -20,9 +18,14 @@ __all__ = (
     'WAIT',
 )
 
-import click 
+import click
 
-from .color import *
+from .color import BLUE
+from .color import CYAN
+from .color import GREEN
+from .color import MAGENTA
+from .color import RED
+from .color import YELLOW
 
 
 """symbol: '✘', color: RED (bg)"""

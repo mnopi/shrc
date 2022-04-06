@@ -28,7 +28,7 @@ def fg_diff(
     """
     Watch for changes in the foreground and shows pretty diff output per file against previous token (1 time run or
     loop)
-   
+
     watchme fg-diff --path .config --git --no-loop --exclude cache --exclude 'Applications Support'
     """
     WatchMe.run(exclude=exclude, git=git, loop=loop, path=path)
@@ -45,14 +45,14 @@ def fg_files(
     """
     Watch for changes in the foreground and shows pretty output of file changes against previous token (1 time run or
     loop)
-    
+
     `watchme fg-files --no-loop --exclude cache --exclude 'Applications Support'`
     """
     WatchMe.run(exclude=exclude, loop=loop, path=path)
 
 
 @app.command(name='--version')
-def version():
+def _version():
     """Show version and exit."""
     print(version())
 

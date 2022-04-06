@@ -4,8 +4,6 @@ Show symbol in color and message in normal (print)
 """
 
 __all__ = (
-    'typer',
-
     'critical',
     'error',
     'ok',
@@ -25,10 +23,30 @@ from typing import Any
 from typing import IO
 from typing import Optional
 
-import typer as typer
+import click
+import typer
 
-from .color import *
-from .symbols import *
+from .color import BLUE
+from .color import CYAN
+from .color import GREEN
+from .color import MAGENTA
+from .color import PRETTY
+from .color import RED
+from .color import WHITE
+from .color import YELLOW
+from .symbols import CRITICAL
+from .symbols import ERROR
+from .symbols import MINUS
+from .symbols import MORE
+from .symbols import MULTIPLY
+from .symbols import NOTICE
+from .symbols import OK
+from .symbols import PLUS
+from .symbols import SUCCESS
+from .symbols import VERBOSE
+from .symbols import WAIT
+from .symbols import WARNING
+
 
 _italic = lambda z: click.style(z, italic=True, bold=False)
 _style = lambda sep, color: click.style(sep, fg=WHITE, bold=False)
@@ -48,17 +66,17 @@ def critical(message: Any = None,
     Print: symbol: '✘', color: RED (bg), with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(CRITICAL, message, after, sep, RED), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -74,19 +92,19 @@ def error(message: Any = None,
           nl: bool = True) -> None:
     """
     Print: symbol: '✘', color: RED, with message in normal.
- 
+
     If after is specified will be appended to message with separator.
-   
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(ERROR, message, after, sep, RED), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -102,19 +120,19 @@ def ok(message: Any = None,
        nl: bool = True) -> None:
     """
     Print: symbol: '✔', color: GREEN, with message in normal.
- 
+
     If after is specified will be appended to message with separator.
-   
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(OK, message, after, sep, GREEN), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -132,17 +150,17 @@ def notice(message: Any = None,
     Print: symbol: '‼', color: CYAN, with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(NOTICE, message, after, sep, CYAN), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -160,17 +178,17 @@ def success(message: Any = None,
     Print: symbol: '◉', color: BLUE, with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(SUCCESS, message, after, sep, BLUE), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -188,17 +206,17 @@ def verbose(message: Any = None,
     Print: symbol: '＋', color: MAGENTA, with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(VERBOSE, message, after, sep, MAGENTA), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -217,17 +235,17 @@ def warning(message: Any = None,
     Print: symbol: '！', color: YELLOW, with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(WARNING, message, after, sep, YELLOW), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -245,17 +263,17 @@ def minus(message: Any = None,
     Print: symbol: '－', color: RED, with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(MINUS, message, after, sep, RED), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -273,17 +291,17 @@ def more(message: Any = None,
     Print: letter: '>, color: MAGENTA, with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(MORE, message, after, sep, MAGENTA), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -299,19 +317,19 @@ def multiply(message: Any = None,
              nl: bool = True) -> None:
     """
     Print: symbol: '×', color: BLUE, with message in normal.
-   
+
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(MULTIPLY, message, after, sep, BLUE), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -329,17 +347,17 @@ def plus(message: Any = None,
     Print: letter: '+', color: GREEN, with message in normal.
 
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(PLUS, message, after, sep, RED), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:
@@ -355,19 +373,19 @@ def wait(message: Any = None,
          nl: bool = True) -> None:
     """
     Print: symbol: '…', color: YELLOW (blink), with message in normal.
-    
+
     If after is specified will be appended to message with separator.
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      after: will be in italic with separator (default: None)
-      sep: separator between message and after (default: ':')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
+        message: to append to symbol (default: '')
+        after: will be in italic with separator (default: None)
+        sep: separator between message and after (default: ':')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
     """
     click.echo(_join(WAIT, message, after, sep, YELLOW), err=err, file=file, nl=nl, color=PRETTY)
     if code is not None:

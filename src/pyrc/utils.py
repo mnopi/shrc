@@ -3,21 +3,6 @@
 Utils Module
 """
 __all__ = (
-    "asyncio",
-    "getpass",
-    "contextlib",
-    "os",
-    "pwd",
-    "re",
-    "subprocess",
-    "sys",
-    "tarfile",
-    "Path",
-    "CompletedProcess",
-    "bs4",
-    "requests",
-    "VersionInfo",
-
     "CmdError",
     "TempDir",
 
@@ -25,13 +10,15 @@ __all__ = (
     "aiocmd",
     "aiodmg",
     "aiogz",
-    "amI",
+    "ami",
     "clone",
     "cmd",
     "dmg",
     "github_url",
     "gz",
     "is_terminal",
+    "python_latest",
+    "python_version",
     "python_versions",
     "suppress",
     "syssudo",
@@ -40,45 +27,44 @@ __all__ = (
     "version",
 )
 
-import asyncio as asyncio
-import getpass as getpass
+import asyncio
+import getpass
 import importlib.metadata
-import contextlib as contextlib
-import os as os
-import pwd as pwd
-import re as re
-import subprocess as subprocess
-import sys as sys
-import tarfile as tarfile
+import contextlib
+import os
+import platform
+import pwd
+import re
+import subprocess
+import sys
+import tarfile
 import tempfile
-from pathlib import Path as Path
-from subprocess import CompletedProcess as CompletedProcess
+from pathlib import Path
+from subprocess import CompletedProcess
 from typing import Any
 from typing import Callable
 from typing import ParamSpec
 from typing import TypeVar
 
-import bs4 as bs4
-import requests as requests
+import bs4
+import requests
+import rich
 import rich.console
 import rich.pretty
 import rich.traceback
-from semver import VersionInfo as VersionInfo
+from semver import VersionInfo
 
-from .alias import rich_inspect
+from .constants import GIT_DEFAULT_SCHEME
 from .constants import GITHUB_URL
 from .constants import GitScheme
 from .constants import PROJECT
 from .constants import PYTHON_FTP
-from .environment import PYTHON_VERSION
-from .environment import USER
+from .env import environment
 from .typings import ExcType
 from .variables import IS_REPL
 
 T = TypeVar('T')
 P = ParamSpec('P')
-
-git_default_scheme = "https"
 
 
 # TODO: aqui lo dejo: https://docs.python.org/3/library/importlib.html
@@ -96,12 +82,12 @@ class CmdError(subprocess.CalledProcessError):
         super().__init__(process.returncode, process.args, output=process.stdout, stderr=process.stderr)
 
     def __str__(self):
-        rv = super().__str__()
+        value = super().__str__()
         if self.stderr is not None:
-            rv += "\n" + self.stderr
+            value += "\n" + self.stderr
         if self.stdout is not None:
-            rv += "\n" + self.stdout
-        return rv
+            value += "\n" + self.stdout
+        return value
 
 
 class TempDir(tempfile.TemporaryDirectory):
@@ -118,7 +104,7 @@ class TempDir(tempfile.TemporaryDirectory):
         return Path(self.name)
 
 
-async def aioclone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_default_scheme,
+async def aioclone(owner: str | None = None, repo: str = PROJECT, scheme: GitScheme = GIT_DEFAULT_SCHEME,
                    path: Path | str = None) -> CompletedProcess:
     """
     Async Clone Repository
@@ -131,7 +117,7 @@ async def aioclone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = g
         ...     assert (directory / "README").exists()
 
     Args:
-        owner: github owner (Default: `USER`)
+        owner: github owner, None to use GIT or USER environment variable if not defined (Default: `GIT`)
         repo: github repository (Default: `PROJECT`)
         scheme: url scheme (Default: "https")
         path: path to clone (Default: `repo`)
@@ -237,14 +223,14 @@ async def aiogz(src: Path | str, dest: Path | str = ".") -> Path:
     return await asyncio.to_thread(gz, src, dest)
 
 
-def amI(user: str = "root") -> bool:
+def ami(user: str = "root") -> bool:
     """
     Check if Current User is User in Argument (default: root)
 
     Examples:
-        >>> amI(USER)
+        >>> ami(os.getenv("USER"))
         True
-        >>> amI()
+        >>> ami()
         False
 
     Arguments:
@@ -256,8 +242,8 @@ def amI(user: str = "root") -> bool:
     return os.getuid() == pwd.getpwnam(user or getpass.getuser()).pw_uid
 
 
-def clone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_default_scheme,
-          path: Path | str = None) -> CompletedProcess:
+def clone(owner: str | None = None, repo: str = PROJECT, scheme: GitScheme = GIT_DEFAULT_SCHEME,
+          path: Path | str = None) -> CompletedProcess | None:
     """
     Clone Repository
 
@@ -269,7 +255,7 @@ def clone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_defaul
         ...     assert (directory / "README").exists()
 
     Args:
-        owner: github owner (Default: `USER`)
+        owner: github owner, None to use GIT or USER environment variable if not defined (Default: `GIT`)
         repo: github repository (Default: `PROJECT`)
         scheme: url scheme (Default: "https")
         path: path to clone (Default: `repo`)
@@ -283,6 +269,7 @@ def clone(owner: str = USER, repo: str = PROJECT, scheme: GitScheme = git_defaul
         if not path.parent.exists():
             path.parent.mkdir(parents=True)
         return cmd("git", "clone", github_url(owner, repo, scheme), path)
+    return None
 
 
 def cmd(*args, **kwargs) -> CompletedProcess:
@@ -325,8 +312,9 @@ def cmdsudo(*args, user: str = "root", **kwargs) -> CompletedProcess | None:
     Returns:
         CompletedProcess if the current user is not the same as user, None otherwise
     """
-    if not amI(user):
+    if not ami(user):
         return cmd(["sudo", "-u", user, *args], **kwargs)
+    return None
 
 
 def dmg(src: Path | str, dest: Path | str) -> None:
@@ -353,7 +341,7 @@ def dmg(src: Path | str, dest: Path | str) -> None:
                 break
 
 
-def github_url(owner: str = USER, repo: str | Path = PROJECT, scheme: GitScheme = git_default_scheme) -> str:
+def github_url(owner: str | None = None, repo: str | Path = PROJECT, scheme: GitScheme = GIT_DEFAULT_SCHEME) -> str:
     """
     Get Repository URL
 
@@ -376,13 +364,17 @@ def github_url(owner: str = USER, repo: str | Path = PROJECT, scheme: GitScheme 
         'git@github.com:cpython/cpython.git'
 
     Args:
-        owner: github user (Default: `USER`)
+        owner: github owner, None to use GIT or USER environment variable if not defined (Default: `GIT`)
         repo: github repository (Default: `PROJECT`)
         scheme: url scheme (Default: "https")
 
     Returns:
         str
     """
+    if owner is None:
+        environment()
+        from .env import GIT, USER
+        owner = GIT or USER
     if scheme == "git+file":
         return f"git+file://{repo}.git"
     return f"{GITHUB_URL[scheme]}{owner}/{repo}.git"
@@ -422,7 +414,7 @@ def gz(src: Path | str, dest: Path | str = ".") -> Path:
         return (dest / tar.getmembers()[0].name).parent.absolute()
 
 
-def is_terminal(self=None) -> bool:
+def is_terminal(self: rich.console.Console | None = None) -> bool:
     """
     Patch of :data:``rich.Console.is_terminal`` for PyCharm.
 
@@ -432,52 +424,78 @@ def is_terminal(self=None) -> bool:
         bool: True if the console writing to a device capable of
         understanding terminal codes, otherwise False.
     """
-    if hasattr(self, "_force_terminal"):
-        if self._force_terminal is not None:
-            return self._force_terminal
+    if not isinstance(self, rich.console.Console):
+        self = c if (c := globals().get('console')) is not None and isinstance(c, rich.console.Console) \
+            else rich.console.Console()
+
+    if self._force_terminal is not None:
+        return self._force_terminal
+
     try:
         return IS_REPL or (hasattr(self, "file") and hasattr(self.file, "isatty") and self.file.isatty())
     except ValueError:
-        # in some situation (at the end of a pytest run for example) isatty() can raise
-        # ValueError: I/O operation on closed file
-        # return False because we aren't in a terminal anymore
         return False
-    
 
-def python_versions(latest: str | int | None = PYTHON_VERSION) -> VersionInfo | tuple[VersionInfo, ...]:
+
+def python_latest(start: str | int | None = None) -> VersionInfo:
+    """
+    Python latest version avaialble
+
+    Examples:
+        >>> v = platform.python_version()
+        >>> assert python_latest(v).match(f">={v}")
+        >>> assert python_latest(v.rpartition(".")[0]).match(f">={v}")
+        >>> assert python_latest(sys.version_info.major).match(f">={v}")
+
+    Args:
+        start: version startswith match, i.e.: "3", "3.10", "3.10", 3 or None to use `PYTHON_VERSION`
+          environment variable or :obj:``sys.version`` if not set (Default: None).
+
+    Returns:
+        Latest Python Version
+    """
+    start = str(start)
+    start = start.rpartition(".")[0] if len(start.split(".")) == 3 else start
+    return sorted([i for i in python_versions() if str(i).startswith(start)])[-1]
+
+
+def python_version() -> str:
+    """
+    Major and Minor Python Version from ``PYTHON_VERSION` environment variable or :obj:``sys.version``
+
+    Examples:
+        >>> v = python_version()
+        >>> assert platform.python_version().startswith(v)
+        >>> assert len(v.split(".")) == 2
+
+    Returns:
+        str
+    """
+    return os.getenv("PYTHON_VERSION", platform.python_version().rpartition(".")[0])
+
+
+def python_versions() -> tuple[VersionInfo, ...]:
     """
     Python versions avaialble
 
     Examples:
-        >>> import platform
         >>> v = platform.python_version()
-        >>> assert v in python_versions(None)
-        >>> assert python_versions(v).match(f">={v}")
-        >>> assert python_versions(v.rpartition(".")[0]).match(f">={v}")
-        >>> assert python_versions(sys.version_info.major).match(f">={v}")
-
-    Args:
-        latest: version startswith match, i.e.: "3", "3.10", "3.10", 3 or None for all (Default: `PYTHON_VERSION`).
+        >>> assert v in python_versions()
 
     Returns:
-        Tuple of Python Versions or Latest Python Version
+        Tuple of Python Versions
     """
-    versions = tuple(VersionInfo.parse(i.string)
-                     for l in bs4.BeautifulSoup(requests.get(PYTHON_FTP).text, 'html.parser').find_all('a')
-                     if (i := re.match('(([3]\.([7-9]|[1-9][0-9]))|[4]).*', l.get('href').rstrip('/'))))
-    if latest:
-        latest = str(latest)
-        latest = latest.rpartition(".")[0] if len(latest.split(".")) == 3 else latest
-        versions = [i for i in versions if str(i).startswith(latest)]
-        return sorted(versions)[-1]
-    return versions
+    return tuple(VersionInfo.parse(i.string)
+                 for l in bs4.BeautifulSoup(requests.get(PYTHON_FTP).text, 'html.parser').find_all('a')
+                 if (i := re.match(r'(([3]\.([7-9]|[1-9][0-9]))|[4]).*', l.get('href').rstrip('/'))))
 
 
 def rinspect(obj: Any, *, _console: rich.console.Console | None = None, title: str | None = None,
              _help: bool = False, methods: bool = True, docs: bool = False, private: bool = True,
              dunder: bool = False, sort: bool = True, _all: bool = False, value: bool = True,) -> None:
     """
-    :meth:`rich.inspect` wrapper, changing defaults to: ``docs=False, methods=True, private=True``.
+    :func:`rich.inspect` wrapper for :class:`rich._inspect.Inspect`,
+    changing defaults to: ``docs=False, methods=True, private=True``.
 
     Inspect any Python object.
 
@@ -501,16 +519,16 @@ def rinspect(obj: Any, *, _console: rich.console.Console | None = None, title: s
         _all (bool, optional): Show all attributes. Defaults to False.
         value (bool, optional): Pretty print value. Defaults to True.
     """
-    rich_inspect(obj=obj, console=_console, title=title, help=_help, methods=methods, docs=docs, private=private,
+    rich.inspect(obj=obj, console=_console, title=title, help=_help, methods=methods, docs=docs, private=private,
                  dunder=dunder, sort=sort, all=_all, value=value)
 
 
-def suppress(func: Callable[P, T], exc: ExcType | None = None, *args: P.args, **kwargs: P.kwargs) -> T:
+def suppress(func: Callable[P, T], *args: P.args, exc: ExcType | None = None, **kwargs: P.kwargs) -> T:
     """
     Try and supress exception.
 
     """
-    with contextlib.suppress(exc or Exception): 
+    with contextlib.suppress(exc or Exception):
         return func(*args, **kwargs)
 
 
@@ -524,8 +542,9 @@ def syssudo(user: str = "root") -> CompletedProcess | None:
     Returns:
         CompletedProcess if the current user is not the same as user, None otherwise
     """
-    if not amI(user):
+    if not ami(user):
         return cmd(["sudo", "-u", user, sys.executable, *sys.argv])
+    return None
 
 
 def tardir(src: Path | str) -> Path:
@@ -566,7 +585,7 @@ def tardir(src: Path | str) -> Path:
     name = Path(src).name + ".tar.gz"
     dest = Path(name)
     with tarfile.open(dest, 'w:gz') as tar:
-        for root, dirs, files in os.walk(src):
+        for root, _, files in os.walk(src):
             for file_name in files:
                 tar.add(os.path.join(root, file_name))
         return dest.absolute()
@@ -601,5 +620,5 @@ def version(package: str = PROJECT) -> str:
     Returns
         Installed version
     """
-    return suppress(importlib.metadata.version, importlib.metadata.PackageNotFoundError, 
+    return suppress(importlib.metadata.version, importlib.metadata.PackageNotFoundError,
                     package or Path(__file__).parent.name)

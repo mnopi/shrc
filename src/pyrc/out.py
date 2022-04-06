@@ -24,7 +24,15 @@ from typing import Union
 import click
 import typer
 
-from .color import *
+from .color import BLACK
+from .color import BLUE
+from .color import CYAN
+from .color import GREEN
+from .color import MAGENTA
+from .color import PRETTY
+from .color import RED
+from .color import YELLOW
+from .color import WHITE
 
 
 # noinspection DuplicatedCode
@@ -45,25 +53,25 @@ def black(message: Any = None,
           reset: bool = True) -> None:
     """
     Print with fg=BLACK
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=BLACK, bg=bg, bold=bold, dim=dim, underline=underline,
@@ -90,25 +98,25 @@ def blue(message: Any = None,
          reset: bool = True) -> None:
     """
     Print with fg=BLUE
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)    
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=BLUE, bg=bg, bold=bold, dim=dim, underline=underline,
@@ -135,25 +143,25 @@ def cyan(message: Any = None,
          reset: bool = True) -> None:
     """
     Print with fg=CYAN
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)        
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=CYAN, bg=bg, bold=bold, dim=dim, underline=underline,
@@ -180,25 +188,25 @@ def green(message: Any = None,
           reset: bool = True) -> None:
     """
     Print with fg=GREEN
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)    
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=GREEN, bg=bg, bold=bold, dim=dim, underline=underline,
@@ -225,25 +233,25 @@ def magenta(message: Any = None,
             reset: bool = True) -> None:
     """
     Print with fg=MAGENTA
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)        
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=MAGENTA, bg=bg, bold=bold, dim=dim, underline=underline,
@@ -270,25 +278,25 @@ def red(message: Any = None,
         reset: bool = True) -> None:
     """
     Print with fg=RED
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)        
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=RED, bg=bg, bold=bold, dim=dim, underline=underline,
@@ -315,25 +323,25 @@ def white(message: Any = None,
           reset: bool = True) -> None:
     """
     Print with fg=WHITE
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=WHITE, bg=bg, bold=bold, dim=dim, underline=underline,
@@ -360,26 +368,25 @@ def yellow(message: Any = None,
            reset: bool = True) -> None:
     """
     Print with fg=YELLOW
-    
-    
+
     To disable color use 'PRETTY' env var.
-    
+
     Arguments:
-      message: to append to symbol (default: '')
-      code: exit code, will exit if not None (default: None)
-      err: print to stderr (default: True)
-      file: file to write output (default: None)
-      nl: output new line (default: False)    
-      bg: background color (default: None)
-      bold: bold text (default: None)
-      dim: dim (default: None)
-      underline: underline (default: None)
-      overline: overline (default: None)
-      italic: italic (default: None)
-      blink: blink (default: None)
-      reverse: reverse (default: None)
-      strikethrough: strikethrough (default: None)
-      reset: reset (default: True)
+        message: to append to symbol (default: '')
+        code: exit code, will exit if not None (default: None)
+        err: print to stderr (default: True)
+        file: file to write output (default: None)
+        nl: output new line (default: False)
+        bg: background color (default: None)
+        bold: bold text (default: None)
+        dim: dim (default: None)
+        underline: underline (default: None)
+        overline: overline (default: None)
+        italic: italic (default: None)
+        blink: blink (default: None)
+        reverse: reverse (default: None)
+        strikethrough: strikethrough (default: None)
+        reset: reset (default: True)
     """
     click.secho(message, err=err, file=file, nl=nl, color=PRETTY,
                 fg=YELLOW, bg=bg, bold=bold, dim=dim, underline=underline,
