@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="make-jobs" type="BashProRunConfiguration" folderName="dev-install">
+  <configuration default="false" name="make-jobs" type="BashProRunConfiguration" folderName="dev-install [BashSupport Pro]">
     <option name="scriptPath" value="$PROJECT_DEV_INSTALL$/bin/make-jobs" />
     <EXTENSION ID="net.ashald.envfile">
       <option name="IS_ENABLED" value="false" />

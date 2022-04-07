@@ -34,6 +34,9 @@ from . import typings
 from . import utils
 from . import variables
 
+if IS_REPL:
+    environment()
+
 __all__ = \
     alias.__all__ + \
     bools.__all__ + \
@@ -56,6 +59,7 @@ __all__ = \
     ("show", ) + \
     ("style", ) + \
     ("symbols", )
+
 
 if __name__ == "__main__":
     import typer

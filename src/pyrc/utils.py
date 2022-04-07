@@ -4,6 +4,7 @@ Utils Module
 """
 __all__ = (
     "CmdError",
+    "GhApi",
     "TempDir",
 
     "aioclone",
@@ -47,6 +48,7 @@ from typing import ParamSpec
 from typing import TypeVar
 
 import bs4
+import ghapi.all
 import requests
 import rich
 import rich.console
@@ -60,6 +62,12 @@ from .constants import GitScheme
 from .constants import PROJECT
 from .constants import PYTHON_FTP
 from .env import environment
+from .env import GIT
+from .env import GH_TOKEN
+from .env import GITHUB_TOKEN
+from .env import TOKEN
+from .env import NOSET
+from .env import USER
 from .typings import ExcType
 from .variables import IS_REPL
 
@@ -88,6 +96,15 @@ class CmdError(subprocess.CalledProcessError):
         if self.stdout is not None:
             value += "\n" + self.stdout
         return value
+
+
+class GhApi(ghapi.all.GhApi):
+    """:class:`ghapi.all.GhApi` with some customizations for :mod:`pyrc.env`."""
+    def __init__(self, owner=None, repo=None, token=None, debug=None, limit_cb=None, **kwargs):
+        environment()
+        super().__init__(owner=owner or GIT or USER, repo=repo or PROJECT,
+                         token=token or GH_TOKEN or GITHUB_TOKEN or TOKEN,
+                         debug=debug, limit_cb=limit_cb, **kwargs)
 
 
 class TempDir(tempfile.TemporaryDirectory):
@@ -371,9 +388,8 @@ def github_url(owner: str | None = None, repo: str | Path = PROJECT, scheme: Git
     Returns:
         str
     """
-    if owner is None:
+    if owner in (NOSET, None):
         environment()
-        from .env import GIT, USER
         owner = GIT or USER
     if scheme == "git+file":
         return f"git+file://{repo}.git"

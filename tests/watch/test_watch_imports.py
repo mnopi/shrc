@@ -33,8 +33,8 @@ def test_imports_startup():
     else:
         with pytest.raises(NameError) as exception:
             isinstance(pywatchman, types.ModuleType)
-            assert "name 'asyncio' is not defined" in str(exception.value)
-            assert "asyncio" not in globals()
+        assert "name 'asyncio' is not defined" in str(exception.value)
+        assert "asyncio" not in globals()
 
 
 def test_imports_watchme():

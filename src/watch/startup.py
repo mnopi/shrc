@@ -11,4 +11,4 @@ if IS_REPL:
         "pywatchman",
     )
 
-    import pywatchman as pywatchman
+    import pywatchman

@@ -4,6 +4,7 @@ pyrc environment package
 """
 import os
 import ipaddress
+import sys
 import urllib.parse
 
 from ipaddress import IPv4Address
@@ -32,7 +33,7 @@ __all__ = \
 def environment(variable: bool | str = None) -> \
         bool | Path | ParseResult | IPv4Address | IPv6Address | int | str | None:
     """
-    Parses variable from environment or parses and sets globals in :mod:``pyrc.env``
+    Parses variable from environment or parses and sets caller globals in :mod:``pyrc.env``
     from environment variables if they are not set
 
     If called with True, will overwirte again the globals associated to the environment variables
@@ -50,17 +51,20 @@ def environment(variable: bool | str = None) -> \
             or None to parse all in :mod:``pyrc.env`` (default: None)
 
     Examples:
+        >>> cwd = Path.cwd()
         >>> assert USER == NOSET
         >>> assert PWD == NOSET
         >>> environment()
         >>> assert USER == os.environ.get('USER')
-        >>> assert PWD == Path.cwd().absolute()
+        >>> assert PWD == cwd.absolute()
         >>>
-        >>> os.chdir('/tmp')
+        >>> tmp = Path('/tmp').resolve()
+        >>> os.environ['PWD'] = str(tmp)
+        >>> os.chdir(tmp)
         >>> environment()
-        >>> assert PWD == Path.cwd().absolute()
+        >>> assert PWD == cwd.absolute()
         >>> environment(True)
-        >>> assert PWD == Path('/tmp').absolute()
+        >>> assert PWD == tmp
         >>>
         >>> os.environ['FOO'] = '1'
         >>> assert environment("FOO") is True
@@ -71,43 +75,43 @@ def environment(variable: bool | str = None) -> \
         >>> os.environ['FOO'] = 'TrUe'
         >>> assert environment("FOO") is True
         >>>
-        >>> os.environ['FOO'] = '0FF'
+        >>> os.environ['FOO'] = 'OFF'
         >>> assert environment("FOO") is False
         >>>
         >>> os.environ['FOO'] = '~/foo'
-        >>> assert environment("FOO") = Path('~/foo')
+        >>> assert environment("FOO") == Path('~/foo')
         >>>
         >>> os.environ['FOO'] = '/foo'
-        >>> assert environment("FOO") = Path('/foo')
+        >>> assert environment("FOO") == Path('/foo')
         >>>
         >>> os.environ['FOO'] = './foo'
-        >>> assert environment("FOO") = Path('./foo')
+        >>> assert environment("FOO") == Path('./foo')
         >>>
         >>> os.environ['FOO'] = './foo'
-        >>> assert environment("FOO") = Path('./foo')
+        >>> assert environment("FOO") == Path('./foo')
         >>>
         >>> v = "https://github.com"
         >>> os.environ['FOO'] = v
-        >>> assert environment("FOO").geturl() = v
+        >>> assert environment("FOO").geturl() == v
         >>>
         >>> v = "git@github.com"
         >>> os.environ['FOO'] = v
-        >>> assert environment("FOO").geturl() = v
+        >>> assert environment("FOO").geturl() == v
         >>>
         >>> v = "0.0.0.0"
         >>> os.environ['FOO'] = v
-        >>> assert environment("FOO").exploded = v
+        >>> assert environment("FOO").exploded == v
         >>>
         >>> os.environ['FOO'] = "::1"
         >>> assert environment("FOO").exploded.endswith(":0001")
         >>>
         >>> v = "2"
         >>> os.environ['FOO'] = v
-        >>> assert environment("FOO") = int(v)
+        >>> assert environment("FOO") == int(v)
         >>>
         >>> v = "2.0"
         >>> os.environ['FOO'] = v
-        >>> assert environment("FOO") = v
+        >>> assert environment("FOO") == v
         >>>
         >>> del os.environ['FOO']
         >>> assert environment("FOO") is None
@@ -124,7 +128,7 @@ def environment(variable: bool | str = None) -> \
                 return True
             elif value.lower() in ['0', 'false', 'no', 'off']:
                 value = False
-            elif value[0] in ['/', '~', '.']:
+            elif value[0] in ['/', '~', '.'] and var != "PATH":
                 value = Path(value)
             elif '://' in value or '@' in value:
                 value = urllib.parse.urlparse(value)
@@ -136,13 +140,19 @@ def environment(variable: bool | str = None) -> \
                         last = int(value)
         return last or value
 
-    if variable:
+    force = variable
+
+    if variable and force is not True:
         return parse(variable)
 
-    for variable in __all__:
+    data = data if (data := sys._getframe(1).f_globals).get(__all__[0]) else globals()
+    data = sys._getframe(1).f_globals
+
+    for variable in sorted(set(__all__)):
         if variable.lower() == NOSET.name or variable == environment.__name__:
             continue
-        if globals()[variable] != NOSET and variable is not True:
+
+        if data[variable] != NOSET and force is not True:
             return
 
-        globals()[variable] = parse(variable)
+        data[variable] = parse(variable)

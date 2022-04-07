@@ -110,7 +110,7 @@ def test_imports_startup():
 
     assert isinstance(print, types.FunctionType)
 
-    if IS_IPYTHON:
+    if IPYTHON:
         assert isinstance(warnings, types.ModuleType)
     else:
         with pytest.raises(NameError) as exception:
@@ -120,7 +120,7 @@ def test_imports_startup():
 
     if IS_REPL:
         assert isinstance(asyncio, types.ModuleType)
-        assert console.color_system == 'auto'
+        assert console.color_system is not None
         assert console.is_terminal is True
         assert isinstance(USER, str)
         assert os.getcwd() in sys.path
@@ -197,4 +197,4 @@ def test_imports_variables():
     assert "name 'variables' is not defined" in str(exception.value)
     assert "variables" not in globals()
 
-    assert isinstance(IS_IPYTHON, bool)
+    assert isinstance(IPYTHON, bool)

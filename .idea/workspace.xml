@@ -2,36 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/src/pyrc/env/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/env/default.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/env/noset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/env/secrets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/env/system.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyrc/startup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/watch/startup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_SECRETS$/bin/secrets.sh" beforeDir="false" afterPath="$PROJECT_SECRETS$/bin/secrets.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest_for_pyrc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythonstartup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/env/default.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/env/secrets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/env/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/__shenv_sh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/__shenv_sh.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_env_bash.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_env_bash.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python___foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python___foo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python__h.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python__h.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_commands.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_commands.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_installed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_installed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_latest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_latest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_prefix.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_prefix.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_update.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_update.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_upgrade.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/dev_python_upgrade.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/make_jobs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/make_jobs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/make_jobs___foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/make_jobs___foo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/make_jobs__h.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/make_jobs__h.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/pytest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/shenv.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/shenv.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/shenv___foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/shenv___foo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/shenv__h.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/shenv__h.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/shenv_sh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/shenv_sh.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract__h.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract__h.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https_______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https_______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https________bin_tmp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https________bin_tmp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https________tmp__dev_install.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https________tmp__dev_install.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https___foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tar_extract_https___foo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/tests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/tests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/url_exists__h.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/url_exists__h.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/url_exists_google_com.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/url_exists_google_com.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/url_exists_https___foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/url_exists_https___foo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shrc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shrc.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pyrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/alias.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/alias.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/bools.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/bools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/environment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/env/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/env/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/env/default.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/env/noset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/env/noset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/env/secrets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/env/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/env/system.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pyrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/jetbrains.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/out.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/out.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/pretty.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/pretty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/show.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/show.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/style.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/style.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/symbols.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/symbols.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pyrc/startup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/startup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pyrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pyrc/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pyrc/variables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/watch/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/watch/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/watch/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/watch/cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/watch/startup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/watch/startup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/pyrc/test_pyrc_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pyrc/test_pyrc_imports.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/watch/test_watch_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/watch/test_watch_imports.py" afterDir="false" />
     </list>
@@ -51,6 +70,7 @@
         <option value="Unnamed" />
         <option value="Toml" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -80,9 +100,9 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/packages/requirements.txt" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/.idea/shrc.iml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bin/shrc" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.idea/shrc.iml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/packages/requirements.txt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="mnlexnv2" />
@@ -94,7 +114,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -104,38 +123,39 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pyrc/env" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Jupyter&#10;Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/env" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28820375" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings module-name="shrc">
+      <console-settings module-name="shrc" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
         <option name="myModuleName" value="shrc" />
       </console-settings>
     </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pyrc/env" />
+      <recent name="$PROJECT_DIR$/src/env" />
       <recent name="$PROJECT_DIR$/src/pyrc" />
+      <recent name="$PROJECT_DIR$/../JetBrains/scratch/scratches" />
+      <recent name="$PROJECT_DIR$/src/pyrc/env" />
       <recent name="$PROJECT_DIR$/src/watch" />
-      <recent name="$PROJECT_DIR$/tests" />
-      <recent name="$PROJECT_DIR$/../JetBrains/scratch/scratches/Tools/Pylint" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/pyrc/env" />
       <recent name="$PROJECT_POSTFIX$" />
       <recent name="$PROJECT_DIR$/.github/workflows" />
-      <recent name="$PROJECT_DIR$/tests" />
-      <recent name="$PROJECT_DIR$/packages" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
@@ -147,8 +167,12 @@
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
   </component>
-  <component name="RunManager" selected="Python tests.Doctests in noset">
-    <configuration name="url-exists" type="BashProRunConfiguration" folderName="dev-install" singleton="false">
+  <component name="RunManager" selected="Python tests.pytest for pyrc">
+    <configuration default="true" type="BashProRunConfiguration">
+      <RunnerSettings bashdbVersion="Automatic" bashPathMapper="Automatic" RunnerId="pro.bashsupport.shDebugRunner" />
+      <method v="2" />
+    </configuration>
+    <configuration name="url-exists" type="BashProRunConfiguration" folderName="dev-install [BashSupport Pro]" singleton="false">
       <option name="scriptPath" value="$PROJECT_DEV_INSTALL$/bin/url-exists" />
       <EXTENSION ID="net.ashald.envfile">
         <option name="IS_ENABLED" value="false" />
@@ -169,15 +193,12 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="scratch_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for env" type="tests" factoryName="py.test" folderName="shrc [Python tests]" nameIsGenerated="true">
       <module name="shrc" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -192,95 +213,38 @@
           <ENTRY IS_ENABLED="true" PARSER="runconfig" />
         </ENTRIES>
       </EXTENSION>
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="true" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;env&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="site" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="shrc" />
+    <configuration name="pytest for watch" type="tests" factoryName="py.test" folderName="shrc [Python tests]" nameIsGenerated="true">
+      <module name="repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="start" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="shrc" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/start.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Doctests in Noset" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
-      <module name="shrc" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pyrc/env" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pyrc/env/noset.py" />
-      <option name="CLASS_NAME" value="Noset" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_CLASS" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Doctests in noset" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
-      <module name="shrc" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pyrc/env" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pyrc/env/noset.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;watch&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
@@ -312,22 +276,16 @@
       <item itemvalue="BashSupport Pro.shenv -h" />
       <item itemvalue="BashSupport Pro.. shenv.sh" />
       <item itemvalue="BashSupport Pro.shenv.sh" />
-      <item itemvalue="Makefile Target.tests" />
       <item itemvalue="Makefile Target.brew" />
       <item itemvalue="Makefile Target.pytest" />
-      <item itemvalue="Python.scratch_3" />
-      <item itemvalue="Python.site" />
-      <item itemvalue="Python.start" />
-      <item itemvalue="Python tests.Doctests in Noset" />
-      <item itemvalue="Python tests.Doctests in noset" />
+      <item itemvalue="Makefile Target.tests" />
+      <item itemvalue="Python tests.pytest for pyrc" />
+      <item itemvalue="Python tests.pytest for watch" />
+      <item itemvalue="Python tests.pytest for env" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Doctests in noset" />
-        <item itemvalue="Python tests.Doctests in Noset" />
-        <item itemvalue="Python.start" />
-        <item itemvalue="Python.site" />
-        <item itemvalue="Python.scratch_3" />
+        <item itemvalue="Makefile Target.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -587,7 +545,7 @@
             <RunConfInfo>
               <option name="confId" value="Makefile Target.pytest" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649171510715" />
+              <option name="timestamp" value="1649310985356" />
             </RunConfInfo>
           </value>
         </entry>
@@ -600,48 +558,30 @@
             </RunConfInfo>
           </value>
         </entry>
-        <entry key="Python tests.Doctests in Noset">
+        <entry key="Python tests.pytest for pyrc">
           <value>
             <RunConfInfo>
-              <option name="confId" value="Python tests.Doctests in Noset" />
+              <option name="confId" value="Python tests.pytest for pyrc" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649266340343" />
+              <option name="timestamp" value="1649347699161" />
             </RunConfInfo>
           </value>
         </entry>
-        <entry key="Python tests.Doctests in noset">
+        <entry key="Python tests.pytest for pyrc.env">
           <value>
             <RunConfInfo>
-              <option name="confId" value="Python tests.Doctests in noset" />
+              <option name="confId" value="Python tests.pytest for pyrc.env" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649276463180" />
+              <option name="timestamp" value="1649345673811" />
             </RunConfInfo>
           </value>
         </entry>
-        <entry key="Python.scratch_3">
+        <entry key="Python tests.pytest for watch">
           <value>
             <RunConfInfo>
-              <option name="confId" value="Python.scratch_3" />
+              <option name="confId" value="Python tests.pytest for watch" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649178738259" />
-            </RunConfInfo>
-          </value>
-        </entry>
-        <entry key="Python.site">
-          <value>
-            <RunConfInfo>
-              <option name="confId" value="Python.site" />
-              <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649158973373" />
-            </RunConfInfo>
-          </value>
-        </entry>
-        <entry key="Python.start">
-          <value>
-            <RunConfInfo>
-              <option name="confId" value="Python.start" />
-              <option name="executorId" value="Run" />
-              <option name="timestamp" value="1649055702156" />
+              <option name="timestamp" value="1649345632671" />
             </RunConfInfo>
           </value>
         </entry>
@@ -654,7 +594,11 @@
     <SUITE FILE_PATH="coverage/shrc$start.coverage" NAME="start Coverage Results" MODIFIED="1649055702171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/shrc$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1649178738402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/shrc$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1649055469931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/shrc" />
+    <SUITE FILE_PATH="coverage/shrc$pytest_in_watch.coverage" NAME="pytest in watch Coverage Results" MODIFIED="1649345202061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/shrc$pytest_for_pyrc_env.coverage" NAME="pytest for pyrc.env Coverage Results" MODIFIED="1649345673824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/env_sh$site.coverage" NAME="site Coverage Results" MODIFIED="1649158973384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10" />
     <SUITE FILE_PATH="coverage/shrc$Doctests_in_noset.coverage" NAME="Doctests in noset Coverage Results" MODIFIED="1649276463184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/pyrc/env" />
+    <SUITE FILE_PATH="coverage/shrc$pytest_for_pyrc.coverage" NAME="pytest for pyrc Coverage Results" MODIFIED="1649347699172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/shrc$pytest_for_watch.coverage" NAME="pytest for watch Coverage Results" MODIFIED="1649345632680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

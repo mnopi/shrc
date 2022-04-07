@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="dev-python -h" type="BashProRunConfiguration" folderName="dev-install">
+  <configuration default="false" name="dev-python -h" type="BashProRunConfiguration" folderName="dev-install [BashSupport Pro]">
     <option name="scriptParameters" value="-h" />
     <option name="scriptPath" value="$PROJECT_DEV_INSTALL$/bin/dev-python" />
     <EXTENSION ID="net.ashald.envfile">

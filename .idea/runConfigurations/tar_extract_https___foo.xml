@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="tar-extract https://foo" type="BashProRunConfiguration" folderName="dev-install" singleton="false">
+  <configuration default="false" name="tar-extract https://foo" type="BashProRunConfiguration" folderName="dev-install [BashSupport Pro]" singleton="false">
     <option name="scriptParameters" value="https://foo" />
     <option name="scriptPath" value="$PROJECT_DEV_INSTALL$/bin/tar-extract" />
     <EXTENSION ID="net.ashald.envfile">

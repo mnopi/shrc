@@ -147,8 +147,5 @@ def _version() -> None:
     print(version())
 
 
-print("Hola")
-
-
 if __name__ == "__main__":
     asyncio.run(JetBrains.session())

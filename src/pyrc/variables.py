@@ -3,13 +3,18 @@
 Constants and Variables Module
 """
 __all__ = (
-    "IS_IPYTHON",
+    "IPYTHON",
     "IS_REPL",
 )
 import sys
 
-"""True if running on iPython when imported, otherwise False."""
-IS_IPYTHON = "__IPYTHON__" in globals()["__builtins__"]
 
+try:
+    IPYTHON = get_ipython()  # type: ignore[name-defined]
+    """Global :class:``IPython.core.interactiveshell.InteractiveShell`` instance,
+     None if no InteractiveShell instance is registered."""
+except NameError:
+    IPYTHON = None
+
+IS_REPL = bool(IPYTHON) or hasattr(sys, 'ps1') or 'pythonconsole' in sys.stdout.__class__.__module__
 """True if running on REPL, otherwise False."""
-IS_REPL = IS_IPYTHON or hasattr(sys, 'ps1') or 'pythonconsole' in sys.stdout.__class__.__module__

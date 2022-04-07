@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="shenv --foo" type="BashProRunConfiguration" folderName="shenv" singleton="false">
+  <configuration default="false" name="shenv --foo" type="BashProRunConfiguration" folderName="shenvc [BashSupport Pro]" singleton="false">
     <option name="scriptParameters" value="--foo" />
-    <option name="scriptPath" value="$PROJECT_SHRC$/bin/shenv" />
+    <option name="scriptPath" value="$PROJECT_DIR$/bin/shenv" />
     <EXTENSION ID="net.ashald.envfile">
       <option name="IS_ENABLED" value="false" />
       <option name="IS_SUBST" value="false" />

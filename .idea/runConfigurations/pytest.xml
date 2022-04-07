@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="pytest" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" folderName="shrc" singleton="false">
+  <configuration default="false" name="pytest" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" folderName="shrc [Makefile Target]" singleton="false">
     <makefile filename="$PROJECT_DIR$/Makefile" target="pytest" workingDirectory="" arguments="">
       <envs />
     </makefile>

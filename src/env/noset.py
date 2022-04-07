@@ -23,8 +23,8 @@ class Noset:
     def __init__(self, name: str = ""): self.name = name if name else self.__class__.__name__.lower()
     def __hash__(self): return hash((self.__class__, self.name,))
     def __reduce__(self): return self.__class__, (self.name,)
-    def __repr__(self): return f'<{self.name}>'
-    def __str__(self): return self.__repr__()
+    def __repr__(self): return self.__str__()
+    def __str__(self): return f'<{self.name}>'
 
 
 NOSET = Noset()

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="url-exists google.com" type="BashProRunConfiguration" folderName="dev-install" singleton="false">
+  <configuration default="false" name="url-exists google.com" type="BashProRunConfiguration" folderName="dev-install [BashSupport Pro]" singleton="false">
     <option name="scriptParameters" value="google.com" />
     <option name="scriptPath" value="$PROJECT_DEV_INSTALL$/bin/url-exists" />
     <EXTENSION ID="net.ashald.envfile">

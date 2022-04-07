@@ -11,11 +11,17 @@ Startup Module
         - Installs :class:`rich.traceback.Traceback`.
         - Installs :class:`rich.inspect.Inspect`.
 
-    and the following if running in a console:
+    the following if running in a console:
         - Imports modules used in package
         - Set environment vars in :mod:``pyrc.env``
         - Imports :class:`ghapi.all.GhApi` and initializes it with `GITHUB_TOKEN` environment variable.
-        - Preprends current working dir to :obj:`sys.path`
+        - Preprends current working dir and cwd/src if exists to :obj:`sys.path`
+
+    and the following if running under iPython:
+        - Supress :class:``UserWarning`` so using shell commands ! will not emit warnings.
+        - Loads default extensions.
+        - Changes values for magic modules: automagic and autoindent
+        - Sets custom prompt with basename of current working directory.
 
 Examples:
     >>> import time
@@ -73,11 +79,11 @@ __all__ = (
 import rich.pretty
 import rich.traceback
 from rich import inspect as rich_inspect
-from rich import print as print
-from rich import print_json as print_json
+from rich import print
+from rich import print_json
 
 from .utils import is_terminal
-from .variables import IS_IPYTHON
+from .variables import IPYTHON
 from .variables import IS_REPL
 
 setattr(rich.console.Console, "is_terminal", is_terminal)
@@ -101,8 +107,8 @@ if IS_REPL:
         "tarfile",
         "tempfile",
 
-        'dataclass',
-        'Path',
+        "dataclass",
+        "Path",
         "CompletedProcess",
 
         "bs4",
@@ -110,56 +116,71 @@ if IS_REPL:
         "requests",
         "typer",
 
-        'GhApi',
         "VersionInfo",
     )
 
-    import aiohttp as aiohttp
-    import asyncio as asyncio
-    import contextlib as contextlib
-    import dataclasses as dataclasses
-    import getpass as getpass
-    import os as os
-    import pathlib as pathlib
-    import platform as platform
-    import pwd as pwd
-    import re as re
-    import subprocess as subprocess
-    import sys as sys
-    import tarfile as tarfile
-    import tempfile as tempfile
+    import aiohttp
+    import asyncio
+    import contextlib
+    import dataclasses
+    import getpass
+    import os
+    import pathlib
+    import platform
+    import pwd
+    import re
+    import subprocess
+    import sys
+    import tarfile
+    import tempfile
 
-    from dataclasses import dataclass as dataclass
-    from pathlib import Path as Path
-    from subprocess import CompletedProcess as CompletedProcess
+    from dataclasses import dataclass
+    from pathlib import Path
+    from subprocess import CompletedProcess
 
-    import bs4 as bs4
-    import click as click
-    import requests as requests
-    import typer as typer
+    import bs4
+    import click
+    import requests
+    import typer
 
-    from ghapi.all import GhApi as GhApi
-    from semver import VersionInfo as VersionInfo
-
-    from .env import *
-
-    environment()
-
-    ghpai = GhApi(token=GITHUB_TOKEN or GH_TOKEN or TOKEN)
+    from semver import VersionInfo
 
     if os.getcwd() not in sys.path:
         sys.path = [os.getcwd()] + sys.path
+    if (src := Path.cwd() / "src").exists() and str(src) not in sys.path:
+        sys.path = [str(src)] + sys.path
 
-if IS_IPYTHON:
+if IPYTHON:
     __all__ += (
         "warnings",
+        "IPYTHON",
     )
 
-    import warnings as warnings
+    import warnings
+
+    from IPython.terminal.prompts import Prompts
+    from IPython.terminal.prompts import Token
+
     warnings.filterwarnings("ignore", category=UserWarning)
-    '%rehashx'
-    '%load_ext rich'
+    for extension in ["autoreload", "rich"]:
+        if extension not in IPYTHON.extension_manager.loaded:
+            IPYTHON.extension_manager.load_extension(extension)
+    IPYTHON.autoindent = True
+    IPYTHON.automagic = True  # % prefix IS NOT needed for line magics
+    IPYTHON.banner1 = ""
+    IPYTHON.banner2 = ""
+    IPYTHON.find_line_magic("rehashx")("1")  # Update the alias table with all executable files in $PATH.
+
+    class Prompt(Prompts):
+        def in_prompt_tokens(self, cli=None):
+            return [
+                (Token, Path.cwd().name),
+                (Token.Prompt, "["),
+                (Token.PromptNum, str(self.shell.execution_count)),
+                (Token.Prompt, "]: "),
+            ]
+    IPYTHON.prompts = Prompt(IPYTHON)
 
 rich.pretty.install(expand_all=True)
-rich.traceback.install(show_locals=True)
+rich.traceback.install(show_locals=True, suppress=["click", "_pytest", "rich"])
 
