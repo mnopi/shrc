@@ -18,11 +18,11 @@ from pathlib import Path
 import aiohttp
 import typer
 
-from .bools import LINUX
 from .utils import aioclone
 from .utils import aiodmg
 from .utils import aiogz
 from .utils import version
+from .variables import LINUX
 
 # https://github.com/0xbf00/dmglib/blob/master/docs/example.rst
 # https://stackoverflow.com/questions/6357914/how-do-i-install-a-dmg-file-from-the-command-line/6358679

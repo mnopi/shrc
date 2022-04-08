@@ -24,15 +24,7 @@ from typing import Union
 import click
 import typer
 
-from .color import BLACK
-from .color import BLUE
-from .color import CYAN
-from .color import GREEN
-from .color import MAGENTA
-from .color import PRETTY
-from .color import RED
-from .color import YELLOW
-from .color import WHITE
+from .constants import *
 
 
 # noinspection DuplicatedCode

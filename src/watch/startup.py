@@ -4,7 +4,7 @@ Startup Module
 """
 __all__ = ()
 
-from pyrc import IS_REPL
+from shrc import IS_REPL
 
 if IS_REPL:
     __all__ += (

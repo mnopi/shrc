@@ -8,7 +8,7 @@ from typing import Optional
 from typer import Option
 from typer import Typer
 
-from pyrc import version
+from shrc import version
 
 from .watchme import WatchMe
 

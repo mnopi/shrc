@@ -3,8 +3,28 @@
 Utils Module
 """
 __all__ = (
+    "asyncio",
+    "getpass",
+    "contextlib",
+    "os",
+    "platform",
+    "pwd",
+    "re",
+    "subprocess",
+    "sys",
+    "tarfile",
+    "tempfile",
+
+    "Path",
+    "CompletedProcess",
+
+    "bs4",
+    "requests",
+    "VersionInfo",
+
     "CmdError",
     "GhApi",
+    "Noset",
     "TempDir",
 
     "aioclone",
@@ -59,17 +79,10 @@ from semver import VersionInfo
 from .constants import GIT_DEFAULT_SCHEME
 from .constants import GITHUB_URL
 from .constants import GitScheme
-from .constants import PROJECT
 from .constants import PYTHON_FTP
-from .env import environment
-from .env import GIT
-from .env import GH_TOKEN
-from .env import GITHUB_TOKEN
-from .env import TOKEN
-from .env import NOSET
-from .env import USER
 from .typings import ExcType
 from .variables import IS_REPL
+from .variables import PROJECT
 
 T = TypeVar('T')
 P = ParamSpec('P')
@@ -99,12 +112,38 @@ class CmdError(subprocess.CalledProcessError):
 
 
 class GhApi(ghapi.all.GhApi):
-    """:class:`ghapi.all.GhApi` with some customizations for :mod:`pyrc.env`."""
+    """:class:`ghapi.all.GhApi` with some customizations for :mod:`shrc.env`."""
     def __init__(self, owner=None, repo=None, token=None, debug=None, limit_cb=None, **kwargs):
-        environment()
-        super().__init__(owner=owner or GIT or USER, repo=repo or PROJECT,
-                         token=token or GH_TOKEN or GITHUB_TOKEN or TOKEN,
-                         debug=debug, limit_cb=limit_cb, **kwargs)
+        if owner is None:
+            from .env import GIT
+            from .env import USER
+            owner = owner or GIT or USER
+        if token is None:
+            from .env import GH_TOKEN
+            from .env import GITHUB_TOKEN
+            from .env import TOKEN
+            token = token or GH_TOKEN or GITHUB_TOKEN or TOKEN
+        super().__init__(owner=owner, repo=repo or PROJECT, token=token, debug=debug, limit_cb=limit_cb, **kwargs)
+
+
+class Noset:
+    """
+    Marker object for globals not initialized or other objects.
+
+    Examples:
+        >>> from shrc.startup import NOSET
+        >>> name = Noset.__name__.lower()
+        >>> assert str(NOSET) == f'<{name}>'
+        >>> assert repr(NOSET) == f'<{name}>'
+        >>> assert repr(Noset("test")) == f'<test>'
+    """
+    name: str
+    __slots__ = ("name",)
+    def __init__(self, name: str = ""): self.name = name if name else self.__class__.__name__.lower()
+    def __hash__(self): return hash((self.__class__, self.name,))
+    def __reduce__(self): return self.__class__, (self.name,)
+    def __repr__(self): return self.__str__()
+    def __str__(self): return f'<{self.name}>'
 
 
 class TempDir(tempfile.TemporaryDirectory):
@@ -388,9 +427,10 @@ def github_url(owner: str | None = None, repo: str | Path = PROJECT, scheme: Git
     Returns:
         str
     """
-    if owner in (NOSET, None):
-        environment()
-        owner = GIT or USER
+    if owner is None:
+        from .env import GIT
+        from .env import USER
+        owner = owner or GIT or USER
     if scheme == "git+file":
         return f"git+file://{repo}.git"
     return f"{GITHUB_URL[scheme]}{owner}/{repo}.git"
@@ -477,7 +517,7 @@ def python_latest(start: str | int | None = None) -> VersionInfo:
 
 def python_version() -> str:
     """
-    Major and Minor Python Version from ``PYTHON_VERSION` environment variable or :obj:``sys.version``
+    Major and Minor Python Version from :obj:`shrc.env.PYTHON_VERSION` environment variable or :obj:`sys.version`
 
     Examples:
         >>> v = python_version()
@@ -487,7 +527,8 @@ def python_version() -> str:
     Returns:
         str
     """
-    return os.getenv("PYTHON_VERSION", platform.python_version().rpartition(".")[0])
+    from .env import PYTHON_VERSION
+    return PYTHON_VERSION or platform.python_version().rpartition(".")[0]
 
 
 def python_versions() -> tuple[VersionInfo, ...]:
@@ -539,12 +580,12 @@ def rinspect(obj: Any, *, _console: rich.console.Console | None = None, title: s
                  dunder=dunder, sort=sort, all=_all, value=value)
 
 
-def suppress(func: Callable[P, T], *args: P.args, exc: ExcType | None = None, **kwargs: P.kwargs) -> T:
+def suppress(func: Callable[P, T], *args: P.args, exception: ExcType | None = Exception, **kwargs: P.kwargs) -> T:
     """
     Try and supress exception.
 
     """
-    with contextlib.suppress(exc or Exception):
+    with contextlib.suppress(exception or Exception):
         return func(*args, **kwargs)
 
 
@@ -636,5 +677,5 @@ def version(package: str = PROJECT) -> str:
     Returns
         Installed version
     """
-    return suppress(importlib.metadata.version, importlib.metadata.PackageNotFoundError,
-                    package or Path(__file__).parent.name)
+    return suppress(importlib.metadata.version, package or Path(__file__).parent.name,
+                    exception=importlib.metadata.PackageNotFoundError)

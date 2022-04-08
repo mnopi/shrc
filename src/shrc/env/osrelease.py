@@ -37,6 +37,7 @@ __all__ = (
   "NIXOS",
   "PM",
   "PM_INSTALL",
+  "PYTHON_VERSION",
   "RHEL",
   "RHEL_LIKE",
   "SSH",
@@ -46,122 +47,127 @@ __all__ = (
 
 from pathlib import Path
 
-from .noset import Noset
-from .noset import NOSET
+from .utils import environment
 
+
+ALPINE: bool
 """'DIST_ID' is 'alpine' and not: nix or busybox"""
-ALPINE: bool | Noset | None = NOSET
 
+ALPINE_LIKE: bool
 """'DIST_ID' is 'alpine'"""
-ALPINE_LIKE: bool | Noset | None = NOSET
 
+ARCH: bool
 """'DIST_ID' is 'arch' for archlinux"""
-ARCH: bool | Noset | None = NOSET
 
+BUSYBOX: bool
 """if not '/etc/os-release' and not '/sbin'."""
-BUSYBOX: bool | Noset | None = NOSET
 
+CENTOS: bool
 """'DIST_ID' is 'centos'"""
-CENTOS: bool | Noset | None = NOSET
 
+CLT: Path
 """Command Line Tools /usr directory (xcode-select -p)"""
-CLT: Path | Noset | None = NOSET
 
+COMPLETION: Path
 """BASH completion instalation path"""
-COMPLETION: Path | Noset | None = NOSET
 
+CONTAINER: bool
 """Running in docker container"""
-CONTAINER: bool | Noset | None = NOSET
 
+DEBIAN: bool
 """'DIST_ID' is 'debian'"""
-DEBIAN: bool | Noset | None = NOSET
 
+DEBIAN_FRONTEND: str
 """'noninteractive' if 'IS_CONTAINER' and 'DEBIAN_LIKE' are set"""
-DEBIAN_FRONTEND: str | Noset | None = NOSET
 
+DEBIAN_LIKE: bool
 """'DIST_ID_LIKE is 'debian'"""
-DEBIAN_LIKE: bool | Noset | None = NOSET
 
+DIST_CODENAME: str
 """Distribution Codename: Catalina, Big Sur, kali-rolling, focal, etc."""
-DIST_CODENAME: str | Noset | None = NOSET
 
+DIST_ID: str
 """alpine|centos|debian|kali|macOS|ubuntu|..."""
-DIST_ID: str | Noset | None = NOSET
 
+DIST_ID_LIKE: str
 """One of: alpine|debian|rhel fedora"""
-DIST_ID_LIKE: str | Noset | None = NOSET
 
+DIST_UNKNOWN: str
 """'DIST_ID' is unknown"""
-DIST_UNKNOWN: str | Noset | None = NOSET
 
+DIST_VERSION: str
 """Distribution Version: macOS (10.15.1, 10.16, ...), kali (2021.2, ...), ubuntu (20.04, ...)"""
-DIST_VERSION: str | Noset | None = NOSET
 
+FEDORA: bool
 """'DIST_ID' is 'fedora'"""
-FEDORA: bool | Noset | None = NOSET
 
+FEDORA_LIKE: bool
 """'DIST_ID' is 'fedora' or 'fedora' in 'DIST_ID_LIKE'"""
-FEDORA_LIKE: bool | Noset | None = NOSET
 
+HOMEBREW_CASK: Path
 """Cask Versions (similar to opt)"""
-HOMEBREW_CASK: Path | Noset | None = NOSET
 
+HOMEBREW_CELLAR: Path
 """Version of formula, $HOMEBREW_PREFIX/opt is a symlink to $HOMEBREW_CELLAR"""
-HOMEBREW_CELLAR: Path | Noset | None = NOSET
 
+HOMEBREW_ETC: Path
 """Homebrew etc"""
-HOMEBREW_ETC: Path | Noset | None = NOSET
 
+HOMEBREW_KEGS: Path
 """Homebrew unlinked Kegs (in $HOMEBREW_OPT) to add to PATH"""
-HOMEBREW_KEGS: Path | Noset | None = NOSET
 
+HOMEBREW_LIB: Path
 """Homebrew $HOMEBREW_PREFIX/lib"""
-HOMEBREW_LIB: Path | Noset | None = NOSET
 
+HOMEBREW_OPT: Path
 """Symlink for the latest version of formula to $HOMEBREW_CELLAR"""
-HOMEBREW_OPT: Path | Noset | None = NOSET
 
+HOMEBREW_PREFIX: Path
 """Homebrew prefix (brew shellenv)"""
-HOMEBREW_PREFIX: Path | Noset | None = NOSET
 
+HOMEBREW_PROFILE: Path
 """Profile compat dir (profile.d), under etc"""
-HOMEBREW_PROFILE: Path | Noset | None = NOSET
 
+HOMEBREW_REPOSITORY: Path
 """Repository and Library with homebrew gems and Taps (brew shellenv)"""
-HOMEBREW_REPOSITORY: Path | Noset | None = NOSET
 
+HOMEBREW_TAPS: Path
 """Taps path under '$HOMEBREW_REPOSITORY/Library'"""
-HOMEBREW_TAPS: Path | Noset | None = NOSET
 
+HOST: str
 """First part of hostname: foo.com (foo), example.foo.com (example)"""
-HOST: str | Noset | None = NOSET
 
+HOST_PROMPT: str
 """Symbol and 'HOST' if 'CONTAINER' or 'SSH'"""
-HOST_PROMPT: str | Noset | None = NOSET
 
+KALI: bool
 """'DIST_ID' is 'kali'"""
-KALI: bool | Noset | None = NOSET
 
+NIXOS: bool
 """'DIST_ID' is 'alpine' and '/etc/nix'"""
-NIXOS: bool | Noset | None = NOSET
 
+PM: str
 """Default Package Manager: apk, apt, brew, nix and yum"""
-PM: str | Noset | None = NOSET
 
+PM_INSTALL: str
 """Default Package Manager with Install Options (Quiet and no cache for containers)"""
-PM_INSTALL: str | Noset | None = NOSET
 
+PYTHON_VERSION: str
+"""Python Major and Minor Version"""
+
+RHEL: bool
 """'DIST_ID' is 'rhel'"""
-RHEL: bool | Noset | None = NOSET
 
+RHEL_LIKE: bool
 """'DIST_ID' is 'rhel' or 'rhel' in 'DIST_ID_LIKE'"""
-RHEL_LIKE: bool | Noset | None = NOSET
 
+SSH: bool
 """'SSH_CLIENT' or 'SSH_TTY' or 'SSH_CONNECTION'"""
-SSH: bool | Noset | None = NOSET
 
+UBUNTU: bool
 """'DIST_ID' is 'ubuntu'"""
-UBUNTU: bool | Noset | None = NOSET
 
+UNAME: str
 """Operating System System Name: darwin or linux (same as 'sys.platform')"""
-UNAME: str | Noset | None = NOSET
+
+environment()

@@ -14,6 +14,7 @@ __all__ = (
     'white',
     'yellow',
 )
+from enum import Enum
 
 from typing import Any
 from typing import Optional
@@ -21,15 +22,19 @@ from typing import Union
 
 import click
 
-from .color import BLACK
-from .color import BLUE
-from .color import CYAN
-from .color import GREEN
-from .color import MAGENTA
-from .color import RED
-from .color import WHITE
-from .color import YELLOW
+from .constants import *
 
+class Style(Enum):
+    """
+    Style Enum
+    """
+    BLACK = 1
+    BLUE = 2
+    CYAN
+    UNDERLINE = 4
+    BLINK = 5
+    REVERSE = 7
+    HIDDEN = 8
 
 # noinspection DuplicatedCode
 def black(text: Any,

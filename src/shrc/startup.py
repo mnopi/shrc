@@ -13,7 +13,7 @@ Startup Module
 
     the following if running in a console:
         - Imports modules used in package
-        - Set environment vars in :mod:``pyrc.env``
+        - Set environment vars in :mod:``shrc.env``
         - Imports :class:`ghapi.all.GhApi` and initializes it with `GITHUB_TOKEN` environment variable.
         - Preprends current working dir and cwd/src if exists to :obj:`sys.path`
 
@@ -83,67 +83,37 @@ from rich import print
 from rich import print_json
 
 from .utils import is_terminal
+from .utils import Noset
 from .variables import IPYTHON
 from .variables import IS_REPL
+
 
 setattr(rich.console.Console, "is_terminal", is_terminal)
 Console = rich.console.Console
 console: Console = rich.console.Console()
 
+NOSET = Noset()
+
 if IS_REPL:
     __all__ += (
         "aiohttp",
-        "asyncio",
         "dataclasses",
-        "getpass",
-        "contextlib",
         "os",
         "pathlib",
-        "platform",
-        "pwd",
-        "re",
-        "subprocess",
-        "sys",
-        "tarfile",
-        "tempfile",
 
         "dataclass",
-        "Path",
-        "CompletedProcess",
 
-        "bs4",
         "click",
-        "requests",
         "typer",
 
-        "VersionInfo",
     )
 
-    import aiohttp
-    import asyncio
-    import contextlib
-    import dataclasses
-    import getpass
-    import os
-    import pathlib
-    import platform
-    import pwd
-    import re
-    import subprocess
-    import sys
-    import tarfile
-    import tempfile
-
-    from dataclasses import dataclass
     from pathlib import Path
-    from subprocess import CompletedProcess
 
-    import bs4
-    import click
-    import requests
-    import typer
+    from .env import *
+    from . import env as env
 
-    from semver import VersionInfo
+    __all__ += env.__all__ + ("env",)
 
     if os.getcwd() not in sys.path:
         sys.path = [os.getcwd()] + sys.path

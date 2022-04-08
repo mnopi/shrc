@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-pyrc environment package
+shrc environment package
 """
 __all__ = (
     "os",
@@ -129,76 +129,15 @@ def environment() -> None:
         - others as string
 
     Examples:
-        >>> from env.default import *
+        >>> from shrc.env.default import *
         >>> assert isinstance(USER, str)
         >>> assert isinstance(PWD, Path)
-        >>> cwd = Path.cwd()
-        >>> assert USER == NOSET
-        >>> assert PWD == NOSET
-        >>> environment()
-        >>> assert USER == os.environ.get('USER')
-        >>> assert PWD == cwd.absolute()
-        >>>
-        >>> tmp = Path('/tmp').resolve()
-        >>> os.environ['PWD'] = str(tmp)
-        >>> os.chdir(tmp)
-        >>> environment()
-        >>> assert PWD == cwd.absolute()
-        >>> environment(True)
-        >>> assert PWD == tmp
-        >>>
-        >>> os.environ['FOO'] = '1'
-        >>> assert environment("FOO") is True
-        >>>
-        >>> os.environ['FOO'] = '0'
-        >>> assert environment("FOO") is False
-        >>>
-        >>> os.environ['FOO'] = 'TrUe'
-        >>> assert environment("FOO") is True
-        >>>
-        >>> os.environ['FOO'] = 'OFF'
-        >>> assert environment("FOO") is False
-        >>>
-        >>> os.environ['FOO'] = '~/foo'
-        >>> assert environment("FOO") == Path('~/foo')
-        >>>
-        >>> os.environ['FOO'] = '/foo'
-        >>> assert environment("FOO") == Path('/foo')
-        >>>
-        >>> os.environ['FOO'] = './foo'
-        >>> assert environment("FOO") == Path('./foo')
-        >>>
-        >>> os.environ['FOO'] = './foo'
-        >>> assert environment("FOO") == Path('./foo')
-        >>>
-        >>> v = "https://github.com"
-        >>> os.environ['FOO'] = v
-        >>> assert environment("FOO").geturl() == v
-        >>>
-        >>> v = "git@github.com"
-        >>> os.environ['FOO'] = v
-        >>> assert environment("FOO").geturl() == v
-        >>>
-        >>> v = "0.0.0.0"
-        >>> os.environ['FOO'] = v
-        >>> assert environment("FOO").exploded == v
-        >>>
-        >>> os.environ['FOO'] = "::1"
-        >>> assert environment("FOO").exploded.endswith(":0001")
-        >>>
-        >>> v = "2"
-        >>> os.environ['FOO'] = v
-        >>> assert environment("FOO") == int(v)
-        >>>
-        >>> v = "2.0"
-        >>> os.environ['FOO'] = v
-        >>> assert environment("FOO") == v
-        >>>
-        >>> del os.environ['FOO']
-        >>> assert environment("FOO") is None
 
     Returns:
         None
     """
     for variable in __all__:
         globals()[variable] = parse(variable)
+
+
+environment()
