@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/profile.d/stow.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/misc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/profile/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/profile/ipython_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/profile/startup/ps1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Brewfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Brewfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color/out.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color/show.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color/style.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/color/symbols.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/env/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/env/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/env/colorize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/env/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/env/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/pretty.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/startup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/startup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +40,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_RC$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
