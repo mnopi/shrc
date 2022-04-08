@@ -69,7 +69,6 @@ References:
     Input: `console.input("What is [i]your[/i] [bold red]name[/]? :smiley: ")`
 """
 __all__ = (
-    "rich_inspect",
     "print",
     "print_json",
 
@@ -78,7 +77,6 @@ __all__ = (
 )
 import rich.pretty
 import rich.traceback
-from rich import inspect as rich_inspect
 from rich import print
 from rich import print_json
 
@@ -96,18 +94,9 @@ NOSET = Noset()
 
 if IS_REPL:
     __all__ += (
-        "aiohttp",
-        "dataclasses",
-        "os",
-        "pathlib",
-
-        "dataclass",
-
-        "click",
-        "typer",
-
     )
-
+    import os
+    import sys
     from pathlib import Path
 
     from .env import *
@@ -122,7 +111,6 @@ if IS_REPL:
 
 if IPYTHON:
     __all__ += (
-        "warnings",
         "IPYTHON",
     )
 

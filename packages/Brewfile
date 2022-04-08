@@ -4,8 +4,10 @@ tap "bats-core/bats-core"
 tap "j5pu/cmd"
 tap "j5pu/tap"
 
-brew "makeself"
+
 brew "bats-core"
+brew "makeself"
+brew "stow"
 brew "bats-core/bats-core/bats-assert"
 brew "bats-core/bats-core/bats-file"
 brew "bats-core/bats-core/bats-support"

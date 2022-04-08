@@ -16,4 +16,6 @@ To force showing colors/styles in :class:`shrc.Color` and :class:`shrc.Symbol`, 
 By default, click will remove color if the output does not look like an interactive terminal (default: variable unset)
 """
 
+GITHUB_ACTION: str
+
 environment()

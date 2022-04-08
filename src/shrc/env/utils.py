@@ -3,19 +3,13 @@
 shrc environment package
 """
 __all__ = (
-    "os",
-    "ipaddress",
-    "sys",
-    "IPv4Address",
-    "IPv6Address",
-    "ParseResult",
     "parse",
     "environment",
 )
 
 import os
-import ipaddress
 import sys
+import ipaddress
 import urllib.parse
 
 from ipaddress import IPv4Address
@@ -136,8 +130,6 @@ def environment() -> None:
     Returns:
         None
     """
-    for variable in __all__:
-        globals()[variable] = parse(variable)
-
-
-environment()
+    data = sys._getframe(1).f_globals
+    for variable in data["__all__"]:
+        data[variable] = parse(variable)

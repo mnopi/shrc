@@ -100,14 +100,14 @@ class _Color(EnumLower):
             raise typer.Exit(exit)
 
 
-class _ColorAuto(_Color, enum.auto):
+class _ColorAuto:
     """
     Instances are replaced with an appropriate value in Enum class suites.
     """
     value = enum._auto_null
 
 
-class Color(EnumLower):
+class Color(_Color):
     """:func:`click.secho` and :func:`click.style` foreground color wrapper class."""
     BLACK = _ColorAuto()
     """might be a gray"""
@@ -264,7 +264,7 @@ class _Symbol(Enum):
             raise typer.Exit(exit)
 
 
-class _SymbolAuto(_Symbol, enum.auto):
+class _SymbolAuto:
     """
     Instances are replaced with an appropriate value in Enum class suites.
     """

@@ -5,42 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/src/shrc/color.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/color/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/colorize.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/default.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/osrelease.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/secrets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/system.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shrc/env/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/pytest_for_pyrc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest_for_shrc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shrc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shrc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile.d/stow.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shrc/env/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shrc/profile/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shrc/profile/ipython_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shrc/profile/startup/ps1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/default.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/noset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/secrets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/system.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/alias.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/alias.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/bools.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/customize.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/customize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/jetbrains.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/out.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color/out.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/pretty.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/pretty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/show.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color/show.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/startup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/startup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/style.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color/style.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/symbols.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color/symbols.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/typings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/typings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pyrc/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/variables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/watch/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/watch/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/watch/startup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/watch/startup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Brewfile" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Brewfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color/constants.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color/out.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color/show.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color/style.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/color/symbols.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/env/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/env/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/env/colorize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/env/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/env/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/pretty.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/startup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/startup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +47,7 @@
         <option value="Toml" />
         <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Shell Library" />
       </list>
     </option>
   </component>
@@ -112,7 +101,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Jupyter&#10;Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shrc/env" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shrc" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -133,18 +122,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/shrc" />
       <recent name="$PROJECT_DIR$/src/shrc/env" />
       <recent name="$PROJECT_DIR$/src/shrc/color" />
       <recent name="$PROJECT_DIR$/src/env" />
       <recent name="$PROJECT_DIR$/src/pyrc" />
-      <recent name="$PROJECT_DIR$/../JetBrains/scratch/scratches" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/shrc/profile/startup" />
       <recent name="$PROJECT_DIR$/src/shrc" />
       <recent name="$PROJECT_DIR$/src/shrc/color" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/pyrc/env" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
@@ -156,7 +145,7 @@
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
   </component>
-  <component name="RunManager" selected="Python.utils">
+  <component name="RunManager" selected="Makefile Target.brew">
     <configuration default="true" type="BashProRunConfiguration">
       <RunnerSettings bashdbVersion="Automatic" bashPathMapper="Automatic" RunnerId="pro.bashsupport.shDebugRunner" />
       <method v="2" />
@@ -306,11 +295,11 @@
       <item itemvalue="Makefile Target.brew" />
       <item itemvalue="Makefile Target.pytest" />
       <item itemvalue="Makefile Target.tests" />
+      <item itemvalue="Python.utils" />
       <item itemvalue="Python tests.pytest for watch" />
       <item itemvalue="Python tests.pytest for shrc" />
       <item itemvalue="Python tests.pytest for shrc.env" />
       <item itemvalue="Python tests.Doctest environment" />
-      <item itemvalue="Python.utils" />
     </list>
     <recent_temporary>
       <list>
@@ -356,6 +345,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="auto" />
     <option name="LAST_COMMIT_MESSAGE" value="auto" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/shrc/env/default.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -567,7 +567,7 @@
             <RunConfInfo>
               <option name="confId" value="Makefile Target.brew" />
               <option name="executorId" value="Run" />
-              <option name="timestamp" value="1648866278167" />
+              <option name="timestamp" value="1649433990226" />
             </RunConfInfo>
           </value>
         </entry>
