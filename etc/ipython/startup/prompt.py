@@ -11,8 +11,6 @@ import os
 from platform import python_version
 import subprocess
 
-from shrc import IPYTHON
-
 
 def get_branch():
     try:
@@ -53,4 +51,5 @@ class MyPrompt(Prompts):
         return []
 
 
+IPYTHON = get_ipython()
 IPYTHON.prompts = MyPrompt(IPYTHON)

@@ -45,7 +45,7 @@ jobs:
         uses: j5pu/shrc@main
 ```
 
-## [bats.bash](./bin/bats.bash)
+## [bats.bash](./libexec/bats.bash)
 Bats helpers
 
 ### Install
@@ -57,8 +57,8 @@ bats.bash --help
 
 ### JetBrains
 
-![PathVariables.png](./assets/Path%20Variables.png)
-![Terminal.png](./assets/Terminal.png)
+![PathVariables.png](./.idea/assets/Path%20Variables.png)
+![Terminal.png](./.idea/assets/Terminal.png)
 
 ### [.env](.env)
 
@@ -78,13 +78,13 @@ eval "$(awk 'FNR > 1 { print "export " $0 }' "${BATS_BASH}/.env" | grep -v "^$" 
 
 ````
 
-### [tests_helper.bats](tests/helpers/tests_helper.bash)
+### [tests_helper.bats](tests/helpers/helper.bash)
 
 ```shell
 source bats.bats
 ```
 
-### [test.bats](tests/func::exported.bats)
+### [test.bats](tests/bats.bash/func::exported.bats)
 
 ````shell
 #!/usr/bin/env bats

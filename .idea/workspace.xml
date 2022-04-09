@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
+      <change afterPath="$PROJECT_DIR$/etc/ipython/ipython_config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/1647936701462-Path Variables.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/1647936701468-Terminal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/1647936741729-Path Variables.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/1647936758928-Terminal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Path Variables.png" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assets/Path Variables.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Terminal.png" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assets/Terminal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_completion.d/bats.bash" beforeDir="false" afterPath="$PROJECT_DIR$/etc/bash_completion.d/bats.bash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_completion.d/secrets" beforeDir="false" afterPath="$PROJECT_DIR$/etc/bash_completion.d/secrets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_completion.d/version" beforeDir="false" afterPath="$PROJECT_DIR$/etc/bash_completion.d/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.d/jetbrains.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/jetbrains.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.d/shenv.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/shenv.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.d/stow.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/stow.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.d/system.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/system.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonstartup.py" beforeDir="false" afterPath="$PROJECT_DIR$/bin/pythonstartup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/profile/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/profile/ipython_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/profile/startup/ps1.py" beforeDir="false" afterPath="$PROJECT_DIR$/etc/ipython/startup/prompt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +60,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_RC$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -78,7 +98,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Jupyter&#10;Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shrc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/etc" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -86,7 +106,7 @@
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.28820375" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -99,18 +119,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/etc" />
       <recent name="$PROJECT_DIR$/src/shrc" />
       <recent name="$PROJECT_DIR$/src/shrc/env" />
       <recent name="$PROJECT_DIR$/src/shrc/color" />
       <recent name="$PROJECT_DIR$/src/env" />
-      <recent name="$PROJECT_DIR$/src/pyrc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.idea" />
+      <recent name="$PROJECT_DIR$/bin" />
+      <recent name="$PROJECT_DIR$/etc" />
       <recent name="$PROJECT_DIR$/src/shrc/profile/startup" />
       <recent name="$PROJECT_DIR$/src/shrc" />
-      <recent name="$PROJECT_DIR$/src/shrc/color" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
@@ -152,6 +172,9 @@
       <module name="shrc" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/shrc/env" />
       <option name="IS_MODULE_SDK" value="true" />

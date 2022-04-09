@@ -223,6 +223,10 @@ export PM_INSTALL
 # </html>
 export PM_UPGRADE
 
+# Python Interactive Startup File
+#
+PYTHONSTARTUP="$(command -v pythonstartup || true)"; export PYTHONSTARTUP
+
 # '1' if 'DIST_ID' is 'rhel'.
 #
 export RHEL
