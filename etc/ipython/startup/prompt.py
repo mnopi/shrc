@@ -3,8 +3,7 @@
 Startup Module
 
 """
-__all__ = (
-)
+
 from IPython.terminal.prompts import Prompts, Token
 from pathlib import Path
 import os

@@ -47,7 +47,4 @@ publish: tests
 pytest:
 	@pytest
 
-sh:
-	@./tests/test_version
-
 tests: bats pytest
