@@ -4,19 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/etc/ipython/startup/sys_path.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/ipython/startup/userwarning.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/bash_completion.d/bats.bash" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/bash_completion.d/version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/ipython/ipython_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/etc/ipython/ipython_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/ipython/startup/prompt.py" beforeDir="false" afterPath="$PROJECT_DIR$/etc/ipython/startup/prompt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libexec/bats.bash" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/version/test_version" beforeDir="false" />
-    </list>
+    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
