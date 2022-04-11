@@ -4,18 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change beforePath="$PROJECT_ACTIONS$/tag/action.yml" beforeDir="false" afterPath="$PROJECT_ACTIONS$/tag/action.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/brew.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/alias.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/alias.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/jetbrains.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/jetbrains.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/typings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/pyrc/test_pyrc_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/pyrc/test_pyrc_cli.py" afterDir="false" />
-    </list>
+    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
