@@ -3,7 +3,6 @@
 Utils Module
 """
 __all__ = (
-    "CmdError",
     "GhApi",
     "Noset",
     "TempDir",
@@ -22,17 +21,13 @@ __all__ = (
     "python_latest",
     "python_version",
     "python_versions",
-    "suppress",
     "syssudo",
     "tardir",
     "tilde",
-    "version",
 )
 
 import asyncio
 import getpass
-import importlib.metadata
-import contextlib
 import os
 import platform
 import pwd
@@ -44,9 +39,6 @@ import tempfile
 from pathlib import Path
 from subprocess import CompletedProcess
 from typing import Any
-from typing import Callable
-from typing import ParamSpec
-from typing import TypeVar
 
 import bs4
 import ghapi.all
@@ -55,41 +47,21 @@ import rich
 import rich.console
 import rich.pretty
 import rich.traceback
+from mreleaser import aiocmd
+from mreleaser import cmd
+from mreleaser import CmdError
 from semver import VersionInfo
 
 from .constants import GIT_DEFAULT_SCHEME
 from .constants import GITHUB_URL
 from .constants import GitScheme
 from .constants import PYTHON_FTP
-from .typings import ExcType
 from .variables import IS_REPL
 from .variables import PROJECT
-
-T = TypeVar('T')
-P = ParamSpec('P')
 
 
 # TODO: aqui lo dejo: https://docs.python.org/3/library/importlib.html
 #  meter esas dos funciones y limpiar el pretty y ver que hago con el sitecustomize.py
-
-
-class CmdError(subprocess.CalledProcessError):
-    """
-    Raised when run() and the process returns a non-zero exit status.
-
-    Attributes:
-      process: The CompletedProcess object returned by run().
-    """
-    def __init__(self, process: subprocess.CompletedProcess = None):
-        super().__init__(process.returncode, process.args, output=process.stdout, stderr=process.stderr)
-
-    def __str__(self):
-        value = super().__str__()
-        if self.stderr is not None:
-            value += "\n" + self.stderr
-        if self.stdout is not None:
-            value += "\n" + self.stdout
-        return value
 
 
 class GhApi(ghapi.all.GhApi):
@@ -127,20 +99,6 @@ class Noset:
     def __str__(self): return f'<{self.name}>'
 
 
-class TempDir(tempfile.TemporaryDirectory):
-    """
-    Wrapper for :class:`tempfile.TemporaryDirectory` that provides Path-like
-    """
-    def __enter__(self) -> Path:
-        """
-        Return the path of the temporary directory
-
-        Returns:
-            Path of the temporary directory
-        """
-        return Path(self.name)
-
-
 async def aioclone(owner: str | None = None, repo: str = PROJECT, scheme: GitScheme = GIT_DEFAULT_SCHEME,
                    path: Path | str = None) -> CompletedProcess:
     """
@@ -168,38 +126,6 @@ async def aioclone(owner: str | None = None, repo: str = PROJECT, scheme: GitSch
         if not path.parent.exists():
             path.parent.mkdir(parents=True)
         return await aiocmd("git", "clone", github_url(owner, repo, scheme), path)
-
-
-async def aiocmd(*args, **kwargs) -> CompletedProcess:
-    """
-    Async Exec Command
-
-    Examples:
-        >>> with TempDir() as tmp:
-        ...     rv = asyncio.run(aiocmd("git", "clone", github_url("octocat", "Hello-World", scheme="ssh"), cwd=tmp))
-        ...     assert rv.returncode == 0
-        ...     assert (tmp / "Hello-World" / "README").exists()
-
-    Args:
-        *args: command and args
-        **kwargs: subprocess.run kwargs
-
-    Raises:
-        JetBrainsError
-
-    Returns:
-        None
-    """
-    proc = await asyncio.create_subprocess_exec(*args, stdout=asyncio.subprocess.PIPE,
-                                                stderr=asyncio.subprocess.PIPE, **kwargs)
-
-    stdout, stderr = await proc.communicate()
-    completed = subprocess.CompletedProcess(args, returncode=proc.returncode,
-                                            stdout=stdout.decode() if stdout else None,
-                                            stderr=stderr.decode() if stderr else None)
-    if completed.returncode != 0:
-        raise CmdError(completed)
-    return completed
 
 
 async def aiodmg(src: Path | str, dest: Path | str) -> None:
@@ -307,34 +233,6 @@ def clone(owner: str | None = None, repo: str = PROJECT, scheme: GitScheme = GIT
             path.parent.mkdir(parents=True)
         return cmd("git", "clone", github_url(owner, repo, scheme), path)
     return None
-
-
-def cmd(*args, **kwargs) -> CompletedProcess:
-    """
-    Exec Command
-
-    Examples:
-        >>> with TempDir() as tmp:
-        ...     rv = cmd("git", "clone", github_url(), tmp)
-        ...     assert rv.returncode == 0
-        ...     assert (tmp / "README.md").exists()
-
-    Args:
-        *args: command and args
-        **kwargs: subprocess.run kwargs
-
-    Raises:
-        JetBrainsError
-
-    Returns:
-        None
-    """
-
-    completed = subprocess.run(args, **kwargs, capture_output=True, text=True)
-
-    if completed.returncode != 0:
-        raise CmdError(completed)
-    return completed
 
 
 def cmdsudo(*args, user: str = "root", **kwargs) -> CompletedProcess | None:
@@ -561,15 +459,6 @@ def rinspect(obj: Any, *, _console: rich.console.Console | None = None, title: s
                  dunder=dunder, sort=sort, all=_all, value=value)
 
 
-def suppress(func: Callable[P, T], *args: P.args, exception: ExcType | None = Exception, **kwargs: P.kwargs) -> T:
-    """
-    Try and supress exception.
-
-    """
-    with contextlib.suppress(exception or Exception):
-        return func(*args, **kwargs)
-
-
 def syssudo(user: str = "root") -> CompletedProcess | None:
     """
     Rerun Program with sudo ``sys.executable`` and ``sys.argv`` if user is different that the current user
@@ -644,19 +533,3 @@ def tilde(path: str | Path = '.') -> str:
     """
     return str(path).replace(str(Path.home()), '~')
 
-
-def version(package: str = PROJECT) -> str:
-    """
-    Package installed version
-
-    Examples:
-        >>> assert VersionInfo.parse(version("pip"))
-
-    Arguments:
-        package: package name (Default: `PROJECT`)
-
-    Returns
-        Installed version
-    """
-    return suppress(importlib.metadata.version, package or Path(__file__).parent.name,
-                    exception=importlib.metadata.PackageNotFoundError)

@@ -17,11 +17,11 @@ from pathlib import Path
 
 import aiohttp
 import typer
+from mreleaser import version
 
 from .utils import aioclone
 from .utils import aiodmg
 from .utils import aiogz
-from .utils import version
 from .variables import LINUX
 
 # https://github.com/0xbf00/dmglib/blob/master/docs/example.rst

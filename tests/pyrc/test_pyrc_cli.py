@@ -3,7 +3,7 @@
 Start
 """
 
-from pyrc import cli_invoke
+from mreleaser import cli_invoke
 from pyrc.jetbrains import app
 
 

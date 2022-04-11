@@ -3,14 +3,9 @@
 Typings Module
 """
 __all__ = (
-    "cli_invoke",
     'ic',
     'icc',
 )
-
-from typer.testing import CliRunner
-
-cli_invoke = CliRunner().invoke
 
 
 try:
