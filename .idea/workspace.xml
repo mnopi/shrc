@@ -54,9 +54,50 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/packages/requirements.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/loader.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/configurable.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/etc/profile.d/system.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/alias.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/pyrc/test_pyrc_cli.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/color.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_RC$/backup/bin/color" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/click/utils.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/click/_compat.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/etc/ipython/ipython_config.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/etc/ipython/startup/prompt.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/rich/__init__.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/setup.cfg" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.idea/shrc.iml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/packages/Brewfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_RC$/backup/install" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/etc/ipython/startup/sys_path.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/etc/ipython/startup/userwarning.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_RC$/backup/generated/lib/color.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/startup.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_ACTIONS$/tag/action.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/jetbrains.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/utils.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/default.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/utils.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/secrets.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/system.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/variables.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/misc.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JetBrains/cache/PyCharm/python_stubs/557334364/sys.py" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10/enum.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/bin/pythonstartup" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/IPython/__init__.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/packages/requirements.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/IPython/terminal/ipapp.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/etc/profile.d/stow.sh" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bin/shrc" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/application.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/constants.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/IPython/core/getipython.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="mnlexnv2" />
@@ -122,7 +163,7 @@
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
   </component>
-  <component name="RunManager" selected="Makefile Target.brew">
+  <component name="RunManager" selected="Python.utils">
     <configuration default="true" type="BashProRunConfiguration">
       <RunnerSettings bashdbVersion="Automatic" bashPathMapper="Automatic" RunnerId="pro.bashsupport.shDebugRunner" />
       <method v="2" />
@@ -250,33 +291,33 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="BashSupport Pro.url-exists" />
-      <item itemvalue="BashSupport Pro.make-jobs" />
+      <item itemvalue="BashSupport Pro.dev-env.bash" />
       <item itemvalue="BashSupport Pro.dev-python" />
       <item itemvalue="BashSupport Pro.dev-python --foo" />
-      <item itemvalue="BashSupport Pro.dev-python commands" />
-      <item itemvalue="BashSupport Pro.tar-extract https://... /tmp/.dev-install" />
-      <item itemvalue="BashSupport Pro.make-jobs -h" />
-      <item itemvalue="BashSupport Pro.dev-python latest" />
-      <item itemvalue="BashSupport Pro.url-exists -h" />
       <item itemvalue="BashSupport Pro.dev-python -h" />
-      <item itemvalue="BashSupport Pro.tar-extract https://foo" />
-      <item itemvalue="BashSupport Pro.tar-extract https://... /bin/tmp" />
-      <item itemvalue="BashSupport Pro.dev-python update" />
-      <item itemvalue="BashSupport Pro.dev-python prefix" />
+      <item itemvalue="BashSupport Pro.dev-python commands" />
       <item itemvalue="BashSupport Pro.dev-python installed" />
-      <item itemvalue="BashSupport Pro.tar-extract -h" />
-      <item itemvalue="BashSupport Pro.make-jobs --foo" />
-      <item itemvalue="BashSupport Pro.url-exists https://foo" />
-      <item itemvalue="BashSupport Pro.url-exists google.com" />
+      <item itemvalue="BashSupport Pro.dev-python latest" />
+      <item itemvalue="BashSupport Pro.dev-python prefix" />
+      <item itemvalue="BashSupport Pro.dev-python update" />
       <item itemvalue="BashSupport Pro.dev-python upgrade" />
-      <item itemvalue="BashSupport Pro.tar-extract https://... " />
+      <item itemvalue="BashSupport Pro.make-jobs" />
+      <item itemvalue="BashSupport Pro.make-jobs --foo" />
+      <item itemvalue="BashSupport Pro.make-jobs -h" />
       <item itemvalue="BashSupport Pro.tar-extract" />
-      <item itemvalue="BashSupport Pro.dev-env.bash" />
+      <item itemvalue="BashSupport Pro.tar-extract -h" />
+      <item itemvalue="BashSupport Pro.tar-extract https://... " />
+      <item itemvalue="BashSupport Pro.tar-extract https://... /bin/tmp" />
+      <item itemvalue="BashSupport Pro.tar-extract https://... /tmp/.dev-install" />
+      <item itemvalue="BashSupport Pro.tar-extract https://foo" />
+      <item itemvalue="BashSupport Pro.url-exists" />
+      <item itemvalue="BashSupport Pro.url-exists -h" />
+      <item itemvalue="BashSupport Pro.url-exists google.com" />
+      <item itemvalue="BashSupport Pro.url-exists https://foo" />
+      <item itemvalue="BashSupport Pro.. shenv.sh" />
       <item itemvalue="BashSupport Pro.shenv" />
       <item itemvalue="BashSupport Pro.shenv --foo" />
       <item itemvalue="BashSupport Pro.shenv -h" />
-      <item itemvalue="BashSupport Pro.. shenv.sh" />
       <item itemvalue="BashSupport Pro.shenv.sh" />
       <item itemvalue="Makefile Target.pytest" />
       <item itemvalue="Makefile Target.tests" />
@@ -289,10 +330,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.brew" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python tests.Doctest environment" />
-        <item itemvalue="Makefile Target.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -312,6 +351,7 @@
       <updated>1649078142421</updated>
       <workItem from="1649078145002" duration="19000" />
       <workItem from="1649147383512" duration="41000" />
+      <workItem from="1649756683297" duration="9000" />
     </task>
     <servers />
   </component>
@@ -609,14 +649,14 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shrc$Doctests_in_Noset.coverage" NAME="Doctests in Noset Coverage Results" MODIFIED="1649266340371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/pyrc/env" />
     <SUITE FILE_PATH="coverage/shrc$pydevconsole.coverage" NAME="pydevconsole Coverage Results" MODIFIED="1649044719740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_PLUGINS_DIR$/python/helpers/pydev" />
-    <SUITE FILE_PATH="coverage/shrc$start.coverage" NAME="start Coverage Results" MODIFIED="1649055702171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/shrc$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1649178738402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/shrc$start.coverage" NAME="start Coverage Results" MODIFIED="1649055702171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/shrc$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1649055469931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/shrc" />
-    <SUITE FILE_PATH="coverage/shrc$pytest_in_watch.coverage" NAME="pytest in watch Coverage Results" MODIFIED="1649345202061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/shrc$pytest_for_pyrc_env.coverage" NAME="pytest for pyrc.env Coverage Results" MODIFIED="1649345673824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/shrc$pytest_in_watch.coverage" NAME="pytest in watch Coverage Results" MODIFIED="1649345202061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/shrc$Doctest_environment.coverage" NAME="Doctest environment Coverage Results" MODIFIED="1649384107139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/shrc/env" />
-    <SUITE FILE_PATH="coverage/env_sh$site.coverage" NAME="site Coverage Results" MODIFIED="1649158973384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10" />
     <SUITE FILE_PATH="coverage/shrc$Doctests_in_noset.coverage" NAME="Doctests in noset Coverage Results" MODIFIED="1649276463184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/pyrc/env" />
+    <SUITE FILE_PATH="coverage/env_sh$site.coverage" NAME="site Coverage Results" MODIFIED="1649158973384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10" />
     <SUITE FILE_PATH="coverage/shrc$pytest_for_pyrc.coverage" NAME="pytest for pyrc Coverage Results" MODIFIED="1649347699172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/shrc$pytest_for_watch.coverage" NAME="pytest for watch Coverage Results" MODIFIED="1649345632680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
