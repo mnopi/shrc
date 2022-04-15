@@ -4,7 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto" />
+    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
+      <change beforePath="$PROJECT_SECRETS$/bin/secrets.sh" beforeDir="false" afterPath="$PROJECT_SECRETS$/bin/secrets.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,50 +57,50 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/loader.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/configurable.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/etc/profile.d/system.sh" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/alias.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/pyrc/test_pyrc_cli.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/color.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../JetBrains/cache/PyCharm/python_stubs/557334364/sys.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_ACTIONS$/tag/action.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_RC$/backup/bin/color" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/click/utils.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/click/_compat.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_RC$/backup/generated/lib/color.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_RC$/backup/install" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.idea/shrc.iml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bin/pythonstartup" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bin/shrc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/ipython_config.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/startup/prompt.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/rich/__init__.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/setup.cfg" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/.idea/shrc.iml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/packages/Brewfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_RC$/backup/install" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/startup/sys_path.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/startup/userwarning.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_RC$/backup/generated/lib/color.sh" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/startup.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_ACTIONS$/tag/action.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/jetbrains.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/utils.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/env/default.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/env/utils.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/etc/profile.d/stow.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/etc/profile.d/system.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/packages/Brewfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/packages/requirements.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/setup.cfg" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/alias.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/color.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/constants.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/shrc/env/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/default.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/misc.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/shrc/env/secrets.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/shrc/env/system.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/env/utils.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/jetbrains.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/startup.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/shrc/utils.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/shrc/variables.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/env/misc.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../JetBrains/cache/PyCharm/python_stubs/557334364/sys.py" root0="SKIP_INSPECTION" />
-    <setting file="file:///usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10/enum.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/bin/pythonstartup" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/pyrc/test_pyrc_cli.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/IPython/__init__.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/packages/requirements.txt" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/IPython/terminal/ipapp.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/etc/profile.d/stow.sh" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bin/shrc" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/application.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/shrc/constants.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/IPython/core/getipython.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/IPython/terminal/ipapp.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/click/_compat.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/click/utils.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/rich/__init__.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/application.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/configurable.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/lib/python3.10/site-packages/traitlets/config/loader.py" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10/enum.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="mnlexnv2" />
@@ -109,25 +114,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Jupyter&#10;Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/etc/ipython/startup" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.28820375" />
-    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="shrc" is-module-sdk="true">

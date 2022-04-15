@@ -276,45 +276,6 @@ def dmg(src: Path | str, dest: Path | str) -> None:
                 break
 
 
-def github_url(owner: str | None = None, repo: str | Path = PROJECT, scheme: GitScheme = GIT_DEFAULT_SCHEME) -> str:
-    """
-    Get Repository URL
-
-    if scheme is "git+file" will only use repo argument as the path
-
-    Examples:
-        >>> github_url() # doctest: +ELLIPSIS
-        'https://github.com/.../....git'
-        >>> github_url(repo="test") # doctest: +ELLIPSIS
-        'https://github.com/.../test.git'
-        >>> github_url("cpython", "cpython")
-        'https://github.com/cpython/cpython.git'
-        >>> github_url(repo="/tmp/cpython", scheme="git+file")
-        'git+file:///tmp/cpython.git'
-        >>> github_url("cpython", "cpython", scheme="git+https")
-        'git+https://github.com/cpython/cpython.git'
-        >>> github_url("cpython", "cpython", scheme="git+ssh")
-        'git+ssh://git@github.com/cpython/cpython.git'
-        >>> github_url("cpython", "cpython", scheme="ssh")
-        'git@github.com:cpython/cpython.git'
-
-    Args:
-        owner: github owner, None to use GIT or USER environment variable if not defined (Default: `GIT`)
-        repo: github repository (Default: `PROJECT`)
-        scheme: url scheme (Default: "https")
-
-    Returns:
-        str
-    """
-    if owner is None:
-        from .env import GIT
-        from .env import USER
-        owner = owner or GIT or USER
-    if scheme == "git+file":
-        return f"git+file://{repo}.git"
-    return f"{GITHUB_URL[scheme]}{owner}/{repo}.git"
-
-
 def gz(src: Path | str, dest: Path | str = ".") -> Path:
     """
     Uncompress .gz src to dest (default: current directory)
