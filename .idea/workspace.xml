@@ -4,29 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change afterPath="$PROJECT_DIR$/bin/profile.d.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/rc.d.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/config/direnv/config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/config/starship/config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/profile.d/config.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/profile.d/global.sh" afterDir="false" />
-      <change beforePath="$PROJECT_ACTIONS$/release/action.yml" beforeDir="false" afterPath="$PROJECT_ACTIONS$/release/action.yml" afterDir="false" />
-      <change beforePath="$PROJECT_RC$/backup/bin/pathsd" beforeDir="false" />
-      <change beforePath="$PROJECT_RC$/backup/config/direnv/config.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_RC$/backup/config/readline/inputrc" beforeDir="false" />
-      <change beforePath="$PROJECT_RC$/backup/config/starship/config.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_RC$/backup/profile.d/00-config.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/pythonstartup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sudo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/profile.d/jetbrains.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/jetbrains.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/profile.d/shenv.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/shrc.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/profile.d/stow.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/profile.d/system.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_HOMEBREW_TAP$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_HOMEBREW_TAP$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
