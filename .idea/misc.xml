@@ -6,4 +6,9 @@
     <type id="web" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (shrc)" project-jdk-type="Python SDK" />
+  <component name="SwUserDefinedSpecifications">
+    <option name="specTypeByUrl">
+      <map />
+    </option>
+  </component>
 </project>

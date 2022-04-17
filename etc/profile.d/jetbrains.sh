@@ -8,5 +8,5 @@ JETBRAINS_APPLICATIONS="${JETBRAINS}/Applications"
 JETBRAINS_CACHES="${JETBRAINS}/Caches"
 JETBRAINS_CONFIG="PyCharm"
 JETBRAINS_LIBRARY="${JETBRAINS}/Library"
-JETBRAINS_NAMES="AppCode DataGrip Gateway GoLand Idea PyCharm RubyMine WebStorm"
+JETBRAINS_NAMES="AppCode CLion DataGrip Gateway GoLand Idea PhpStorm PyCharm RubyMine WebStorm"
 set +a

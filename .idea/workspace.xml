@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7fbb2cd-71ff-4664-8992-20d0e9ffc4bc" name="Changes" comment="auto">
-      <change beforePath="$PROJECT_SECRETS$/bin/secrets.sh" beforeDir="false" afterPath="$PROJECT_SECRETS$/bin/secrets.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/profile.d.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/rc.d.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/config/direnv/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/config/starship/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/profile.d/config.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/profile.d/global.sh" afterDir="false" />
+      <change beforePath="$PROJECT_ACTIONS$/release/action.yml" beforeDir="false" afterPath="$PROJECT_ACTIONS$/release/action.yml" afterDir="false" />
+      <change beforePath="$PROJECT_RC$/backup/bin/pathsd" beforeDir="false" />
+      <change beforePath="$PROJECT_RC$/backup/config/direnv/config.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_RC$/backup/config/readline/inputrc" beforeDir="false" />
+      <change beforePath="$PROJECT_RC$/backup/config/starship/config.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_RC$/backup/profile.d/00-config.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shrc/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shrc/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/pythonstartup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sudo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/profile.d/jetbrains.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/jetbrains.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/profile.d/shenv.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/profile.d/shrc.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/profile.d/stow.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/profile.d/system.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_HOMEBREW_TAP$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_HOMEBREW_TAP$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,14 +82,11 @@
     <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.idea/shrc.iml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/bin/pythonstartup" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/bin/shrc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/ipython_config.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/startup/prompt.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/startup/sys_path.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/etc/ipython/startup/userwarning.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/etc/profile.d/stow.sh" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/etc/profile.d/system.sh" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/packages/Brewfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/packages/requirements.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/setup.cfg" root0="FORCE_HIGHLIGHTING" />
@@ -117,6 +131,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/j5pu/shrc/etc&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -133,18 +148,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/etc/ipython/startup" />
       <recent name="$PROJECT_DIR$/etc" />
+      <recent name="$PROJECT_DIR$/etc/ipython/startup" />
       <recent name="$PROJECT_DIR$/src/shrc" />
       <recent name="$PROJECT_DIR$/src/shrc/env" />
       <recent name="$PROJECT_DIR$/src/shrc/color" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/.idea" />
+      <recent name="$PROJECT_DIR$/etc/profile.d" />
       <recent name="$PROJECT_DIR$/bin" />
+      <recent name="$PROJECT_DIR$/.idea" />
       <recent name="$PROJECT_DIR$/etc" />
       <recent name="$PROJECT_DIR$/src/shrc/profile/startup" />
-      <recent name="$PROJECT_DIR$/src/shrc" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
