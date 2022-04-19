@@ -15,6 +15,7 @@ brew "bats-core/bats-core/bats-support"
 if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   tap "caarlos0/tap"
   tap "dopplerhq/cli"
+  tap "goreleaser/tap"
   tap "microsoft/git"
   # tap "homebrew/autoupdate"
   tap "homebrew/cask"
@@ -83,6 +84,7 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   brew "whalebrew"
   brew "xz"  # required for install-python
 
+  brew "goreleaser/tap/nfpm"
   brew "caarlos0/tap/svu"
   brew "dopplerhq/cli/doppler"
   brew "mongodb/brew/mongodb-community", restart_service: true
