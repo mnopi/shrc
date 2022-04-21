@@ -4,4 +4,4 @@ skip_dotenv = true
 strict_env = true
 
 [whitelist]
-prefix = [ "~/rc" ]
+prefix = [ "~/rc", "~/release" ]

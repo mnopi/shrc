@@ -9,7 +9,7 @@ symbol = "  "
 disabled = true
 
 [character]
-format = " $symbol "
+format = " "
 
 [cmake]
 format = '\[[$symbol]($style)\]'
@@ -23,6 +23,10 @@ format = '\[[$symbol]($style)\]'
 [conda]
 format = '\[[$symbol$environment]($style)\]'
 symbol = " "
+
+[container]
+format = "[$symbol \\[$name\\]]($style) "
+symbol = "⬢ "
 
 [crystal]
 format = '\[[$symbol]($style)\]'
@@ -43,7 +47,7 @@ style = "italic cyan"
 "/Volumes/USB-2TB" = "/USB"
 
 [docker_context]
-format = '\[[$symbol$context]($style)\]'
+format = '\[[$symbol$context]($style)\] '
 symbol = " "
 
 [dotnet]
@@ -69,12 +73,15 @@ disabled = true
 format = "[$symbol$branch]($style) "
 symbol = " "
 style = "purple"
+ignore_branches = ["main"]
 disabled = false
 
 [git_commit]
-format = "[\\($tag\\)]($style) "
+format = "[$tag]($style) "
 tag_disabled = false
+tag_symbol = ""
 disabled = false
+only_detached = false
 
 [git_status]
 style = "yellow"
@@ -131,8 +138,9 @@ format = '[$symbol(\($switch_indicator$switch_name\))]($style)'
 format = '[$symbol$cloud(\($project\))]($style)'
 
 [package]
-format = '[$symbol$version]($style)'
+format = '[$symbol]($style)'
 symbol = " "
+disabled = true
 
 [perl]
 format = '[$symbol]($style)'
@@ -165,15 +173,16 @@ symbol = " "
 symbol = " "
 
 [status]
-format = "[$symbol$status]($style)"
+format = '[$common_meaning$signal_name$maybe_int$symbol]($style)'
+symbol = "[❯](bold red)"
 pipestatus = true
-pipestatus_format = "\\[$pipestatus\\] [➜](bright-black) [$symbol$maybe_int]($style) "
-success_symbol = "[✔](bold green)"
+success_symbol = "[❯](bold green)"
+pipestatus_format = "\\[$pipestatus\\] [$symbol]($style)"
 disabled = false
 
 [swift]
 format = '[$symbol]($style)'
-symbol = "ﯣ "
+symbol = " ﯣ "
 
 [terraform]
 format = '[$symbol$workspace]($style)'
@@ -182,7 +191,7 @@ format = '[$symbol$workspace]($style)'
 format = '[$time]($style)'
 
 [username]
-format = '[$user]($style)'
+format = '[$user]($style) '
 
 [vagrant]
 format = '[$symbol]($style)'
