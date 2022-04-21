@@ -40,7 +40,7 @@ format = '\[[$symbol]($style)\]'
 
 [directory]
 read_only = " "
-style = "italic cyan"
+style = "bold italic cyan"
 
 [directory.substitutions]
 "/Volumes/USB-2TB/Backups.backupdb/pro" = "/Backups"
@@ -173,6 +173,7 @@ symbol = " "
 symbol = " "
 
 [status]
+style = "bold red"
 format = '[$common_meaning$signal_name$maybe_int$symbol]($style)'
 symbol = "[❯](bold red)"
 pipestatus = true
