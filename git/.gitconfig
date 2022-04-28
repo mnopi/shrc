@@ -18,6 +18,7 @@
   untracked = magenta bold
 [core]
   autocrlf = input
+  abbrev = 8
   editor = vi
   filemode = true
   sshCommand = /usr/bin/ssh
