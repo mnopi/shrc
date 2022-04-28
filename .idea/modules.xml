@@ -7,7 +7,7 @@
       <module fileurl="file://$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" filepath="$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" />
       <module fileurl="file://$PROJECT_GIT$/.idea/git.iml" filepath="$PROJECT_GIT$/.idea/git.iml" />
       <module fileurl="file://$PROJECT_HOMEBREW_CMD$/.idea/homebrew-cmd.iml" filepath="$PROJECT_HOMEBREW_CMD$/.idea/homebrew-cmd.iml" />
-      <module fileurl="file://$PROJECT_HOMEBREW_TAP$/.idea/homebrew-tap.iml" filepath="$PROJECT_HOMEBREW_TAP$/.idea/homebrew-tap.iml" />
+      <module fileurl="file:///usr/local/Homebrew/Library/Taps/bizeu/homebrew-tap/.idea/homebrew-tap.iml" filepath="/usr/local/Homebrew/Library/Taps/bizeu/homebrew-tap/.idea/homebrew-tap.iml" />
       <module fileurl="file://$PROJECT_HUGO$/.idea/hugo.iml" filepath="$PROJECT_HUGO$/.idea/hugo.iml" />
       <module fileurl="file://$PROJECT_MNOPI$/.idea/mnopi.iml" filepath="$PROJECT_MNOPI$/.idea/mnopi.iml" />
       <module fileurl="file://$PROJECT_DIR$/../mproject/.idea/mproject.iml" filepath="$PROJECT_DIR$/../mproject/.idea/mproject.iml" />

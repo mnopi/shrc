@@ -19,6 +19,7 @@
     <orderEntry type="module" module-name="shsys" />
     <orderEntry type="module" module-name="shts" />
     <orderEntry type="module" module-name="turbogit" />
+    <orderEntry type="module" module-name="homebrew-tap" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="setup.cfg" />

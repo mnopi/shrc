@@ -32,7 +32,7 @@
     <mapping directory="$PROJECT_DIR$/../shts" vcs="Git" />
     <mapping directory="$PROJECT_TAP$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../turbogit" vcs="Git" />
+    <mapping directory="/usr/local/Homebrew/Library/Taps/bizeu/homebrew-tap" vcs="Git" />
     <mapping directory="$PROJECT_HOMEBREW_CMD$" vcs="Git" />
-    <mapping directory="$PROJECT_HOMEBREW_TAP$" vcs="Git" />
   </component>
 </project>
