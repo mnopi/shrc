@@ -8,6 +8,17 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10 (shrc)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="release" />
+    <orderEntry type="module" module-name="mproject" />
+    <orderEntry type="module" module-name="mreleaser" />
+    <orderEntry type="module" module-name="ppath" />
+    <orderEntry type="module" module-name="sbit" />
+    <orderEntry type="module" module-name="shenv" />
+    <orderEntry type="module" module-name="shinst" />
+    <orderEntry type="module" module-name="shgit" />
+    <orderEntry type="module" module-name="shsys" />
+    <orderEntry type="module" module-name="shts" />
+    <orderEntry type="module" module-name="turbogit" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="setup.cfg" />

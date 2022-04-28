@@ -14,13 +14,24 @@
     <mapping directory="$PROJECT_GIT$" vcs="Git" />
     <mapping directory="$PROJECT_HUGO$" vcs="Git" />
     <mapping directory="$PROJECT_MNOPI$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../mproject" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../mreleaser" vcs="Git" />
     <mapping directory="$PROJECT_NPMRC$" vcs="Git" />
     <mapping directory="$PROJECT_POSTFIX$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../ppath" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../release" vcs="Git" />
     <mapping directory="$PROJECT_REPO$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../sbit" vcs="Git" />
     <mapping directory="$PROJECT_SECRETS$" vcs="Git" />
     <mapping directory="$PROJECT_SHAURL$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../shenv" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../shgit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../shinst" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../shsys" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../shts" vcs="Git" />
     <mapping directory="$PROJECT_TAP$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../turbogit" vcs="Git" />
     <mapping directory="$PROJECT_HOMEBREW_CMD$" vcs="Git" />
     <mapping directory="$PROJECT_HOMEBREW_TAP$" vcs="Git" />
   </component>

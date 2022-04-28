@@ -10,14 +10,25 @@
       <module fileurl="file://$PROJECT_HOMEBREW_TAP$/.idea/homebrew-tap.iml" filepath="$PROJECT_HOMEBREW_TAP$/.idea/homebrew-tap.iml" />
       <module fileurl="file://$PROJECT_HUGO$/.idea/hugo.iml" filepath="$PROJECT_HUGO$/.idea/hugo.iml" />
       <module fileurl="file://$PROJECT_MNOPI$/.idea/mnopi.iml" filepath="$PROJECT_MNOPI$/.idea/mnopi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mproject/.idea/mproject.iml" filepath="$PROJECT_DIR$/../mproject/.idea/mproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mreleaser/.idea/mreleaser.iml" filepath="$PROJECT_DIR$/../mreleaser/.idea/mreleaser.iml" />
       <module fileurl="file://$PROJECT_NPMRC$/.idea/npmrc.iml" filepath="$PROJECT_NPMRC$/.idea/npmrc.iml" />
       <module fileurl="file://$PROJECT_POSTFIX$/.idea/postfix.iml" filepath="$PROJECT_POSTFIX$/.idea/postfix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ppath/.idea/ppath.iml" filepath="$PROJECT_DIR$/../ppath/.idea/ppath.iml" />
       <module fileurl="file://$ZDOTDIR$/rc.iml" filepath="$ZDOTDIR$/rc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../release/.idea/release.iml" filepath="$PROJECT_DIR$/../release/.idea/release.iml" />
       <module fileurl="file://$PROJECT_REPO$/.idea/repo.iml" filepath="$PROJECT_REPO$/.idea/repo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sbit/.idea/sbit.iml" filepath="$PROJECT_DIR$/../sbit/.idea/sbit.iml" />
       <module fileurl="file://$PROJECT_SECRETS$/.idea/secrets.iml" filepath="$PROJECT_SECRETS$/.idea/secrets.iml" />
       <module fileurl="file://$PROJECT_SHAURL$/.idea/shaurl.iml" filepath="$PROJECT_SHAURL$/.idea/shaurl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shenv/.idea/shenv.iml" filepath="$PROJECT_DIR$/../shenv/.idea/shenv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shgit/.idea/shgit.iml" filepath="$PROJECT_DIR$/../shgit/.idea/shgit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shinst/.idea/shinst.iml" filepath="$PROJECT_DIR$/../shinst/.idea/shinst.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/shrc.iml" filepath="$PROJECT_DIR$/.idea/shrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shsys/.idea/shsys.iml" filepath="$PROJECT_DIR$/../shsys/.idea/shsys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shts/.idea/shts.iml" filepath="$PROJECT_DIR$/../shts/.idea/shts.iml" />
       <module fileurl="file://$PROJECT_TAP$/.idea/tap.iml" filepath="$PROJECT_TAP$/.idea/tap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../turbogit/.idea/turbogit.iml" filepath="$PROJECT_DIR$/../turbogit/.idea/turbogit.iml" />
     </modules>
   </component>
 </project>
