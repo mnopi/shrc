@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Homebrew.iml" filepath="$PROJECT_DIR$/.idea/Homebrew.iml" />
       <module fileurl="file://$PROJECT_ACTIONS$/.idea/actions.iml" filepath="$PROJECT_ACTIONS$/.idea/actions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shts/.idea/bats.iml" filepath="$PROJECT_DIR$/../shts/.idea/bats.iml" />
       <module fileurl="file://$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" filepath="$PROJECT_DEV_INSTALL$/.idea/dev-install.iml" />
       <module fileurl="file://$PROJECT_GIT$/.idea/git.iml" filepath="$PROJECT_GIT$/.idea/git.iml" />
       <module fileurl="file://$PROJECT_HOMEBREW_CMD$/.idea/homebrew-cmd.iml" filepath="$PROJECT_HOMEBREW_CMD$/.idea/homebrew-cmd.iml" />
@@ -26,7 +27,6 @@
       <module fileurl="file://$PROJECT_DIR$/../shinst/.idea/shinst.iml" filepath="$PROJECT_DIR$/../shinst/.idea/shinst.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/shrc.iml" filepath="$PROJECT_DIR$/.idea/shrc.iml" />
       <module fileurl="file://$PROJECT_DIR$/../shsys/.idea/shsys.iml" filepath="$PROJECT_DIR$/../shsys/.idea/shsys.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../shts/.idea/shts.iml" filepath="$PROJECT_DIR$/../shts/.idea/shts.iml" />
       <module fileurl="file://$PROJECT_TAP$/.idea/tap.iml" filepath="$PROJECT_TAP$/.idea/tap.iml" />
       <module fileurl="file://$PROJECT_DIR$/../turbogit/.idea/turbogit.iml" filepath="$PROJECT_DIR$/../turbogit/.idea/turbogit.iml" />
     </modules>

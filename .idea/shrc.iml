@@ -17,7 +17,7 @@
     <orderEntry type="module" module-name="shinst" />
     <orderEntry type="module" module-name="shgit" />
     <orderEntry type="module" module-name="shsys" />
-    <orderEntry type="module" module-name="shts" />
+    <orderEntry type="module" module-name="bats" />
     <orderEntry type="module" module-name="turbogit" />
     <orderEntry type="module" module-name="homebrew-tap" />
   </component>
