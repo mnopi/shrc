@@ -1,7 +1,7 @@
 [global]
 disable_stdin = true
-skip_dotenv = true
+load_dotenv = true
 strict_env = true
 
 [whitelist]
-prefix = [ "~/rc", "~/release" ]
+prefix = [ "~/rc", "~/release", "~/shgit", "~/shts" ]
