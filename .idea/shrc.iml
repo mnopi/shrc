@@ -18,6 +18,7 @@
     <orderEntry type="module" module-name="bats" />
     <orderEntry type="module" module-name="turbogit" />
     <orderEntry type="module" module-name="homebrew-tap" />
+    <orderEntry type="module" module-name="shts" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="setup.cfg" />
