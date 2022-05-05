@@ -1,20 +1,11 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
-tap "bats-core/bats-core"
-tap "j5pu/cmd"
-tap "j5pu/tap"
 
-
-brew "bats-core"
 brew "makeself"
 brew "stow"
-brew "bats-core/bats-core/bats-assert"
-brew "bats-core/bats-core/bats-file"
-brew "bats-core/bats-core/bats-support"
 
 if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   tap "caarlos0/tap"
-  tap "dopplerhq/cli"
   tap "goreleaser/tap"
   tap "microsoft/git"
   # tap "homebrew/autoupdate"
@@ -28,16 +19,10 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   tap "mas-cli/tap"
   tap "mongodb/brew"
   brew "ack"
-  brew "asciidoctor"
   brew "asdf"
-  brew "bash-completion@2"
   brew "bat"
-  brew "brew-cask-completion"
   brew "brew-gem"
   brew "bundler-completion"
-  brew "cloudflare-wrangler"
-  brew "coreutils"
-  brew "direnv"
   brew "duf"
   brew "exiftool"
   brew "fabric"
@@ -45,23 +30,16 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   brew "fzf"
   brew "gdm"  # required for install-python
   brew "gem-completion"
-  brew "gh"
-  brew "git"
   brew "gnupg"
   brew "go"
   brew "gpg"
   brew "gradle"
   brew "gradle-completion"
-  brew "grc"
   brew "htop"
   brew "hyperfine"
-  brew "jq"
-  brew "ipython"
-  brew "launchctl-completion"
   brew "m-cli"
   brew "makeself"
   brew "mas"
-  brew "most"
   # brew "mpdecimal"  # required for install-python
   brew "nativefier"
   brew "ncdu"
@@ -69,15 +47,11 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   brew "node"
   brew "nodebrew"
   brew "npm"
-  brew "openssh"
   brew "openssl@1.1"  # required for install-python
   brew "openjdk"
   brew "packer"
   brew "packer-completion"
-  brew "pip-completion"
-  brew "pyenv"
   brew "python@3.9", link: false
-  brew "python@3.10", link: true
   brew "qpdf"
   brew "rake-completion"
   brew "rbenv"
@@ -87,24 +61,19 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   brew "rustc-completion"
   brew "speedtest-cli"
   brew "sqlite"  # required for install-python
-  brew "starship"
   brew "stormssh"
   brew "stormssh-completion"
   brew "telnet"
   brew "tor", restart_service: true
   brew "tree"
-  brew "vercel-cli"
   brew "vim"
   brew "watchman"
-  brew "wget"
-  brew "whalebrew"
   brew "xz"  # required for install-python
   brew "yarn"
   brew "yarn-completion"
 
   brew "goreleaser/tap/nfpm"
   brew "caarlos0/tap/svu"
-  brew "dopplerhq/cli/doppler"
   brew "mongodb/brew/mongodb-community", restart_service: true
 
   cask "appcleaner", quarantine: false
@@ -112,7 +81,7 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   cask "adoptopenjdk", quarantine: false
   cask "autofirma", quarantine: false
   cask "beardedspice", quarantine: false
-  cask "docker", quarantine: false
+#   cask "docker", quarantine: false
   cask "electron", quarantine: false
   cask "electrum", quarantine: false
   cask "firefox-developer-edition", quarantine: false
@@ -121,9 +90,9 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
   cask "font-nova-mono", quarantine: false
   cask "font-share-tech", quarantine: false
   cask "font-share-tech-mono", quarantine: false
-  cask "font-jetbrains-mono-nerd-font", quarantine: false
+#   cask "font-jetbrains-mono-nerd-font", quarantine: false
   cask "google-chrome-canary", quarantine: false
-  cask "iterm2", quarantine: false
+#   cask "iterm2", quarantine: false
   cask "linearmouse", quarantine: false  # mousefix
   cask "keka", quarantine: false
   cask "kekaexternalhelper", quarantine: false
@@ -145,9 +114,7 @@ if RUBY_PLATFORM[/darwin/] && ! ENV["GITHUB_RUN_ID"]
 end
 
 if RUBY_PLATFORM[/darwin/]
-  brew "bash"
   brew "dash"
-  brew "parallel"
 end
 
 if RUBY_PLATFORM[/linux/]
