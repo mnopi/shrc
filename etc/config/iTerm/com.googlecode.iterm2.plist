@@ -61,6 +61,8 @@
 	<true/>
 	<key>EnableRendezvous</key>
 	<false/>
+	<key>FocusFollowsMouse</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideTabNumber</key>
@@ -183,13 +185,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.18146893382072449</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.6512298583984375</real>
+				<real>0.69475126266479492</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.28869259357452393</real>
 			</dict>
 			<key>Ansi 3 Color</key>
 			<dict>
@@ -209,13 +211,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.96849602460861206</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.5469970703125</real>
+				<real>0.46812152862548828</real>
 				<key>Red Component</key>
-				<real>0.175811767578125</real>
+				<real>0.288434237241745</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
