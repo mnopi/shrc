@@ -1,3 +1,0 @@
-# NAMES
-regexp=(?:([a-z\-_0-9]+)\/)*([a-z\-_0-9]+)$
-colours=default,yellow,blue
